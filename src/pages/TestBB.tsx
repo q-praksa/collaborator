@@ -2,7 +2,7 @@ import React from 'react';
 import ProjectCard from '../components/ProjectCard';
 import { ProjectStatus } from '../components/ProjectCard/types';
 
-function TetstBB() {
+function TestBB() {
     return (
         <div>
             <ProjectCard
@@ -18,4 +18,4 @@ function TetstBB() {
     );
 }
 
-export default TetstBB;
+export default TestBB;

@@ -1,0 +1,38 @@
+@import url('../../theme.module.css');
+@import url('../../index.css');
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 19px 30px 11px 30px;
+    background-color: var(--text-secondary-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+}
+.headerRight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 84px;
+}
+.collaboratorLogo {
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 32px;
+    font-style: italic;
+    line-height: 37.5px;
+    text-transform: uppercase;
+    color: var(--text-primary-color);
+}
+.circleDiv {
+    width: 52px;
+    height: 52px;
+    background-color: var(--text-dark-color);
+    border-radius: 25px;
+}
+.faCaretDown {
+    font-size: 28px;
+    color: var(--text-primary-color);
+}

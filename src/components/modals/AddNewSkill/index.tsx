@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import styles from './ModalCSS.module.css';
+import styles from './AddNewSkill.module.css';
 
 const Modal = () => {
     return ReactDom.createPortal(

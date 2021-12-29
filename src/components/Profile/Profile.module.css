@@ -1,0 +1,76 @@
+@import url('../../theme.module.css');
+
+.main-div {
+    width: 90%;
+    height: 80%;
+    background-color: var(--dark-background-color);
+    padding: 50px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profile-data {
+    width: 400px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.input {
+    border: 1px solid var(--dark-background-color);
+    border-bottom: 1px solid var(--border-color);
+    width: 320px;
+    height: 24px;
+    background-color: var(--dark-background-color);
+}
+
+.profile-img-skills {
+    width: 600px;
+    height: 640px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.img-wrapper {
+    width: 280px;
+    height: 250px;
+    border: 1px solid var(--border-color);
+    align-self: flex-end;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.skills-wrapper {
+    width: 540px;
+    height: 240px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 30px;
+    align-self: flex-end;
+}
+
+.add-role-btn {
+    width: 45px;
+    height: 40px;
+    background-color: var(--green-color);
+    font-size: 24px;
+    border-radius: 10px;
+    color: white;
+}
+
+.label-add-role-btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.label-input-wrapper {
+    display: flex;
+    flex-direction: column;
+}
