@@ -1,0 +1,6 @@
+@import url('../../theme.module.css');
+
+.wrapper {
+    color:var(--text-primary-color);
+    background-color: var(--page-background-color);
+}
