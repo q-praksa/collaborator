@@ -1,0 +1,10 @@
+@import url('../../theme.module.css');
+
+.wrapper {
+    color: var(--text-primary-color);
+    background-color: var(--page-background-color);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

@@ -5,6 +5,7 @@ export interface ICalendar {
     nextYear: number;
     previousMonth: number;
     previousYear: number;
+    // startingDay:number;
 }
 
 export interface IGeneratedDate {
@@ -13,4 +14,5 @@ export interface IGeneratedDate {
     nextYear: number;
     previousMonth: number;
     previousYear: number;
+    // startingDay:number;
 }

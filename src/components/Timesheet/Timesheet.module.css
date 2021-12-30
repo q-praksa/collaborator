@@ -1,8 +1,13 @@
 @import url('../../theme.module.css');
 
+.timesheet {
+    display: flex;
+    justify-content: space-around;
+}
+
 .table {
-    width:100%;
-    color:var(--text-primary-color);
+    width: 90%;
+    color: var(--text-primary-color);
 }
 
 .days {
@@ -11,10 +16,10 @@
 
 .row {
     height: 160px;
-    width:100%;
+    width: 100%;
 }
 
-.cell{
-    width:14%;
+.cell {
+    width: 14%;
     background-color: var(--dark-background-color);
 }

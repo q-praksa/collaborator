@@ -1,6 +1,6 @@
 import React from 'react';
-import Timesheet from '../../components/Timesheet';
-import styles from './TimesheetPg.module.css';
+import Calendar from '../../components/Timesheet';
+import styles from './Timesheet.module.css';
 
 const month = new Date().toLocaleString('default', { month: 'long' });
 const year = new Date().getFullYear();
@@ -11,7 +11,7 @@ const TimesheetPg = () => {
             <h2>
                 {month} {year}
             </h2>
-            <Timesheet />
+            <Calendar />
         </div>
     );
 };

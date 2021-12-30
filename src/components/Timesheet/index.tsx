@@ -1,36 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { datesGenerator } from 'dates-generator';
 import { ICalendar, IGeneratedDate } from './types';
-
-const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-];
-const days = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
-];
+import styles from './Timesheet.module.css';
+import { days } from './data';
 
 const Timesheet = () => {
     //Default selected date is present day
     const [selectedDate, setSelectedDate] = useState(new Date());
     //Dates holds the array with the all dates for the given month
-    const [dates, setDates] = useState<Date[]>([]);
+    const [dates, setDates] = useState<any[]>([]);
 
     const [calendar, setCalendar] = useState<ICalendar>({
         month: selectedDate.getMonth(),
@@ -45,6 +23,7 @@ const Timesheet = () => {
         const timesheetBody = {
             month: calendar.month,
             year: calendar.year,
+            startingDay: 1,
         };
         const {
             dates,
@@ -65,20 +44,48 @@ const Timesheet = () => {
     }, []);
 
     return (
-        <table>
-            <thead>
-                <tr>
-                    <td>Monday</td>
-                    <td>Tuesday</td>
-                    <td>Wednesday</td>
-                    <td>Thursday</td>
-                    <td>Friday</td>
-                    <td>Saturday</td>
-                    <td>Sunday</td>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+        <div className={styles.timesheet}>
+            <table className={styles.table}>
+                <thead>
+                    <tr>
+                        {days.map((day) => (
+                            <td key={day}>
+                                <div className={styles.days}>{day}</div>
+                            </td>
+                        ))}
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {dates.length > 0 &&
+                        dates.map((week) => (
+                            <tr
+                                key={JSON.stringify(week[0])}
+                                className={styles.row}
+                            >
+                                {week.map(
+                                    (each: {
+                                        date:
+                                            | boolean
+                                            | React.ReactChild
+                                            | React.ReactFragment
+                                            | React.ReactPortal
+                                            | null
+                                            | undefined;
+                                    }) => (
+                                        <td
+                                            className={styles.cell}
+                                            key={JSON.stringify(each)}
+                                        >
+                                            <div>{each.date}</div>
+                                        </td>
+                                    )
+                                )}
+                            </tr>
+                        ))}
+                </tbody>
+            </table>
+        </div>
     );
 };
 
