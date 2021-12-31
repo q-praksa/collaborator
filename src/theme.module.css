@@ -13,8 +13,10 @@
     /* Profile page */
 
     --pink-color: #e14eca;
-    --succses-color: #00f2c3;
+    --success-color: #00f2c3;
     --green-color: #00f2c3;
+    --yellow-color: #e7eb0f;
+    --blue-hover-color: #24a5f0;
 
     /* Modal */
 
@@ -26,7 +28,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-size: 12px;
-    color: var(--text-color);
+    color: var(--text-primary-color);
 }
 
 h1 {

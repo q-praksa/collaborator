@@ -60,7 +60,7 @@
     background-color: var(--green-color);
     font-size: 24px;
     border-radius: 10px;
-    color: white;
+    color: var(--text-primary-color);
 }
 
 .label-add-role-btn-wrapper {
