@@ -8,3 +8,10 @@
     flex-direction: column;
     justify-content: space-around;
 }
+
+.header {
+    margin: 1% 0 5% 5%;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 700;
+}

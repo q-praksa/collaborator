@@ -8,7 +8,7 @@ const year = new Date().getFullYear();
 const TimesheetPg = () => {
     return (
         <div className={styles.wrapper}>
-            <h2>
+            <h2 className={styles.header}>
                 {month} {year}
             </h2>
             <Calendar />
