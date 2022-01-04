@@ -164,7 +164,7 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --cache --ext .ts,.tsx --fix --quiet"
-  ],
-  "*.{ts,tsx,js,jsx,md,yml,scss,css}": "prettier --write"
+    ],
+    "*.{ts,tsx,js,jsx,md,yml,scss,css}": "prettier --write"
   }
 }

@@ -1,17 +1,22 @@
 import React, { FormEvent, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/reducers';
+import { useDispatch } from 'react-redux';
+import { log } from '../../redux/actions/login';
+
 import styles from './Login.module.css';
 
 export default function Login(): React.ReactElement {
     const [email, setEmail] = useState<string | undefined>();
     const [password, setPassword] = useState<string | undefined>();
+    const isLogged = useSelector((state: RootState) => state.login.isLoggedIn);
 
-    function validateForm() {
-        return email && password;
-    }
-
+    const dispatch = useDispatch();
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
     }
+
+    console.log(log);
 
     return (
         <div className={styles['login']}>
@@ -38,7 +43,7 @@ export default function Login(): React.ReactElement {
                 <button
                     className={styles['submit']}
                     type="submit"
-                    disabled={!validateForm()}
+                    onClick={() => dispatch(log())}
                 >
                     Login
                 </button>
