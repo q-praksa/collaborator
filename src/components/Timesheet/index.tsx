@@ -1,6 +1,6 @@
 import React, { useEffect, useState, ChangeEvent } from 'react';
 import { datesGenerator } from 'dates-generator';
-import { ICalendar, IGeneratedDate } from './types';
+import { ICalendar, IGeneratedDate, TimesheetDate } from './types';
 import styles from './Timesheet.module.css';
 import { days } from './data';
 
@@ -69,58 +69,38 @@ const Timesheet = () => {
                                 key={JSON.stringify(week[0])}
                                 className={styles.row}
                             >
-                                {week.map(
-                                    (each: {
-                                        date:
-                                            | string
-                                            | React.ReactChild
-                                            | React.ReactFragment
-                                            | React.ReactPortal
-                                            | null
-                                            | undefined;
-                                        month: string;
-                                    }) => (
-                                        <td
-                                            className={
-                                                each.month.toString() ==
-                                                calendar.month.toString()
-                                                    ? `${styles.cell} ${styles.current}`
-                                                    : `${styles.cell} ${styles['not-current']}`
-                                            }
-                                            key={JSON.stringify(each)}
-                                        >
-                                            <div
-                                                className={styles.cell_wrapper}
-                                            >
-                                                <div className={styles.date}>
-                                                    {each.date}/
-                                                    {Number(each.month) + 1}
-                                                </div>
-
-                                                <input
-                                                    className={
-                                                        Number(timeTracked) <=
-                                                        Number(7.5)
-                                                            ? `${styles.calendar_input}  ${styles.red}`
-                                                            : `${styles.calendar_input}  ${styles.green}`
-                                                    }
-                                                    type="number"
-                                                    min="0"
-                                                    value={timeTracked}
-                                                    onChange={() =>
-                                                        handleChange
-                                                    }
-                                                    disabled={
-                                                        each.month.toString() ==
-                                                        calendar.month.toString()
-                                                            ? false
-                                                            : true
-                                                    }
-                                                />
+                                {week.map((day: TimesheetDate) => (
+                                    <td
+                                        className={
+                                            day.month.toString() ==
+                                            calendar.month.toString()
+                                                ? `${styles.cell} ${styles.current}`
+                                                : `${styles.cell} ${styles['not-current']}`
+                                        }
+                                        key={JSON.stringify(day)}
+                                    >
+                                        <div className={styles.cell_wrapper}>
+                                            <div className={styles.date}>
+                                                {day.date}/
+                                                {Number(day.month) + 1}
                                             </div>
-                                        </td>
-                                    )
-                                )}
+
+                                            <div
+                                                className={
+                                                    Number(timeTracked) <
+                                                    Number(7.5)
+                                                        ? `${styles.calendar_input}  ${styles.red}`
+                                                        : `${styles.calendar_input}  ${styles.green}`
+                                                }
+                                            >
+                                                {day.month.toString() ==
+                                                calendar.month.toString()
+                                                    ? timeTracked
+                                                    : null}
+                                            </div>
+                                        </div>
+                                    </td>
+                                ))}
                             </tr>
                         ))}
                 </tbody>
