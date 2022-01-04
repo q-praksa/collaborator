@@ -1,7 +1,7 @@
 import React from 'react';
-import ProjectCard from '../components/ProjectCard';
-import Timesheet from '../components/Timesheet';
-import { ProjectStatus } from '../components/ProjectCard/types';
+import ProjectCard from '@components/ProjectCard';
+import Timesheet from '@components/Timesheet';
+import { ProjectStatus } from '@components/ProjectCard/types';
 
 function TestBB() {
     return (

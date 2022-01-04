@@ -1,5 +1,5 @@
 import styles from './Profile.module.css';
-import AddNewSkill from '../modals/AddNewSkill';
+import AddNewSkill from '@components/modals/AddNewSkill';
 import { useState } from 'react';
 
 function Profile() {

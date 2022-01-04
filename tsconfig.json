@@ -14,7 +14,15 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
-        "jsx": "react-jsx"
+        "jsx": "react-jsx",
+        "baseUrl": "./",
+        "paths": {
+            "@components/*": ["./src/components/*"],
+            "@localization/*": ["./src/localization/*"],
+            "@pages/*": ["./src/pages/*"],
+            "@reduxStore/*": ["./src/reduxStore/*"]
+        }
     },
-    "include": ["src", "actions"]
+    "include": ["src", "actions"],
+    "exclude": ["node_modules"]
 }

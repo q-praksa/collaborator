@@ -1,4 +1,4 @@
-import Local from '../components/Local';
+import Local from '@components/Local';
 
 const TestSM = () => {
     return <Local />;

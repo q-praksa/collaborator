@@ -1,4 +1,4 @@
-import actionTypes from './actionTypes';
+import actionTypes from '@reduxStore/actions/actionTypes';
 
 export const add = () => {
     return {

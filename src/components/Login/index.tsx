@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import { log } from '../../redux/actions/login';
-
 import styles from './Login.module.css';
 
 export default function Login(): React.ReactElement {
@@ -11,8 +9,6 @@ export default function Login(): React.ReactElement {
     function handleSubmit(): void {
         localStorage.setItem('isLogged', 'true');
     }
-
-    console.log(log);
 
     return (
         <div className={styles['login']}>

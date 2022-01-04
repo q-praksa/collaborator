@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/store/store';
+import store from '@reduxStore/store/store';
 import { Provider } from 'react-redux';
 import './theme.module.css';
 
-import './localization/i18n';
+import '@localization/i18n';
 
 ReactDOM.render(
     <React.StrictMode>

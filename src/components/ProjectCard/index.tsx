@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ProjectCard.module.css';
-import { Props } from './types';
+import { Props } from '@components/ProjectCard/types';
 
 function ProjectCard({
     status,
