@@ -7,6 +7,7 @@ import TestBB from './pages/TestBB';
 import TestSS from './pages/TestSS';
 import TestVS from './pages/TestVS';
 import TestSM from './pages/TestSM';
+import TestMB from './pages/TestMB';
 import Header from './components/Header/Header';
 import LoginPage from './pages/LoginPage';
 
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/testbb" element={<TestBB />} />
                 <Route path="/testss" element={<TestSS />} />
                 <Route path="/login" element={<LoginPage />} />
+                <Route path="/testmb" element={<TestMB />} />
             </Routes>
         </BrowserRouter>
     );
