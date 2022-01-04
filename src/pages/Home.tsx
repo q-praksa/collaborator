@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { add, sub } from '../redux/actions/counter';
-import { RootState } from '../redux/reducers';
+import { add, sub } from '@reduxStore/actions/counter';
+import { RootState } from '@reduxStore/reducers';
 
 function Home() {
     const dispatch = useDispatch();

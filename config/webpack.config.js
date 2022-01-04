@@ -317,6 +317,13 @@ module.exports = function (webpackEnv) {
                 .map((ext) => `.${ext}`)
                 .filter((ext) => useTypeScript || !ext.includes('ts')),
             alias: {
+                '@components': path.resolve(__dirname, '../src/components/'),
+                '@localization': path.resolve(
+                    __dirname,
+                    '../src/localization/'
+                ),
+                '@pages': path.resolve(__dirname, '../src/pages/'),
+                '@reduxStore': path.resolve(__dirname, '../src/reduxStore/'),
                 // Support React Native Web
                 // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
                 'react-native': 'react-native-web',
@@ -327,6 +334,7 @@ module.exports = function (webpackEnv) {
                 }),
                 ...(modules.webpackAliases || {}),
             },
+            extensions: ['', '.ts', '.tsx', '.js', '.jsx', 'css', 'scss'],
             plugins: [
                 // Prevents users from importing files from outside of src/ (or node_modules/).
                 // This often causes confusion because we only process files within src/ with babel.

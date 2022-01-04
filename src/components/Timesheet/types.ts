@@ -14,3 +14,8 @@ export interface IGeneratedDate {
     previousMonth: number;
     previousYear: number;
 }
+
+export type TimesheetDate = {
+    date?: string | React.ReactNode;
+    month: string;
+};

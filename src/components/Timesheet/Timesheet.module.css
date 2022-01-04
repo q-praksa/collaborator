@@ -1,0 +1,81 @@
+@import url('../../theme.module.css');
+
+.timesheet {
+    display: flex;
+    justify-content: space-around;
+}
+
+.table {
+    width: 90%;
+    color: var(--text-primary-color);
+    gap: 1px;
+}
+
+.days {
+    background-color: var(--background-color);
+}
+
+.row {
+    height: 160px;
+    width: 100%;
+}
+
+.cell {
+    width: 14%;
+    border: 1px solid var(--text-secondary-color);
+    height: 100%;
+}
+
+.current {
+    background-color: var(--dark-background-color);
+}
+
+.not-current {
+    background-color: var(--background-color);
+    opacity: 0.5;
+}
+
+.cell_wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 160px;
+}
+
+.date {
+    width: 100%;
+    height: 20%;
+    font-size: 14px;
+    font-weight: 400;
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+.calendar_input {
+    width: 100%;
+    height: 80%;
+    margin: 0;
+    font-size: 48px;
+    text-align: center;
+    border: none;
+}
+
+.calendar_input::-webkit-outer-spin-button,
+.calendar_input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox reset input arrow styling*/
+.calendar_input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+.green {
+    color: var(--green-color);
+}
+
+.red {
+    color: var(--alarm-color);
+}

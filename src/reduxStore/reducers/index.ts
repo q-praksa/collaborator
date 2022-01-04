@@ -1,4 +1,4 @@
-import counterReducer from './counterReducer';
+import counterReducer from '@reduxStore/reducers/counterReducer';
 import { combineReducers } from 'redux';
 
 const allReducers = combineReducers({

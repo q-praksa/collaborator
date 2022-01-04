@@ -1,5 +1,5 @@
 import { Action } from 'redux';
-import actionTypes from '../actions/actionTypes';
+import actionTypes from '@reduxStore/actions/actionTypes';
 
 const initialState = {
     countSum: 0,

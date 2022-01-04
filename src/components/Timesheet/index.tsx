@@ -1,36 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, ChangeEvent } from 'react';
 import { datesGenerator } from 'dates-generator';
-import { ICalendar, IGeneratedDate } from './types';
-
-const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-];
-const days = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
-];
+import {
+    ICalendar,
+    IGeneratedDate,
+    TimesheetDate,
+} from '@components/Timesheet/types';
+import styles from './Timesheet.module.css';
+import { days } from '@components/Timesheet/data';
 
 const Timesheet = () => {
     //Default selected date is present day
     const [selectedDate, setSelectedDate] = useState(new Date());
     //Dates holds the array with the all dates for the given month
-    const [dates, setDates] = useState<Date[]>([]);
+    const [dates, setDates] = useState<any[]>([]);
 
     const [calendar, setCalendar] = useState<ICalendar>({
         month: selectedDate.getMonth(),
@@ -41,10 +23,13 @@ const Timesheet = () => {
         previousYear: 0,
     });
 
+    const [timeTracked, setTimeTracked] = useState<number>();
+
     useEffect(() => {
         const timesheetBody = {
             month: calendar.month,
             year: calendar.year,
+            startingDay: 1,
         };
         const {
             dates,
@@ -64,21 +49,67 @@ const Timesheet = () => {
         });
     }, []);
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTimeTracked(() => parseInt(e.target.value));
+    };
+
     return (
-        <table>
-            <thead>
-                <tr>
-                    <td>Monday</td>
-                    <td>Tuesday</td>
-                    <td>Wednesday</td>
-                    <td>Thursday</td>
-                    <td>Friday</td>
-                    <td>Saturday</td>
-                    <td>Sunday</td>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+        <div className={styles.timesheet}>
+            <table className={styles.table}>
+                <thead>
+                    <tr>
+                        {days.map((day) => (
+                            <td key={day}>
+                                <div className={styles.days}>{day}</div>
+                            </td>
+                        ))}
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {dates.length > 0 &&
+                        dates.map((week) => (
+                            <tr
+                                key={JSON.stringify(week[0])}
+                                className={styles.row}
+                            >
+                                {week.map((day: TimesheetDate) => (
+                                    <td
+                                        className={
+                                            day.month.toString() ==
+                                            calendar.month.toString()
+                                                ? `${styles.cell} ${styles.current}`
+                                                : `${styles.cell} ${styles['not-current']}`
+                                        }
+                                        key={JSON.stringify(day)}
+                                    >
+                                        <div className={styles.cell_wrapper}>
+                                            <div className={styles.date}>
+                                                {day.date}/
+                                                {Number(day.month) + 1}
+                                            </div>
+
+                                            <div
+                                                className={
+                                                    Number(timeTracked) <
+                                                    Number(7.5)
+                                                        ? `${styles.calendar_input}  ${styles.red}`
+                                                        : `${styles.calendar_input}  ${styles.green}`
+                                                }
+                                            >
+                                                {day.month.toString() ==
+                                                calendar.month.toString()
+                                                    ? timeTracked
+                                                    : null}
+                                            </div>
+                                        </div>
+                                    </td>
+                                ))}
+                            </tr>
+                        ))}
+                </tbody>
+            </table>
+        </div>
     );
 };
 

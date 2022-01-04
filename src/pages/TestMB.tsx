@@ -1,4 +1,4 @@
-import Charts from '../components/Charts';
+import Charts from '@components/Charts';
 
 function TestMB() {
     return <Charts />;

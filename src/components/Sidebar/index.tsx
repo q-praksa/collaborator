@@ -1,4 +1,4 @@
-import sidebarData from './SidebarData';
+import sidebarData from '@components/Sidebar/SidebarData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Sidebar.module.css';
 
@@ -14,10 +14,12 @@ const Sidebar = () => {
                     const { id, icon, label } = sidebarItem;
                     return (
                         <li key={id}>
-                            <FontAwesomeIcon
-                                className={styles.icon}
-                                icon={icon}
-                            />
+                            <span className={styles['icon-container']}>
+                                <FontAwesomeIcon
+                                    className={styles.icon}
+                                    icon={icon}
+                                />
+                            </span>
                             <span>{label}</span>
                         </li>
                     );
