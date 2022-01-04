@@ -9,9 +9,10 @@ import TestVS from '@pages/TestVS';
 import TestSM from '@pages/TestSM';
 import Header from '@components/Header/Header';
 import LoginPage from '@pages/LoginPage';
-import Timesheet from '@pages/Timesheet';
+import Test from '@components/PrivateRoute/Test';
 
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import PrivateRoute from '@components/PrivateRoute/PrivateRoute';
+import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 
 function App() {
     return (
@@ -28,11 +29,27 @@ function App() {
                     }
                 />
                 <Route
+                    path="/header"
+                    element={
+                        <PrivateRoute>
+                            <Header />
+                        </PrivateRoute>
+                    }
+                />
+                <Route
                     path="/"
                     element={
                         <ProtectedRoute>
                             <Home />
                         </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/"
+                    element={
+                        <PrivateRoute>
+                            <Home />
+                        </PrivateRoute>
                     }
                 />
                 <Route
@@ -43,12 +60,27 @@ function App() {
                         </ProtectedRoute>
                     }
                 />
+                <Route
+                    path="/about"
+                    element={
+                        <PrivateRoute>
+                            <About />
+                        </PrivateRoute>
+                    }
+                />
+
+                <Route
+                    path="/test1"
+                    element={
+                        <PrivateRoute>
+                            <Test />
+                        </PrivateRoute>
+                    }
+                />
                 <Route path="/testsm" element={<TestSM />} />
                 <Route path="/testvs" element={<TestVS />} />
                 <Route path="/testbb" element={<TestBB />} />
                 <Route path="/testss" element={<TestSS />} />
-                <Route path="/timesheet" element={<Timesheet />} />
-                <Route path="/login" element={<LoginPage />} />
             </Routes>
         </BrowserRouter>
     );
