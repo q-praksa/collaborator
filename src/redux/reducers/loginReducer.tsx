@@ -8,10 +8,9 @@ const initialState = {
 const loginReducer = (state = initialState, action: Action) => {
     switch (action.type) {
         case actionTypes.LOGIN:
-            return {
-                ...state,
-                isLoggedIn: true,
-            };
+            state.isLoggedIn = true;
+            console.log(state);
+            return Object.assign({}, state);
 
         default:
             return state;

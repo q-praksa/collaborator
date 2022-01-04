@@ -1,7 +1,5 @@
-import React, { FormEvent, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/reducers';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+
 import { log } from '../../redux/actions/login';
 
 import styles from './Login.module.css';
@@ -9,18 +7,16 @@ import styles from './Login.module.css';
 export default function Login(): React.ReactElement {
     const [email, setEmail] = useState<string | undefined>();
     const [password, setPassword] = useState<string | undefined>();
-    const isLogged = useSelector((state: RootState) => state.login.isLoggedIn);
 
-    const dispatch = useDispatch();
-    function handleSubmit(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault();
+    function handleSubmit(): void {
+        localStorage.setItem('isLogged', 'true');
     }
 
     console.log(log);
 
     return (
         <div className={styles['login']}>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <div className={styles['label-input-wrapper']}>
                     <label>Email</label>
                     <input
@@ -42,8 +38,8 @@ export default function Login(): React.ReactElement {
                 </div>
                 <button
                     className={styles['submit']}
-                    type="submit"
-                    onClick={() => dispatch(log())}
+                    type="button"
+                    onClick={() => handleSubmit()}
                 >
                     Login
                 </button>

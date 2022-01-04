@@ -1,13 +1,10 @@
-import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/reducers';
+import React, { PropsWithChildren } from 'react';
+import { Navigate } from 'react-router-dom';
 
-const ProtectedRoute = () => {
-    const isLogged = useSelector((state: RootState) => state.login.isLoggedIn);
-
-    return <div>{isLogged ? <Outlet /> : <Navigate to="/" />}</div>;
-};
+function ProtectedRoute({ children }: PropsWithChildren<unknown>) {
+    const isLogged = localStorage.getItem('isLogged');
+    console.log(isLogged);
+    return <div>{isLogged ? children : <Navigate to="/login" />}</div>;
+}
 
 export default ProtectedRoute;
