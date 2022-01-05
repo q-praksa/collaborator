@@ -25,5 +25,14 @@
         "startDate":"Startdatum:",
         "endDate":"Endtermin:",
         "fullName":"Vollständiger Name"      
+    },
+    "days":{
+        "mon":"Montag",
+        "tue":"Dienstag",
+        "wed":"Mittwoch",
+        "thur":"Donnerstag",
+        "fri":"Freitag",
+        "sat":"Samstag",
+        "sun":"Sonntag"
     }
 }

@@ -27,13 +27,13 @@
         "fullname":"Puno ime"
     },
     "days":{
-        "mon":"Monday",
-        "tue":"Tuesday",
-        "wed":"Wednesday",
-        "thur":"Thursday",
-        "fri":"Friday",
-        "sat":"Saturday",
-        "sun":"Sunday"
+        "mon":"Ponedeljak",
+        "tue":"Utorak",
+        "wed":"Sreda",
+        "thur":"Četvrtak",
+        "fri":"Petak",
+        "sat":"Subota",
+        "sun":"Nedelja"
     }
 
 }
