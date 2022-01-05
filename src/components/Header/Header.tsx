@@ -1,16 +1,16 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import classes from './header.module.css';
+import styles from './header.module.css';
 
 const Header: React.FC = () => {
     return (
-        <header>
-            <p className={classes.collaboratorLogo}>collaborator</p>
-            <div className={classes.headerRight}>
-                <div className={classes.circleDiv}></div>
+        <header className={styles.mainHeader}>
+            <p className={styles.collaboratorLogo}>collaborator</p>
+            <div className={styles.headerRight}>
+                <div className={styles.circleDiv}></div>
                 <FontAwesomeIcon
-                    className={classes.faCaretDown}
+                    className={styles.faCaretDown}
                     icon={faCaretDown}
                 />
             </div>

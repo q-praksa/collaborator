@@ -1,7 +1,8 @@
 const actionTypes = {
     ADD: 'ADD',
     SUB: 'SUB',
-    LOGIN:'LOGIN'
+    OPEN_MODAL: 'OPEN_MODAL',
+    CLOSE_MODAL: 'CLOSE_MODAL',
 };
 
 export default actionTypes;
