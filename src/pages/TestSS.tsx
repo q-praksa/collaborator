@@ -1,9 +1,10 @@
 import Profile from '@components/Profile';
+import Employees from '@components/Employees';
 
 function TestSS() {
     return (
         <div>
-            <Profile />
+            <Employees />
         </div>
     );
 }

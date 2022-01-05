@@ -1,0 +1,44 @@
+@import url('../../theme.module.css');
+
+.employees {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--page-background-color);
+    color: white;
+    gap: 30px;
+    padding: 40px;
+    height: 100vh;
+    width: auto;
+}
+
+.employees-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.input {
+    border: 1px solid var(--page-background-color);
+    border-bottom: 1px solid var(--border-color);
+    width: 280px;
+    height: 24px;
+    background-color: var(--page-background-color);
+    color: white;
+    padding-left: 5px;
+    font-size: 16px;
+}
+
+.input::placeholder {
+    color: white;
+}
+
+.input-search-icon-wrapper {
+    display: flex;
+    gap: 10px;
+    text-align: center;
+    justify-content: flex-start;
+}
+
+.icon {
+    font-size: 20px;
+}

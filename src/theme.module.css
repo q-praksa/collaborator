@@ -28,7 +28,6 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-size: 12px;
-    color: var(--text-primary-color);
 }
 
 h1 {
