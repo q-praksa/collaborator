@@ -46,7 +46,7 @@
 
 ## Getting started
 
-1. Add Victory to your project:
+1. How to add Victory to your project:
 
 ```sh
 # npm
