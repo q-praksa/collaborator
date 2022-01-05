@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 export default function Login(): React.ReactElement {
     const [email, setEmail] = useState<string | undefined>();
     const [password, setPassword] = useState<string | undefined>();
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     function validateForm() {
         return email && password;
@@ -29,7 +29,7 @@ export default function Login(): React.ReactElement {
                     />
                 </div>
                 <div className={styles['label-input-wrapper']}>
-                    <label>Password</label>
+                    <label>{t('description.password')}</label>
                     <input
                         className={styles['input']}
                         type="password"
@@ -42,7 +42,7 @@ export default function Login(): React.ReactElement {
                     type="submit"
                     disabled={!validateForm()}
                 >
-                    Login
+                    {t('description.login')}
                 </button>
             </form>
         </div>

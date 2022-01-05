@@ -1,14 +1,17 @@
 import sidebarData from '@components/Sidebar/SidebarData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Sidebar.module.css';
+import { Trans, useTranslation } from 'react-i18next';
 
 const Sidebar = () => {
+    const { t } = useTranslation();
+
     return (
         <aside className={styles.sidebar}>
             <div className={styles['sidebar-img']}>
                 <img src="" alt="sidebar-img" />
             </div>
-            <p className={styles.fullname}>fullname</p>
+            <p className={styles.fullname}>{t('description.fullname')}</p>
             <ul className={styles['sidebar-fields']}>
                 {sidebarData.map((sidebarItem) => {
                     const { id, icon, label } = sidebarItem;
@@ -20,7 +23,9 @@ const Sidebar = () => {
                                     icon={icon}
                                 />
                             </span>
-                            <span>{label}</span>
+                            <span>
+                                <Trans>{label}</Trans>
+                            </span>
                         </li>
                     );
                 })}

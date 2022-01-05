@@ -1,5 +1,3 @@
-@import url('../../theme.module.css');
-
 .timesheet {
     display: flex;
     justify-content: space-around;

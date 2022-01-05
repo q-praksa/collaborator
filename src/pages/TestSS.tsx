@@ -1,9 +1,12 @@
+import Layout from '@components/Layout';
 import Profile from '@components/Profile';
 
 function TestSS() {
     return (
         <div>
-            <Profile />
+            <Layout>
+                <Profile />
+            </Layout>
         </div>
     );
 }
