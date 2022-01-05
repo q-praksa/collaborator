@@ -1,10 +1,10 @@
 .internshipChart {
     width: 90%;
-    height: 90%;
+    height: 80%;
     background-color: var(--dark-background-color);
     padding: 50px;
     display: flex;
     flex-direction: column;
     color: var(--text-primary-color);
-    margin: auto;
+    margin: 20px 0;
 }

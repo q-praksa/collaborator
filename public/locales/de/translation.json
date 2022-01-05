@@ -24,7 +24,8 @@
         "teamType":"Teamtyp:",
         "startDate":"Startdatum:",
         "endDate":"Endtermin:",
-        "fullName":"Vollständiger Name"      
+        "fullname":"Vollständiger Name",
+        "nothingMsg": "Hier ist nichts!"     
     },
     "days":{
         "mon":"Montag",
@@ -34,5 +35,5 @@
         "fri":"Freitag",
         "sat":"Samstag",
         "sun":"Sonntag"
-    }
+    }    
 }

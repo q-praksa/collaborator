@@ -24,7 +24,8 @@
         "teamType":"Tip tima:",
         "startDate":"Datum početka:",
         "endDate":"Datum završetka:",
-        "fullname":"Puno ime"
+        "fullname":"Puno ime",
+        "nothingMsg":"Ovde nema ničega!"
     },
     "days":{
         "mon":"Ponedeljak",
@@ -35,5 +36,4 @@
         "sat":"Subota",
         "sun":"Nedelja"
     }
-
 }
