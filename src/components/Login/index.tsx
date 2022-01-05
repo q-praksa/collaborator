@@ -1,8 +1,11 @@
 import React, { FormEvent, useState } from 'react';
+import { useNavigate } from 'react-router';
 
 import styles from './Login.module.css';
 
 export default function Login(): React.ReactElement {
+    const navigate = useNavigate();
+
     const [details, setDetails] = useState<userDetails>({
         email: '',
         password: '',
@@ -13,20 +16,18 @@ export default function Login(): React.ReactElement {
     };
 
     function login(details: userDetails): void {
-        console.log(details);
-
         if (details.email === 'user@user.com' && details.password === 'user') {
             console.log('logged in');
             localStorage.setItem('isLogged', 'true');
+            navigate('/');
         } else if (
             details.email === 'admin@admin.com' &&
             details.password === 'admin'
         ) {
-            // localStorage.setItem('isLogged', 'false')
-
             console.log('logged in');
             localStorage.setItem('isLogged', 'true');
             localStorage.setItem('admin', 'true');
+            navigate('/');
         } else {
             localStorage.setItem('isLogged', 'false');
             localStorage.setItem('admin', 'false');
