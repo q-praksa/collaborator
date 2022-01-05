@@ -5,7 +5,7 @@ import styles from './header.module.css';
 
 const Header: React.FC = () => {
     return (
-        <header className={styles.header}>
+        <header className={styles.mainHeader}>
             <p className={styles.collaboratorLogo}>collaborator</p>
             <div className={styles.headerRight}>
                 <div className={styles.circleDiv}></div>

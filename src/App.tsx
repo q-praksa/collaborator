@@ -7,6 +7,7 @@ import TestBB from '@pages/TestBB';
 import TestSS from '@pages/TestSS';
 import TestVS from '@pages/TestVS';
 import TestSM from '@pages/TestSM';
+import TestMB from '@pages/TestMB';
 import Header from '@components/Header/Header';
 import LoginPage from '@pages/LoginPage';
 import Timesheet from '@pages/Timesheet';
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/testss" element={<TestSS />} />
                 <Route path="/timesheet" element={<Timesheet />} />
                 <Route path="/login" element={<LoginPage />} />
+                <Route path="/testmb" element={<TestMB />} />
             </Routes>
         </BrowserRouter>
     );
