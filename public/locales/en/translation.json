@@ -1,6 +1,7 @@
 {
     "description": {
         "part1": "Translate this sentence.",
-        "part2": "Translate one more line."
+        "part2": "Translate one more line.",
+        "choose": "Choose your language"
     }
 }

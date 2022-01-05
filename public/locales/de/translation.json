@@ -1,6 +1,7 @@
 {
     "description": {
         "part1": "Übersetze diesen Satz.",
-        "part2": "Übersetze noch eine Zeile."
+        "part2": "Übersetze noch eine Zeile.",
+        "choose": "Wählen Sie Ihre Sprache"
     }
 }

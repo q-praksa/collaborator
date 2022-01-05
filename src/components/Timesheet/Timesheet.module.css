@@ -9,6 +9,7 @@
     width: 90%;
     color: var(--text-primary-color);
     gap: 1px;
+    margin-bottom: 22px;
 }
 
 .days {
@@ -22,7 +23,7 @@
 
 .cell {
     width: 14%;
-    border: 1px solid var(--text-secondary-color);
+    border: 1px solid var(--border-color);
     height: 100%;
 }
 

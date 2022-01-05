@@ -1,9 +1,11 @@
 import React, { FormEvent, useState } from 'react';
 import styles from './Login.module.css';
+import { useTranslation } from 'react-i18next';
 
 export default function Login(): React.ReactElement {
     const [email, setEmail] = useState<string | undefined>();
     const [password, setPassword] = useState<string | undefined>();
+    const { t, i18n } = useTranslation();
 
     function validateForm() {
         return email && password;
