@@ -20,14 +20,17 @@
 }
 
 .modal_header {
-    margin-left: 25px;
     position: relative;
-    color: #fff;
+    padding: 43px 0 44px 64px;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 37px;
     text-transform: uppercase;
+    color: #ffffff;
 }
 
-input {
-    margin-left: 25px;
+.inputModal {
+    margin-left: 63px;
     background: transparent;
     color: white;
     border-top-style: hidden;
@@ -44,7 +47,7 @@ input {
 
 .modal_add {
     border-radius: 10px;
-    margin-top: 100px;
+    margin-top: 50px;
     font-size: 32px;
     position: relative;
     float: right;
@@ -59,7 +62,7 @@ input {
 
 .modal_discard {
     border-radius: 10px;
-    margin-top: 100px;
+    margin-top: 50px;
     font-size: 32px;
     position: relative;
     float: right;

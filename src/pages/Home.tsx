@@ -6,6 +6,10 @@ function Home() {
     const dispatch = useDispatch();
     const counter = useSelector((state: RootState) => state.count.countSum);
     console.log(counter);
+
+    if (localStorage.getItem('isLogged') === null) {
+        localStorage.setItem('isLogged', 'false');
+    }
     return (
         <div>
             <h1>Lets see how fast you can increase the counter</h1>
