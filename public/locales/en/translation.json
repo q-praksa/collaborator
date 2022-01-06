@@ -1,6 +1,39 @@
 {
     "description": {
         "part1": "Translate this sentence.",
-        "part2": "Translate one more line."
+        "part2": "Translate one more line.",
+        "choose": "Choose your language",
+        "internship":"Internship chart",
+        "spamSentence":"Spam mail folder compared to the time line spent in internship",
+        "startInternship":"Start internship",
+        "endInternship":"End internship",
+        "password":"Password",
+        "login":"Login",
+        "addSkill":"Add a new skill:",
+        "add":"Add",
+        "discard":"Discard",
+        "firstName":"First name:",
+        "lastName":"Last name:",
+        "address":"Address:",
+        "contactNo":"Contact number:",
+        "skills":"Skills:",
+        "projectName":"Project name",
+        "client":"Client:",
+        "projectLead":"Project Lead:",
+        "projectManager":"Project Manager:",
+        "teamType":"Team Type:",
+        "startDate":"Start Date:",
+        "endDate":"End Date:",
+        "fullname":"Fullname",
+        "nothingMsg":"There is nothing here!"        
+    },
+    "days":{
+        "mon":"Monday",
+        "tue":"Tuesday",
+        "wed":"Wednesday",
+        "thur":"Thursday",
+        "fri":"Friday",
+        "sat":"Saturday",
+        "sun":"Sunday"
     }
 }

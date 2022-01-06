@@ -1,0 +1,19 @@
+.wrapper {
+    height: 100vh;
+    width: 100%;
+    color: var(--text-primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.status {
+    font-weight: 700;
+    font-size: 10rem;
+}
+
+.message {
+    font-size: 5rem;
+}

@@ -1,5 +1,5 @@
-import Header from '../Header/Header';
-import Sidebar from '../Sidebar/index';
+import Header from '@components/Header/Header';
+import Sidebar from '@components/Sidebar/index';
 import styles from './Layout.module.css';
 import { PropsWithChildren } from 'react';
 

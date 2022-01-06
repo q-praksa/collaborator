@@ -5,4 +5,6 @@
     padding: 50px;
     display: flex;
     flex-direction: column;
+    color: var(--text-primary-color);
+    margin: 20px 0;
 }

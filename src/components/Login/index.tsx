@@ -2,8 +2,10 @@ import React, { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import styles from './Login.module.css';
+import { useTranslation } from 'react-i18next';
 
 export default function Login(): React.ReactElement {
+    const { t } = useTranslation();
     const navigate = useNavigate();
 
     const [details, setDetails] = useState<userDetails>({
@@ -56,7 +58,7 @@ export default function Login(): React.ReactElement {
                     />
                 </div>
                 <div className={styles['label-input-wrapper']}>
-                    <label>Password</label>
+                    <label>{t('description.password')}</label>
                     <input
                         className={styles['input']}
                         type="password"
