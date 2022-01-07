@@ -6,8 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function Employees() {
+    const { t } = useTranslation();
     const [searchParams, setSearchParams] = useSearchParams({});
     const [searchActiveButtons, setSearchActiveButtons] = useState<string[]>(
         []
@@ -95,11 +97,13 @@ function Employees() {
 
     return (
         <div className={styles['employees']}>
-            <h1 className={styles['page-title']}>People</h1>
+            <h1 className={styles['page-title']}>
+                {t('description.employees')}
+            </h1>
             <div className={styles['input-search-icon-wrapper']}>
                 <input
                     className={styles['input']}
-                    placeholder="Search..."
+                    placeholder={t('description.search')}
                     onChange={(event) => {
                         const search = event.target.value;
                         if (search) {
@@ -152,9 +156,11 @@ function Employees() {
                 </button>
                 <button
                     className={styles['search-button']}
-                    onClick={() => addFilter('Available', 'filter[]')}
+                    onClick={() =>
+                        addFilter(t('description.available'), 'filter[]')
+                    }
                 >
-                    Available
+                    {t('description.available')}
                 </button>
             </div>
             <div className={styles['search-active-buttons']}>
