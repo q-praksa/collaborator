@@ -8,11 +8,10 @@ import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
 function Employees() {
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams({});
     const [searchActiveButtons, setSearchActiveButtons] = useState<string[]>(
         []
     );
-    const [isFilterSearch, setIsFilterSearch] = useState(false);
 
     function searchButtonExists(searchParam: string): boolean {
         return searchActiveButtons.some(
@@ -27,41 +26,53 @@ function Employees() {
         return filteredEmployees.some((searchBtn) => searchBtn === searchParam);
     }
 
-    function addFilter(target: string) {
-        searchParams.append('filter', target);
-        const filterCount = searchParams.getAll('filter');
-        if (filterCount.length > 0) {
-            setIsFilterSearch(true);
-        }
+    function addFilter(target: string, keyParam: string) {
+        searchParams.append(keyParam, target);
         setSearchParams(searchParams);
         if (!searchButtonExists(target)) {
             setSearchActiveButtons([...searchActiveButtons, target]);
         }
     }
 
-    function removeFilter(target: string) {
-        const filterCount = searchParams.getAll('filter');
+    function findFilters(filterArray: string[], target: string) {
+        const foundFilters: string[] = [];
+        filterArray.forEach((filter) => {
+            if (filter !== target) {
+                foundFilters.push(filter);
+            }
+        });
+        return foundFilters;
+    }
+
+    function applyFilters(filters: string[], target: string) {
+        searchParams.delete(target);
+        setSearchParams(searchParams);
+        filters.forEach((filter) => {
+            searchParams.append(target, filter);
+        });
+        setSearchParams(searchParams);
+    }
+
+    function removeFilter(target: string, keyParam: string) {
         if (searchButtonExists(target)) {
-            const newSearchACtiveButtons = searchActiveButtons.filter(function (
+            const newSearchActiveButtons = searchActiveButtons.filter(function (
                 item
             ) {
                 return item !== target;
             });
-            setSearchActiveButtons(newSearchACtiveButtons);
-            searchParams.delete(target);
-            setSearchParams({ ...searchParams });
-        }
-        if (filterCount.length > 0) {
-            setIsFilterSearch(true);
-        } else {
-            setIsFilterSearch(false);
+            setSearchActiveButtons(newSearchActiveButtons);
+            const search = searchParams.getAll(keyParam);
+            const foundFilters = findFilters(search, target);
+            applyFilters(foundFilters, keyParam);
         }
     }
 
-    function filterEmployees(employeesToFilter: IEmployeeItem[]) {
-        const search = searchParams.getAll('filter');
+    function filterEmployees(
+        employeesToFilter: IEmployeeItem[],
+        keyParam: string
+    ) {
+        const search = searchParams.getAll(keyParam);
         let filteredEmployees: IEmployeeItem[] = [];
-        console.log(search);
         if (search.length === 0) {
             filteredEmployees = employeesToFilter;
         } else {
@@ -92,11 +103,11 @@ function Employees() {
                     onChange={(event) => {
                         const search = event.target.value;
                         if (search) {
-                            setSearchParams({ search });
-                            setIsFilterSearch(false);
-                            setSearchActiveButtons([]);
+                            searchParams.set('search', search);
+                            setSearchParams(searchParams);
                         } else {
-                            setSearchParams({});
+                            searchParams.delete('search');
+                            setSearchParams(searchParams);
                         }
                     }}
                 />
@@ -105,43 +116,43 @@ function Employees() {
             <div className={styles['search-labels-wrapper']}>
                 <button
                     className={styles['search-button']}
-                    onClick={() => addFilter('Sensei')}
+                    onClick={() => addFilter('Sensei', 'filter[]')}
                 >
                     Sensei
                 </button>
                 <button
                     className={styles['search-button']}
-                    onClick={() => addFilter('Front-End')}
+                    onClick={() => addFilter('Front-End', 'filter[]')}
                 >
                     Front-End
                 </button>
                 <button
                     className={styles['search-button']}
-                    onClick={() => addFilter('Back-End')}
+                    onClick={() => addFilter('Back-End', 'filter[]')}
                 >
                     Back-End
                 </button>
                 <button
                     className={styles['search-button']}
-                    onClick={() => addFilter('QA')}
+                    onClick={() => addFilter('QA', 'filter[]')}
                 >
                     QA
                 </button>
                 <button
                     className={styles['search-button']}
-                    onClick={() => addFilter('DevOps')}
+                    onClick={() => addFilter('DevOps', 'filter[]')}
                 >
                     DevOps
                 </button>
                 <button
                     className={styles['search-button']}
-                    onClick={() => addFilter('Full-Stack')}
+                    onClick={() => addFilter('Full-Stack', 'filter[]')}
                 >
                     Full-Stack
                 </button>
                 <button
                     className={styles['search-button']}
-                    onClick={() => addFilter('Available')}
+                    onClick={() => addFilter('Available', 'filter[]')}
                 >
                     Available
                 </button>
@@ -152,7 +163,7 @@ function Employees() {
                         key={query}
                         className={styles['search-active-button']}
                         value={query}
-                        onClick={() => removeFilter(query)}
+                        onClick={() => removeFilter(query, 'filter[]')}
                     >
                         {query}
                         <FontAwesomeIcon
@@ -163,42 +174,32 @@ function Employees() {
                 ))}
             </div>
             <div className={styles['employees-items']}>
-                {!isFilterSearch &&
-                    employees
-                        .filter((emp) => {
-                            const search = searchParams.get('search');
-                            if (!search) {
-                                return true;
-                            }
-                            if (
-                                emp.fullname
-                                    .toLowerCase()
-                                    .includes(search.toLowerCase()) ||
-                                emp.job
-                                    .toLowerCase()
-                                    .includes(search.toLowerCase()) ||
-                                emp.availability
-                                    .toLowerCase()
-                                    .includes(search.toLowerCase())
-                            ) {
-                                return true;
-                            }
-                        })
-                        .map((employee: IEmployeeItem) => (
-                            <EmployeeItem
-                                employeeItem={employee}
-                                key={employee.id}
-                            />
-                        ))}
-                {isFilterSearch &&
-                    filterEmployees(employees).map(
-                        (employee: IEmployeeItem) => (
-                            <EmployeeItem
-                                employeeItem={employee}
-                                key={employee.id}
-                            />
-                        )
-                    )}
+                {filterEmployees(employees, 'filter[]')
+                    .filter((emp) => {
+                        const search = searchParams.get('search');
+                        if (!search) {
+                            return true;
+                        }
+                        if (
+                            emp.fullname
+                                .toLowerCase()
+                                .includes(search.toLowerCase()) ||
+                            emp.job
+                                .toLowerCase()
+                                .includes(search.toLowerCase()) ||
+                            emp.availability
+                                .toLowerCase()
+                                .includes(search.toLowerCase())
+                        ) {
+                            return true;
+                        }
+                    })
+                    .map((employee: IEmployeeItem) => (
+                        <EmployeeItem
+                            employeeItem={employee}
+                            key={employee.id}
+                        />
+                    ))}
             </div>
         </div>
     );
