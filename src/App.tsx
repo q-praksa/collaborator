@@ -14,6 +14,7 @@ import PrivateRoute from '@components/PrivateRoute/PrivateRoute';
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import Layout from '@components/Layout';
 import NotFoundPage from '@pages/NotFoundPage';
+import AdminOverview from '@pages/AdminOverview';
 
 function App() {
     return (
@@ -83,7 +84,15 @@ function App() {
                     <Route path="testss" element={<TestSS />} />
                     <Route path="timesheet" element={<Timesheet />} />
                     <Route path="testmb" element={<TestMB />} />
-                    <Route path="/*" element={<NotFoundPage />} />
+                    <Route
+                        path="overview"
+                        element={
+                            <PrivateRoute>
+                                <AdminOverview />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route path="*" element={<NotFoundPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>
