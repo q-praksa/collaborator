@@ -20,12 +20,9 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/login" element={<LoginPage />} />
-            </Routes>
-
-            <Layout>
-                <Routes>
+                <Route path="/" element={<Layout />}>
                     <Route
-                        path="/header"
+                        path="header"
                         element={
                             <ProtectedRoute>
                                 <Header />
@@ -33,7 +30,7 @@ function App() {
                         }
                     />
                     <Route
-                        path="/header"
+                        path="header"
                         element={
                             <PrivateRoute>
                                 <Header />
@@ -57,7 +54,7 @@ function App() {
                         }
                     />
                     <Route
-                        path="/about"
+                        path="about"
                         element={
                             <ProtectedRoute>
                                 <About />
@@ -65,7 +62,7 @@ function App() {
                         }
                     />
                     <Route
-                        path="/about"
+                        path="about"
                         element={
                             <PrivateRoute>
                                 <About />
@@ -73,22 +70,22 @@ function App() {
                         }
                     />
                     <Route
-                        path="/test1"
+                        path="test1"
                         element={
                             <PrivateRoute>
                                 <Test />
                             </PrivateRoute>
                         }
                     />
-                    <Route path="/testsm" element={<TestSM />} />
-                    <Route path="/testvs" element={<TestVS />} />
-                    <Route path="/testbb" element={<TestBB />} />
-                    <Route path="/testss" element={<TestSS />} />
-                    <Route path="/timesheet" element={<Timesheet />} />
-                    <Route path="/testmb" element={<TestMB />} />
-                    <Route path="*" element={<NotFoundPage />} />
-                </Routes>
-            </Layout>
+                    <Route path="testsm" element={<TestSM />} />
+                    <Route path="testvs" element={<TestVS />} />
+                    <Route path="testbb" element={<TestBB />} />
+                    <Route path="testss" element={<TestSS />} />
+                    <Route path="timesheet" element={<Timesheet />} />
+                    <Route path="testmb" element={<TestMB />} />
+                    <Route path="/*" element={<NotFoundPage />} />
+                </Route>
+            </Routes>
         </BrowserRouter>
     );
 }
