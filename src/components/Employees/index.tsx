@@ -7,73 +7,58 @@ import { faSearch, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { employeeExists, findFilters } from '@utils/employees';
 
 function Employees() {
     const { t } = useTranslation();
     const [searchParams, setSearchParams] = useSearchParams({});
-    const [searchActiveButtons, setSearchActiveButtons] = useState<string[]>(
-        []
-    );
+    const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+    const filters = [
+        'Sensei',
+        'Front-End',
+        'Back-End',
+        'QA',
+        'DevOps',
+        'Full-Stack',
+        t('description.available'),
+    ];
 
-    function searchButtonExists(searchParam: string): boolean {
-        return searchActiveButtons.some(
-            (searchBtn) => searchBtn === searchParam
-        );
+    function searchFilterExists(searchParam: string): boolean {
+        return selectedFilters.includes(searchParam);
     }
 
-    function employeeExists(
-        searchParam: IEmployeeItem,
-        filteredEmployees: IEmployeeItem[]
-    ): boolean {
-        return filteredEmployees.some((searchBtn) => searchBtn === searchParam);
-    }
-
-    function addFilter(target: string, keyParam: string) {
-        searchParams.append(keyParam, target);
+    function addFilter(key: string, value: string) {
+        searchParams.append(key, value);
         setSearchParams(searchParams);
-        if (!searchButtonExists(target)) {
-            setSearchActiveButtons([...searchActiveButtons, target]);
+        if (!searchFilterExists(value)) {
+            setSelectedFilters([...selectedFilters, value]);
         }
     }
 
-    function findFilters(filterArray: string[], target: string) {
-        const foundFilters: string[] = [];
-        filterArray.forEach((filter) => {
-            if (filter !== target) {
-                foundFilters.push(filter);
-            }
-        });
-        return foundFilters;
-    }
-
-    function applyFilters(filters: string[], target: string) {
-        searchParams.delete(target);
+    function applyFilters(filters: string[], key: string) {
+        searchParams.delete(key);
         setSearchParams(searchParams);
         filters.forEach((filter) => {
-            searchParams.append(target, filter);
+            searchParams.append(key, filter);
         });
         setSearchParams(searchParams);
     }
 
-    function removeFilter(target: string, keyParam: string) {
-        if (searchButtonExists(target)) {
-            const newSearchActiveButtons = searchActiveButtons.filter(function (
-                item
-            ) {
-                return item !== target;
-            });
-            setSearchActiveButtons(newSearchActiveButtons);
-            const search = searchParams.getAll(keyParam);
-            const foundFilters = findFilters(search, target);
-            applyFilters(foundFilters, keyParam);
+    function removeFilter(key: string, value: string) {
+        if (!searchFilterExists(value)) {
+            return;
         }
+        const newselectedFilters = selectedFilters.filter(function (item) {
+            return item !== value;
+        });
+        setSelectedFilters(newselectedFilters);
+        const search = searchParams.getAll(key);
+        const foundFilters = findFilters(search, value);
+        applyFilters(foundFilters, key);
     }
 
-    function filterEmployees(
-        employeesToFilter: IEmployeeItem[],
-        keyParam: string
-    ) {
-        const search = searchParams.getAll(keyParam);
+    function filterEmployees(employeesToFilter: IEmployeeItem[], key: string) {
+        const search = searchParams.getAll(key);
         let filteredEmployees: IEmployeeItem[] = [];
         if (search.length === 0) {
             filteredEmployees = employeesToFilter;
@@ -95,83 +80,56 @@ function Employees() {
         return filteredEmployees;
     }
 
+    function handleOnChange(event: React.ChangeEvent<HTMLInputElement>) {
+        const search = event.target.value;
+        if (search) {
+            searchParams.set('search', search);
+            setSearchParams(searchParams);
+        } else {
+            searchParams.delete('search');
+            setSearchParams(searchParams);
+        }
+    }
+
     return (
         <div className={styles['employees']}>
             <h1 className={styles['page-title']}>
                 {t('description.employees')}
             </h1>
             <div className={styles['input-search-icon-wrapper']}>
-                <input
-                    className={styles['input']}
-                    placeholder={t('description.search')}
-                    onChange={(event) => {
-                        const search = event.target.value;
-                        if (search) {
-                            searchParams.set('search', search);
-                            setSearchParams(searchParams);
-                        } else {
-                            searchParams.delete('search');
-                            setSearchParams(searchParams);
-                        }
-                    }}
-                />
-                <FontAwesomeIcon icon={faSearch} className={styles['icon']} />
+                <div className={styles['input-wrapper']}>
+                    <input
+                        className={styles['input']}
+                        placeholder={t('description.search')}
+                        onChange={handleOnChange}
+                        type="search"
+                    />
+                    <FontAwesomeIcon
+                        icon={faSearch}
+                        className={styles['icon']}
+                    />
+                </div>
             </div>
             <div className={styles['search-labels-wrapper']}>
-                <button
-                    className={styles['search-button']}
-                    onClick={() => addFilter('Sensei', 'filter[]')}
-                >
-                    Sensei
-                </button>
-                <button
-                    className={styles['search-button']}
-                    onClick={() => addFilter('Front-End', 'filter[]')}
-                >
-                    Front-End
-                </button>
-                <button
-                    className={styles['search-button']}
-                    onClick={() => addFilter('Back-End', 'filter[]')}
-                >
-                    Back-End
-                </button>
-                <button
-                    className={styles['search-button']}
-                    onClick={() => addFilter('QA', 'filter[]')}
-                >
-                    QA
-                </button>
-                <button
-                    className={styles['search-button']}
-                    onClick={() => addFilter('DevOps', 'filter[]')}
-                >
-                    DevOps
-                </button>
-                <button
-                    className={styles['search-button']}
-                    onClick={() => addFilter('Full-Stack', 'filter[]')}
-                >
-                    Full-Stack
-                </button>
-                <button
-                    className={styles['search-button']}
-                    onClick={() =>
-                        addFilter(t('description.available'), 'filter[]')
-                    }
-                >
-                    {t('description.available')}
-                </button>
+                {filters.map((filterValue) => (
+                    <button
+                        key={filterValue}
+                        onClick={() => addFilter('filter[]', filterValue)}
+                        className={styles['search-button']}
+                    >
+                        {filterValue}
+                    </button>
+                ))}
             </div>
             <div className={styles['search-active-buttons']}>
-                {searchActiveButtons.map((query) => (
+                {selectedFilters.map((filterValue) => (
                     <button
-                        key={query}
+                        key={filterValue}
                         className={styles['search-active-button']}
-                        value={query}
-                        onClick={() => removeFilter(query, 'filter[]')}
+                        value={filterValue}
+                        onClick={() => removeFilter('filter[]', filterValue)}
                     >
-                        {query}
+                        {filterValue}
                         <FontAwesomeIcon
                             icon={faTimesCircle}
                             className={styles['icon']}
@@ -186,7 +144,7 @@ function Employees() {
                         if (!search) {
                             return true;
                         }
-                        if (
+                        return (
                             emp.fullname
                                 .toLowerCase()
                                 .includes(search.toLowerCase()) ||
@@ -196,9 +154,7 @@ function Employees() {
                             emp.availability
                                 .toLowerCase()
                                 .includes(search.toLowerCase())
-                        ) {
-                            return true;
-                        }
+                        );
                     })
                     .map((employee: IEmployeeItem) => (
                         <EmployeeItem
