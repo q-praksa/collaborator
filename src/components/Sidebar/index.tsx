@@ -1,7 +1,7 @@
 import sidebarData from '@components/Sidebar/SidebarData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Sidebar.module.css';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 const Sidebar = () => {
     const { t } = useTranslation();
@@ -23,9 +23,7 @@ const Sidebar = () => {
                                     icon={icon}
                                 />
                             </span>
-                            <span>
-                                <Trans>{label}</Trans>
-                            </span>
+                            <span>{t(`description.${label}`)}</span>
                         </li>
                     );
                 })}

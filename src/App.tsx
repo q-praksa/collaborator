@@ -14,6 +14,7 @@ import PrivateRoute from '@components/PrivateRoute/PrivateRoute';
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import Layout from '@components/Layout';
 import NotFoundPage from '@pages/NotFoundPage';
+import AdminOverview from '@pages/AdminOverview';
 import People from '@pages/People';
 import Profile from '@pages/Profile';
 
@@ -22,12 +23,9 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/login" element={<LoginPage />} />
-            </Routes>
-
-            <Layout>
-                <Routes>
+                <Route path="/" element={<Layout />}>
                     <Route
-                        path="/header"
+                        path="header"
                         element={
                             <ProtectedRoute>
                                 <Header />
@@ -35,7 +33,7 @@ function App() {
                         }
                     />
                     <Route
-                        path="/header"
+                        path="header"
                         element={
                             <PrivateRoute>
                                 <Header />
@@ -59,7 +57,7 @@ function App() {
                         }
                     />
                     <Route
-                        path="/about"
+                        path="about"
                         element={
                             <ProtectedRoute>
                                 <About />
@@ -67,7 +65,7 @@ function App() {
                         }
                     />
                     <Route
-                        path="/about"
+                        path="about"
                         element={
                             <PrivateRoute>
                                 <About />
@@ -75,7 +73,7 @@ function App() {
                         }
                     />
                     <Route
-                        path="/test1"
+                        path="test1"
                         element={
                             <PrivateRoute>
                                 <Test />
@@ -104,9 +102,17 @@ function App() {
                     <Route path="/testss" element={<TestSS />} />
                     <Route path="/timesheet" element={<Timesheet />} />
                     <Route path="/testmb" element={<TestMB />} />
+                    <Route
+                        path="overview"
+                        element={
+                            <PrivateRoute>
+                                <AdminOverview />
+                            </PrivateRoute>
+                        }
+                    />
                     <Route path="*" element={<NotFoundPage />} />
-                </Routes>
-            </Layout>
+                </Route>
+            </Routes>
         </BrowserRouter>
     );
 }
