@@ -10,16 +10,24 @@ const Local = () => {
 
     return (
         <div className={styles.local}>
-            <h1>{t('description.choose')}</h1>
-            <button onClick={() => changeLanguage('en')}>EN</button>
-            <button onClick={() => changeLanguage('de')}>DE</button>
-            <button onClick={() => changeLanguage('rs')}>SRB</button>
-            <p>
-                <Trans i18nKey="description.part1">
-                    Translate this sentence.
-                </Trans>
-            </p>
-            <p>{t('description.part2')}</p>
+            <button
+                className={styles['lang-btn']}
+                onClick={() => changeLanguage('en')}
+            >
+                EN
+            </button>
+            <button
+                className={styles['lang-btn']}
+                onClick={() => changeLanguage('de')}
+            >
+                DE
+            </button>
+            <button
+                className={styles['lang-btn']}
+                onClick={() => changeLanguage('rs')}
+            >
+                SRB
+            </button>
         </div>
     );
 };

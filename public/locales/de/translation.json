@@ -43,35 +43,36 @@
         "QA": "QA",
         "DevOps": "DevOps",
         "Full-Stack": "Full-Stack",
-        "overview":"Übersicht",
-        "profile":"Profil",
-        "timesheet":"Stundenzettel",
-        "people":"Leute",
-        "projects":"Projekten",
-        "stats":"Statistik",
-        "clients":"Kunden"
+        "overview": "Übersicht",
+        "profile": "Profil",
+        "timesheet": "Stundenzettel",
+        "people": "Leute",
+        "projects": "Projekten",
+        "stats": "Statistik",
+        "clients": "Kunden",
+        "busy": "Beschäftigt"
     },
-    "days":{
-        "mon":"Montag",
-        "tue":"Dienstag",
-        "wed":"Mittwoch",
-        "thur":"Donnerstag",
-        "fri":"Freitag",
-        "sat":"Samstag",
-        "sun":"Sonntag"
+    "days": {
+        "mon": "Montag",
+        "tue": "Dienstag",
+        "wed": "Mittwoch",
+        "thur": "Donnerstag",
+        "fri": "Freitag",
+        "sat": "Samstag",
+        "sun": "Sonntag"
     },
-    "months":{
-        "January":"Januar",
-        "February":"Februar",
-        "March":"März",
-        "April":"April",
-        "May":"Mai",
-        "June":"Juni",
-        "July":"Juli",
-        "August":"August",
-        "September":"September",
-        "October":"Oktober",
-        "November":"November",
-        "December":"Dezember"
-    }    
+    "months": {
+        "January": "Januar",
+        "February": "Februar",
+        "March": "März",
+        "April": "April",
+        "May": "Mai",
+        "June": "Juni",
+        "July": "Juli",
+        "August": "August",
+        "September": "September",
+        "October": "Oktober",
+        "November": "November",
+        "December": "Dezember"
+    }
 }

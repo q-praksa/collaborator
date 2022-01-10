@@ -16,7 +16,7 @@ function EmployeeItem({ employeeItem }: PropsTypeEmployeeItem) {
             <p className={styles['text-gray-color']}>
                 {t('description.availability')}:{' '}
                 <span className={styles['span']}>
-                    {employeeItem.availability}
+                    {t(`description.${employeeItem.availability}`)}
                 </span>
             </p>
         </div>
