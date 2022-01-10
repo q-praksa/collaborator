@@ -32,7 +32,17 @@
         "project": "Projekt",
         "selectProject": "Projekt auswählen",
         "timeSpent": "Zeitaufwand",
-        "description": "Bezeichnung"
+        "description": "Bezeichnung",
+        "availability": "Verfügbarkeit",
+        "employees": "Angestellte",
+        "search": "Suche",
+        "available": "verfügbar",
+        "Sensei": "Sensei",
+        "Front-End": "Front-End",
+        "Back-End": "Back-End",
+        "QA": "QA",
+        "DevOps": "DevOps",
+        "Full-Stack": "Full-Stack"
     },
     "days": {
         "mon": "Montag",

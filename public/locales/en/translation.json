@@ -32,7 +32,17 @@
         "project": "Project",
         "selectProject": "Select Project",
         "timeSpent": "Time spent",
-        "description": "Description"
+        "description": "Description",
+        "availability": "Availability",
+        "employees": "Employees",
+        "search": "Search",
+        "available": "Available",
+        "Sensei": "Sensei",
+        "Front-End": "Front-End",
+        "Back-End": "Back-End",
+        "QA": "QA",
+        "DevOps": "DevOps",
+        "Full-Stack": "Full-Stack"
     },
     "days": {
         "mon": "Monday",

@@ -14,6 +14,7 @@ import PrivateRoute from '@components/PrivateRoute/PrivateRoute';
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import Layout from '@components/Layout';
 import NotFoundPage from '@pages/NotFoundPage';
+import People from '@pages/People';
 
 function App() {
     return (
@@ -78,6 +79,14 @@ function App() {
                             <PrivateRoute>
                                 <Test />
                             </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/people"
+                        element={
+                            <ProtectedRoute>
+                                <People />
+                            </ProtectedRoute>
                         }
                     />
                     <Route path="/testsm" element={<TestSM />} />
