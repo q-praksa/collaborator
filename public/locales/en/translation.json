@@ -25,7 +25,15 @@
         "startDate":"Start Date:",
         "endDate":"End Date:",
         "fullname":"Fullname",
-        "nothingMsg":"There is nothing here!"        
+        "nothingMsg":"There is nothing here!",
+        "overview":"Overview",
+        "profile":"Profile",
+        "timesheet":"Timesheet",
+        "people":"People",
+        "projects":"Projects",
+        "stats":"Stats" ,
+        "clients":"Clients",
+        "employees":"Employees"      
     },
     "days":{
         "mon":"Monday",
@@ -35,5 +43,19 @@
         "fri":"Friday",
         "sat":"Saturday",
         "sun":"Sunday"
+    },
+    "months":{
+        "January":"January",
+        "February":"February",
+    "March":"March",
+    "April":"April",
+    "May":"May",
+    "June":"June",
+    "July":"July",
+    "August":"August",
+    "September":"September",
+    "October":"October",
+    "November":"November",
+    "December":"December"
     }
 }

@@ -1,19 +1,20 @@
 import { overviewData } from './data';
 import styles from './AdminOverview.module.css';
+import { useTranslation } from 'react-i18next';
 
 const AdminOverview = () => {
+    const { t } = useTranslation();
     return (
         <div className={styles.container}>
             {overviewData.map((dataItem) => {
+                const { id, color, label, count } = dataItem;
                 return (
                     <div
-                        key={dataItem.id}
-                        className={`${styles.itemContainer} ${
-                            styles[dataItem.color]
-                        }`}
+                        key={id}
+                        className={`${styles.itemContainer} ${styles[color]}`}
                     >
-                        <p>{dataItem.label}</p>
-                        <p className={styles.count}>{dataItem.count}</p>
+                        <p>{t(`description.${label}`)}</p>
+                        <p className={styles.count}>{count}</p>
                     </div>
                 );
             })}

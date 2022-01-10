@@ -25,7 +25,15 @@
         "startDate":"Datum početka:",
         "endDate":"Datum završetka:",
         "fullname":"Puno ime",
-        "nothingMsg":"Ovde nema ničega!"
+        "nothingMsg":"Ovde nema ničega!",
+        "overview":"Pregled",
+        "profile":"Profil",
+        "timesheet":"Kontrolna kartica",
+        "people":"Ljudi",
+        "projects":"Projekti",
+        "stats":"Statistika",
+        "clients":"Klijenti",
+        "employees":"Zaposleni"         
     },
     "days":{
         "mon":"Ponedeljak",
@@ -35,5 +43,19 @@
         "fri":"Petak",
         "sat":"Subota",
         "sun":"Nedelja"
+    },
+    "months":{
+        "January":"Januar",
+        "February":"Februar",
+    "March":"Mart",
+    "April":"April",
+    "May":"Maj",
+    "June":"Jun",
+    "July":"Jul",
+    "August":"Avgust",
+    "September":"Septembar",
+    "October":"Oktobar",
+    "November":"Novembar",
+    "December":"Decembar"
     }
 }
