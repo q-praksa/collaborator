@@ -6,12 +6,15 @@ import { useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
     const navigate = useNavigate();
-    function handleClick() {
+    function handleHomeNavigateClick() {
         navigate('/');
     }
     return (
         <header className={styles.mainHeader}>
-            <button onClick={handleClick} className={styles.collaboratorLogo}>
+            <button
+                onClick={handleHomeNavigateClick}
+                className={styles.collaboratorLogo}
+            >
                 collaborator
             </button>
             <div className={styles.headerRight}>
