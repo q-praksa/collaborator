@@ -28,6 +28,16 @@
     background-color: var(--dark-background-color);
     display: flex;
     color: var(--text-primary-color);
+    padding-left: 5px;
+}
+
+.input:hover {
+    border-bottom: 3px solid var(--border-color);
+}
+
+.input:focus {
+    outline: none;
+    border-bottom: 3px solid var(--border-color);
 }
 
 .submit {

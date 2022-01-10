@@ -25,6 +25,17 @@
     width: 320px;
     height: 24px;
     background-color: var(--dark-background-color);
+    color: white;
+    padding-left: 5px;
+}
+
+.input:hover {
+    border-bottom: 3px solid var(--border-color);
+}
+
+.input:focus {
+    outline: none;
+    border-bottom: 3px solid var(--border-color);
 }
 
 .profile-img-skills {

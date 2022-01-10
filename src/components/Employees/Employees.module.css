@@ -20,6 +20,13 @@
     border: 1px solid var(--page-background-color);
     border-bottom: 1px solid var(--border-color);
 }
+
+.input-wrapper:hover {
+    border: none;
+    outline: none;
+    border-bottom: 3px solid var(--border-color);
+}
+
 .input {
     border: none;
     width: 280px;

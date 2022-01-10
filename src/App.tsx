@@ -15,6 +15,7 @@ import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import Layout from '@components/Layout';
 import NotFoundPage from '@pages/NotFoundPage';
 import People from '@pages/People';
+import Profile from '@pages/Profile';
 
 function App() {
     return (
@@ -86,6 +87,14 @@ function App() {
                         element={
                             <ProtectedRoute>
                                 <People />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/profile"
+                        element={
+                            <ProtectedRoute>
+                                <Profile />
                             </ProtectedRoute>
                         }
                     />
