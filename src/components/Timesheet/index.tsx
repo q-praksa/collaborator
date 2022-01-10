@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ChangeEvent } from 'react';
+import { useEffect, useState } from 'react';
 import { datesGenerator } from 'dates-generator';
 import {
     ICalendar,
@@ -48,10 +48,6 @@ const Timesheet = () => {
             previousYear,
         });
     }, []);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setTimeTracked(() => parseInt(e.target.value));
-    };
 
     return (
         <div className={styles.timesheet}>

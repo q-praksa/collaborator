@@ -4,6 +4,7 @@
     --background-color: #7e879e;
     --page-background-color: #525f7f;
     --dark-background-color: #27293d;
+    --light-background-color: #ffffff;
     --border-color: #1d8cf8;
     --text-primary-color: #ffffff;
     --text-secondary-color: #1d8cf8;
@@ -24,11 +25,8 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-size: 12px;
-    color: var(--text-primary-color);
 }
 
 h1 {

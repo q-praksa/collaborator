@@ -1,6 +1,39 @@
 {
     "description": {
         "part1": "Übersetze diesen Satz.",
-        "part2": "Übersetze noch eine Zeile."
-    }
+        "part2": "Übersetze noch eine Zeile.",
+        "choose": "Wählen Sie Ihre Sprache",
+        "internship":"Praktikums diagramm",
+        "spamSentence":"Spam-Mail-Ordner im Vergleich zur Zeit im Praktikum",
+        "startInternship":"Praktikum beginnen",
+        "endInternship":"Praktikum beenden",
+        "password":"Passwort",
+        "login": "Anmeldung",
+        "addSkill":"Fügen Sie eine neue Fähigkeit hinzu:",
+        "add":"Hinzufügen",
+        "discard":"Abwerfen",
+        "firstName":"Vorname:",
+        "lastName":"Nachname:",
+        "address":"Adresse:",
+        "contactNo":"Kontakt telefon:",
+        "skills":"Fähigkeiten:",
+        "projectName":"Projektname",
+        "client":"Der Kunde:",
+        "projectLead":"Projektleiter:",
+        "projectManager":"Projektmanager:",
+        "teamType":"Teamtyp:",
+        "startDate":"Startdatum:",
+        "endDate":"Endtermin:",
+        "fullname":"Vollständiger Name",
+        "nothingMsg": "Hier ist nichts!"     
+    },
+    "days":{
+        "mon":"Montag",
+        "tue":"Dienstag",
+        "wed":"Mittwoch",
+        "thur":"Donnerstag",
+        "fri":"Freitag",
+        "sat":"Samstag",
+        "sun":"Sonntag"
+    }    
 }

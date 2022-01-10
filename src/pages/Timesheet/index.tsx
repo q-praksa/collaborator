@@ -1,4 +1,3 @@
-import React from 'react';
 import Calendar from '@components/Timesheet';
 import styles from './Timesheet.module.css';
 

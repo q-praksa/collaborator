@@ -12,7 +12,11 @@
 
 .main-content {
     height: 100%;
+    width: 100%;
     overflow: hidden;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: space-around;
 }
 
 @media only screen and (min-width: 400px) {

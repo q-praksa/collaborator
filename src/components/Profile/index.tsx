@@ -3,24 +3,26 @@ import AddNewSkill from '@components/modals/AddNewSkill';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@reduxStore/reducers';
 import { open } from '@reduxStore/actions/modal';
+import { useTranslation } from 'react-i18next';
 
 function Profile() {
     const dispatch = useDispatch();
     const modal = useSelector((state: RootState) => state.modal.show);
+    const { t } = useTranslation();
 
     return (
         <div className={styles['main-div']}>
             <div className={styles['profile-data']}>
                 <div className={styles['label-input-wrapper']}>
-                    <label>First name:</label>
+                    <label>{t('description.firstName')}</label>
                     <input className={styles['input']}></input>
                 </div>
                 <div className={styles['label-input-wrapper']}>
-                    <label>Last name:</label>
+                    <label>{t('description.lastName')}</label>
                     <input className={styles['input']}></input>
                 </div>
                 <div className={styles['label-input-wrapper']}>
-                    <label>Address:</label>
+                    <label>{t('description.address')}</label>
                     <input className={styles['input']}></input>
                 </div>
                 <div className={styles['label-input-wrapper']}>
@@ -28,7 +30,7 @@ function Profile() {
                     <input className={styles['input']}></input>
                 </div>
                 <div className={styles['label-input-wrapper']}>
-                    <label>Contact number:</label>
+                    <label>{t('description.contactNo')}</label>
                     <input className={styles['input']}></input>
                 </div>
             </div>
@@ -36,7 +38,7 @@ function Profile() {
                 <div className={styles['img-wrapper']}></div>
                 <div className={styles['skills-wrapper']}>
                     <div className={styles['label-add-role-btn-wrapper']}>
-                        <label>Skills:</label>
+                        <label>{t('description.skills')}</label>
                         <button
                             onClick={() => dispatch(open())}
                             className={styles['add-role-btn']}

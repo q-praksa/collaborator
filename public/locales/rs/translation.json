@@ -1,0 +1,39 @@
+{
+    "description": {
+        "part1": "Prevedi ovu rečenicu.",
+        "part2": "Prevedi još jednu liniju.",
+        "choose": "Izaberi jezik",
+        "internship":"Grafik praktikanata",
+        "spamSentence":"Koleracija foldera nepoželjne pošte  i trajanja prakse",
+        "startInternship":"Početak prakse",
+        "endInternship":"Kraj prakse",
+        "password":"Šifra",
+        "login":"Uloguj se",
+        "addSkill":"Dodaj novu veštinu:",
+        "add":"Dodaj",
+        "discard":"Odbaci",
+        "firstName":"Ime:",
+        "lastName":"Prezime:",
+        "address":"Adresa:",
+        "contactNo":"Kontakt telefon:",
+        "skills":"Veštine:",
+        "projectName":"Naziv projekta",
+        "client":"Klijent:",
+        "projectLead":"Vođa projekta:",
+        "projectManager":"Projektni menadžer:",
+        "teamType":"Tip tima:",
+        "startDate":"Datum početka:",
+        "endDate":"Datum završetka:",
+        "fullname":"Puno ime",
+        "nothingMsg":"Ovde nema ničega!"
+    },
+    "days":{
+        "mon":"Ponedeljak",
+        "tue":"Utorak",
+        "wed":"Sreda",
+        "thur":"Četvrtak",
+        "fri":"Petak",
+        "sat":"Subota",
+        "sun":"Nedelja"
+    }
+}
