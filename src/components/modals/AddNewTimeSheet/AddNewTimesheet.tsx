@@ -3,31 +3,43 @@ import ReactDom from 'react-dom';
 import styles from './AddNewTimeSheet.module.css';
 import { useDispatch } from 'react-redux';
 import { close } from '@reduxStore/actions/modal';
+import { useTranslation } from 'react-i18next';
 
 const AddNewTimesheet = () => {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     return ReactDom.createPortal(
         <div className={styles.container}>
             <div className={styles.modal_time}>
                 <header className={styles.modal_time_header}>
-                    <h2 className={styles.title}>Log work:</h2>
+                    <h2 className={styles.title}>{t('description.logWork')}</h2>
                 </header>
                 <section className={styles.mid}>
-                    <label id={styles.date}>Date:</label>
+                    <label id={styles.date}>{t('description.date')}</label>
                     <select className={styles.date}>
                         <option value="date">03/01/2022</option>
                     </select>
-                    <label id={styles.client}>Client:</label>
+                    <label id={styles.client}>{t('description.client')}</label>
                     <select className={styles.client}>
-                        <option value="client">Select A Client</option>
+                        <option value="client">
+                            {t('description.selectClient')}
+                        </option>
                     </select>
-                    <label id={styles.project}>Project</label>
+                    <label id={styles.project}>
+                        {t('description.project')}
+                    </label>
                     <select className={styles.project}>
-                        <option value="project">Select Project</option>
+                        <option value="project">
+                            {t('description.selectProject')}
+                        </option>
                     </select>
-                    <label id={styles.time}>Time Spent</label>
+                    <label id={styles.time}>
+                        {t('description.timeSpent')}:
+                    </label>
                     <input className={styles.time} type="text" />
-                    <label id={styles.description}>Descritpion:</label>
+                    <label id={styles.description}>
+                        {t('description.description')}:
+                    </label>
                     <textarea
                         className={styles.description}
                         cols={30}
@@ -40,9 +52,11 @@ const AddNewTimesheet = () => {
                         className={styles.modal_time_discard}
                         onClick={() => dispatch(close())}
                     >
-                        Discard
+                        {t('description.discard')}
                     </button>
-                    <button className={styles.modal_time_add}>Add</button>
+                    <button className={styles.modal_time_add}>
+                        {t('description.add')}
+                    </button>
                 </footer>
             </div>
         </div>,

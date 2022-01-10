@@ -34,7 +34,7 @@
     font-weight: 700;
     font-size: 24px;
     line-height: 37px;
-    color: #ffffff;
+    color: var(--text-primary-color);
 }
 
 .mid {
@@ -57,7 +57,7 @@
     max-width: 319px;
     min-width: 319px;
     background: transparent;
-    border-color: #1d8cf8;
+    border-color: var(--border-color);
     color: var(--text-primary-color);
     border-top-style: hidden;
     border-right-style: hidden;
@@ -77,7 +77,7 @@
 }
 
 .client {
-    border-color: #1d8cf8;
+    border-color: var(--border-color);
     max-width: 319px;
     min-width: 319px;
     min-height: 40px;
@@ -100,7 +100,7 @@
 }
 
 .project {
-    border-color: #1d8cf8;
+    border-color: var(--border-color);
     max-width: 319px;
     min-width: 319px;
     min-height: 40px;
@@ -126,7 +126,7 @@
     max-width: 319px;
     min-width: 319px;
     background: transparent;
-    border-color: #1d8cf8;
+    border-color: var(--border-color);
     color: var(--text-primary-color);
     border-top-style: hidden;
     border-right-style: hidden;
@@ -150,7 +150,7 @@
     min-height: 147px;
     max-height: 147px;
     background: transparent;
-    border-color: #1d8cf8;
+    border-color: var(--border-color);
     color: var(--text-primary-color);
 }
 
@@ -166,7 +166,8 @@
     position: relative;
     float: right;
     height: 46px;
-    width: 164px;
+    min-width: 164px;
+    max-width: fit-content;
     margin-right: 15px;
     background-color: #00f2c3;
     color: var(--text-primary-color);
@@ -183,8 +184,9 @@
     float: right;
     margin-right: 20px;
     height: 46px;
-    width: 164px;
-    background-color: #fc030f;
+    min-width: 164px;
+    max-width: fit-content;
+    background-color: var(--alarm-color);
     color: var(--text-primary-color);
     text-transform: uppercase;
     font-weight: bold;
