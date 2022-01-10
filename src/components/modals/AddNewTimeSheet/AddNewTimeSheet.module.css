@@ -44,7 +44,7 @@
     align-items: center;
 }
 
-.dateLabels {
+.dateLabel {
     color: var(--text-primary-color);
     margin-top: 20px;
     margin-bottom: 20px;
