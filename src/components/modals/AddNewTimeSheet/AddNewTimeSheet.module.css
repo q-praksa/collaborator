@@ -44,7 +44,7 @@
     align-items: center;
 }
 
-#date {
+.dateLabels {
     color: var(--text-primary-color);
     margin-top: 20px;
     margin-bottom: 20px;
@@ -67,7 +67,7 @@
     font-weight: 700;
 }
 
-#client {
+.clientLabel {
     margin-top: 20px;
     margin-bottom: 20px;
     color: var(--text-primary-color);
@@ -90,7 +90,7 @@
     font-weight: 700;
 }
 
-#project {
+.projectLabel {
     color: var(--text-primary-color);
     margin-top: 20px;
     margin-bottom: 20px;
@@ -113,7 +113,7 @@
     font-weight: 700;
 }
 
-#time {
+.timeLabel {
     margin-top: 20px;
     margin-bottom: 20px;
     color: var(--text-primary-color);
@@ -136,7 +136,7 @@
     font-weight: 700;
 }
 
-#description {
+.descriptionLabel {
     margin-top: 20px;
     margin-bottom: 20px;
     color: var(--text-primary-color);

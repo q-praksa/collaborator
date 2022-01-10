@@ -15,17 +15,21 @@ const AddNewTimesheet = () => {
                     <h2 className={styles.title}>{t('description.logWork')}</h2>
                 </header>
                 <section className={styles.mid}>
-                    <label id={styles.date}>{t('description.date')}</label>
+                    <label className={styles.dateLabel}>
+                        {t('description.date')}
+                    </label>
                     <select className={styles.date}>
                         <option value="date">03/01/2022</option>
                     </select>
-                    <label id={styles.client}>{t('description.client')}</label>
+                    <label className={styles.clientLabel}>
+                        {t('description.client')}
+                    </label>
                     <select className={styles.client}>
                         <option value="client">
                             {t('description.selectClient')}
                         </option>
                     </select>
-                    <label id={styles.project}>
+                    <label className={styles.projectLabel}>
                         {t('description.project')}
                     </label>
                     <select className={styles.project}>
@@ -33,11 +37,11 @@ const AddNewTimesheet = () => {
                             {t('description.selectProject')}
                         </option>
                     </select>
-                    <label id={styles.time}>
+                    <label className={styles.timeLabel}>
                         {t('description.timeSpent')}:
                     </label>
                     <input className={styles.time} type="text" />
-                    <label id={styles.description}>
+                    <label className={styles.descriptionLabel}>
                         {t('description.description')}:
                     </label>
                     <textarea
