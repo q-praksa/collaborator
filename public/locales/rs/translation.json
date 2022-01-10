@@ -42,15 +42,37 @@
         "Back-End": "Back-End",
         "QA": "QA",
         "DevOps": "DevOps",
-        "Full-Stack": "Full-Stack"
+        "Full-Stack": "Full-Stack",
+        "overview":"Pregled",
+        "profile":"Profil",
+        "timesheet":"Kontrolna kartica",
+        "people":"Ljudi",
+        "projects":"Projekti",
+        "stats":"Statistika",
+        "clients":"Klijenti"       
     },
-    "days": {
-        "mon": "Ponedeljak",
-        "tue": "Utorak",
-        "wed": "Sreda",
-        "thur": "Četvrtak",
-        "fri": "Petak",
-        "sat": "Subota",
-        "sun": "Nedelja"
+    "days":{
+        "mon":"Ponedeljak",
+        "tue":"Utorak",
+        "wed":"Sreda",
+        "thur":"Četvrtak",
+        "fri":"Petak",
+        "sat":"Subota",
+        "sun":"Nedelja"
+    },
+    "months":{
+        "January":"Januar",
+        "February":"Februar",
+        "March":"Mart",
+        "April":"April",
+        "May":"Maj",
+        "June":"Jun",
+        "July":"Jul",
+        "August":"Avgust",
+        "September":"Septembar",
+        "October":"Oktobar",
+        "November":"Novembar",
+        "December":"Decembar"
     }
 }
+
