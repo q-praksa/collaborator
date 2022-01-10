@@ -11,6 +11,7 @@ import TestMB from '@pages/TestMB';
 import Header from '@components/Header/Header';
 import LoginPage from '@pages/LoginPage';
 import Timesheet from '@pages/Timesheet';
+import ErrorPage from '@pages/ErrorPage';
 
 function App() {
     return (
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/timesheet" element={<Timesheet />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/testmb" element={<TestMB />} />
+                <Route path="/error" element={<ErrorPage />} />
             </Routes>
         </BrowserRouter>
     );
