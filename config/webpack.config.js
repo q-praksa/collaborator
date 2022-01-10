@@ -324,6 +324,8 @@ module.exports = function (webpackEnv) {
                 ),
                 '@pages': path.resolve(__dirname, '../src/pages/'),
                 '@reduxStore': path.resolve(__dirname, '../src/reduxStore/'),
+                '@utils': path.resolve(__dirname, '../src/utils/'),
+                '@constants': path.resolve(__dirname, '../src/constants/'),
                 // Support React Native Web
                 // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
                 'react-native': 'react-native-web',

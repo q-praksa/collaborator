@@ -15,6 +15,7 @@ import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import Layout from '@components/Layout';
 import NotFoundPage from '@pages/NotFoundPage';
 import AdminOverview from '@pages/AdminOverview';
+import People from '@pages/People';
 
 function App() {
     return (
@@ -78,12 +79,20 @@ function App() {
                             </PrivateRoute>
                         }
                     />
-                    <Route path="testsm" element={<TestSM />} />
-                    <Route path="testvs" element={<TestVS />} />
-                    <Route path="testbb" element={<TestBB />} />
-                    <Route path="testss" element={<TestSS />} />
-                    <Route path="timesheet" element={<Timesheet />} />
-                    <Route path="testmb" element={<TestMB />} />
+                    <Route
+                        path="/people"
+                        element={
+                            <ProtectedRoute>
+                                <People />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route path="/testsm" element={<TestSM />} />
+                    <Route path="/testvs" element={<TestVS />} />
+                    <Route path="/testbb" element={<TestBB />} />
+                    <Route path="/testss" element={<TestSS />} />
+                    <Route path="/timesheet" element={<Timesheet />} />
+                    <Route path="/testmb" element={<TestMB />} />
                     <Route
                         path="overview"
                         element={
