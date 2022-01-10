@@ -29,7 +29,13 @@
         "availability": "Dostupnost",
         "employees": "Zaposleni",
         "search": "Pretraga",
-        "available": "Dostupan"
+        "available": "Dostupan",
+        "Sensei": "Sensei",
+        "Front-End": "Front-End",
+        "Back-End": "Back-End",
+        "QA": "QA",
+        "DevOps": "DevOps",
+        "Full-Stack": "Full-Stack"
     },
     "days": {
         "mon": "Ponedeljak",

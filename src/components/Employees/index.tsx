@@ -8,20 +8,12 @@ import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { employeeExists, findFilters } from '@utils/employees';
+import { filters } from '@constants/employees';
 
 function Employees() {
     const { t } = useTranslation();
     const [searchParams, setSearchParams] = useSearchParams({});
     const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-    const filters = [
-        'Sensei',
-        'Front-End',
-        'Back-End',
-        'QA',
-        'DevOps',
-        'Full-Stack',
-        t('description.available'),
-    ];
 
     function searchFilterExists(searchParam: string): boolean {
         return selectedFilters.includes(searchParam);
@@ -114,10 +106,15 @@ function Employees() {
                 {filters.map((filterValue) => (
                     <button
                         key={filterValue}
-                        onClick={() => addFilter('filter[]', filterValue)}
+                        onClick={() =>
+                            addFilter(
+                                'filter[]',
+                                t(`description.${filterValue}`)
+                            )
+                        }
                         className={styles['search-button']}
                     >
-                        {filterValue}
+                        {t(`description.${filterValue}`)}
                     </button>
                 ))}
             </div>

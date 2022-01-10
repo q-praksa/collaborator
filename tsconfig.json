@@ -21,7 +21,8 @@
             "@localization/*": ["./src/localization/*"],
             "@pages/*": ["./src/pages/*"],
             "@reduxStore/*": ["./src/reduxStore/*"],
-            "@utils/*": ["./src/utils/*"]
+            "@utils/*": ["./src/utils/*"],
+            "@constants/*": ["./src/constants/*"]
         }
     },
     "include": ["src", "actions"],

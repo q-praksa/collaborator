@@ -29,7 +29,13 @@
         "availability": "Verfügbarkeit",
         "employees": "Angestellte",
         "search": "Suche",
-        "available": "verfügbar"
+        "available": "verfügbar",
+        "Sensei": "Sensei",
+        "Front-End": "Front-End",
+        "Back-End": "Back-End",
+        "QA": "QA",
+        "DevOps": "DevOps",
+        "Full-Stack": "Full-Stack"
     },
     "days": {
         "mon": "Montag",
