@@ -19,11 +19,8 @@ const TimesheetPg = () => {
             <h2 className={styles.header}>
                 {month} {year}
             </h2>
-            <button className={styles.plus}>
-                <FontAwesomeIcon
-                    icon={faPlus}
-                    onClick={() => dispatch(open())}
-                />
+            <button className={styles.plus} onClick={() => dispatch(open())}>
+                <FontAwesomeIcon icon={faPlus} />
             </button>
             <Calendar />
             <div>{modal ? <AddNewTimesheet /> : null}</div>
