@@ -16,8 +16,8 @@ import ErrorBoundary from '@components/ErrorBoundary';
 
 function App() {
     return (
-        <BrowserRouter>
-            <ErrorBoundary>
+        <ErrorBoundary>
+            <BrowserRouter>
                 <Routes>
                     <Route path="/header" element={<Header />} />
                     <Route path="/" element={<Home />} />
@@ -31,8 +31,8 @@ function App() {
                     <Route path="/testmb" element={<TestMB />} />
                     <Route path="/error" element={<ErrorPage />} />
                 </Routes>
-            </ErrorBoundary>
-        </BrowserRouter>
+            </BrowserRouter>
+        </ErrorBoundary>
     );
 }
 

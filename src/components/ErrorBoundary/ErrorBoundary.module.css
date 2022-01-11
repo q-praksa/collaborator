@@ -1,14 +1,18 @@
-body {
-    margin-top: 5%;
-}
-
 .error-message {
-    width: 90%;
+    width: 80%;
     height: 80%;
     background-color: var(--pink-soothing-color);
     display: flex;
     flex-direction: column;
+    text-align: center;
     color: var(--gray-color);
     margin: auto;
+    margin-top: 5%;
     padding: 25px;
+    border-radius: 10px;
+}
+
+.error-message-info {
+    font-size: 16px;
+    padding: 10px;
 }

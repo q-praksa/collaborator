@@ -2,7 +2,7 @@ import React, { ErrorInfo, ReactNode } from 'react';
 import styles from './ErrorBoundary.module.css';
 
 interface Props {
-    children?: ReactNode;
+    children: ReactNode;
 }
 
 interface State {
@@ -30,8 +30,10 @@ class ErrorBoundary extends React.Component<Props, State> {
                     <h1 data-testid="errorboundary">
                         Ups... something went wrong.
                     </h1>
-                    <p>Just kick back and relax</p>
-                    <p>Our elfs are working on it</p>
+                    <div className={styles['error-message-info']}>
+                        <p>Just kick back and relax</p>
+                        <p>Our elfs are working on it</p>
+                    </div>
                 </div>
             );
         }
