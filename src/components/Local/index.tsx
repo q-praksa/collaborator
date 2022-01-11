@@ -1,5 +1,4 @@
 import { Trans, useTranslation } from 'react-i18next';
-
 import styles from './index.module.css';
 
 const Local = () => {
@@ -11,15 +10,24 @@ const Local = () => {
 
     return (
         <div className={styles.local}>
-            <h1>Choose your language</h1>
-            <button onClick={() => changeLanguage('en')}>EU</button>
-            <button onClick={() => changeLanguage('de')}>DE</button>
-            <p>
-                <Trans i18nKey="description.part1">
-                    Translate this sentence.
-                </Trans>
-            </p>
-            <p>{t('description.part2')}</p>
+            <button
+                className={styles['lang-btn']}
+                onClick={() => changeLanguage('en')}
+            >
+                EN
+            </button>
+            <button
+                className={styles['lang-btn']}
+                onClick={() => changeLanguage('de')}
+            >
+                DE
+            </button>
+            <button
+                className={styles['lang-btn']}
+                onClick={() => changeLanguage('rs')}
+            >
+                SRB
+            </button>
         </div>
     );
 };

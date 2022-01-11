@@ -20,7 +20,9 @@
             "@components/*": ["./src/components/*"],
             "@localization/*": ["./src/localization/*"],
             "@pages/*": ["./src/pages/*"],
-            "@reduxStore/*": ["./src/reduxStore/*"]
+            "@reduxStore/*": ["./src/reduxStore/*"],
+            "@utils/*": ["./src/utils/*"],
+            "@constants/*": ["./src/constants/*"]
         }
     },
     "include": ["src", "actions"],

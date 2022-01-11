@@ -1,0 +1,27 @@
+.profile-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 258px;
+    height: 232px;
+    background-color: var(--dark-background-color);
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.profile-photo {
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    background-color: var(--background-color);
+    border: none;
+}
+
+.text-gray-color {
+    color: var(--text-dark-color);
+}
+
+.span {
+    color: white;
+}

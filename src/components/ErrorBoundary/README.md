@@ -24,3 +24,9 @@ return <Charts />;
 }
 
 export default TestMB;
+
+further reading:
+https://serverless-stack.com/chapters/setup-an-error-boundary-in-react.html
+
+and npm package for react-error-boundary
+https://www.npmjs.com/package/react-error-boundary

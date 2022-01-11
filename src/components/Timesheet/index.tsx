@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ChangeEvent } from 'react';
+import { useEffect, useState } from 'react';
 import { datesGenerator } from 'dates-generator';
 import {
     ICalendar,
@@ -7,6 +7,7 @@ import {
 } from '@components/Timesheet/types';
 import styles from './Timesheet.module.css';
 import { days } from '@components/Timesheet/data';
+import { useTranslation } from 'react-i18next';
 
 const Timesheet = () => {
     //Default selected date is present day
@@ -24,6 +25,7 @@ const Timesheet = () => {
     });
 
     const [timeTracked, setTimeTracked] = useState<number>();
+    const { t } = useTranslation();
 
     useEffect(() => {
         const timesheetBody = {
@@ -49,10 +51,6 @@ const Timesheet = () => {
         });
     }, []);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setTimeTracked(() => parseInt(e.target.value));
-    };
-
     return (
         <div className={styles.timesheet}>
             <table className={styles.table}>
@@ -60,7 +58,9 @@ const Timesheet = () => {
                     <tr>
                         {days.map((day) => (
                             <td key={day}>
-                                <div className={styles.days}>{day}</div>
+                                <div className={styles.days}>
+                                    {t(`days.${day}`)}
+                                </div>
                             </td>
                         ))}
                     </tr>

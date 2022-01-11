@@ -1,11 +1,8 @@
 import Profile from '@components/Profile';
+import Employees from '@components/Employees';
 
 function TestSS() {
-    return (
-        <div>
-            <Profile />
-        </div>
-    );
+    return <Employees />;
 }
 
 export default TestSS;

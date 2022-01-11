@@ -1,14 +1,13 @@
-@import url('../../theme.module.css');
-
 .main-div {
     width: 90%;
-    height: 80%;
+    height: 90%;
     background-color: var(--dark-background-color);
     padding: 50px;
-    color: white;
+    color: var(--text-primary-color);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 20px auto;
 }
 
 .profile-data {
@@ -26,6 +25,17 @@
     width: 320px;
     height: 24px;
     background-color: var(--dark-background-color);
+    color: white;
+    padding-left: 5px;
+}
+
+.input:hover {
+    border-bottom: 3px solid var(--border-color);
+}
+
+.input:focus {
+    outline: none;
+    border-bottom: 3px solid var(--border-color);
 }
 
 .profile-img-skills {
@@ -41,7 +51,7 @@
     height: 250px;
     border: 1px solid var(--border-color);
     align-self: flex-end;
-    background-color: white;
+    background-color: var(--light-background-color);
     border-radius: 10px;
 }
 

@@ -1,11 +1,9 @@
-import React from 'react';
 import ProjectCard from '@components/ProjectCard';
-import Timesheet from '@components/Timesheet';
 import { ProjectStatus } from '@components/ProjectCard/types';
 
 function TestBB() {
     return (
-        <div>
+        <div style={{ height: '100vh' }}>
             <ProjectCard
                 status={ProjectStatus.inactive}
                 client={'Colaborator'}
