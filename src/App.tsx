@@ -12,23 +12,26 @@ import Header from '@components/Header/Header';
 import LoginPage from '@pages/LoginPage';
 import Timesheet from '@pages/Timesheet';
 import ErrorPage from '@pages/ErrorPage';
+import ErrorBoundary from '@components/ErrorBoundary';
 
 function App() {
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path="/header" element={<Header />} />
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/testsm" element={<TestSM />} />
-                <Route path="/testvs" element={<TestVS />} />
-                <Route path="/testbb" element={<TestBB />} />
-                <Route path="/testss" element={<TestSS />} />
-                <Route path="/timesheet" element={<Timesheet />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/testmb" element={<TestMB />} />
-                <Route path="/error" element={<ErrorPage />} />
-            </Routes>
+            <ErrorBoundary>
+                <Routes>
+                    <Route path="/header" element={<Header />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/testsm" element={<TestSM />} />
+                    <Route path="/testvs" element={<TestVS />} />
+                    <Route path="/testbb" element={<TestBB />} />
+                    <Route path="/testss" element={<TestSS />} />
+                    <Route path="/timesheet" element={<Timesheet />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/testmb" element={<TestMB />} />
+                    <Route path="/error" element={<ErrorPage />} />
+                </Routes>
+            </ErrorBoundary>
         </BrowserRouter>
     );
 }
