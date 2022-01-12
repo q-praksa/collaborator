@@ -7,13 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import AddNewTimesheet from '@components/modals/AddNewTimeSheet/AddNewTimesheet';
 import { useTranslation } from 'react-i18next';
+import { modalTypes } from '@reduxStore/actions/modalTypes';
 
 const month = new Date().toLocaleString('default', { month: 'long' });
 const year = new Date().getFullYear();
 
 const TimesheetPg = () => {
     const dispatch = useDispatch();
-    const modal = useSelector((state: RootState) => state.modal.show);
+    const modal = useSelector(
+        (state: RootState) => state.modal.type[modalTypes.addNewTimesheetItem]
+    );
 
     const { t } = useTranslation();
     return (
@@ -21,7 +24,10 @@ const TimesheetPg = () => {
             <h2 className={styles.header}>
                 {t(`months.${month}`)} {year}
             </h2>
-            <button className={styles.plus} onClick={() => dispatch(open())}>
+            <button
+                className={styles.plus}
+                onClick={() => dispatch(open(modalTypes.addNewTimesheetItem))}
+            >
                 <FontAwesomeIcon icon={faPlus} />
             </button>
             <Calendar />

@@ -4,6 +4,7 @@ import styles from './AddNewTimeSheet.module.css';
 import { useDispatch } from 'react-redux';
 import { close } from '@reduxStore/actions/modal';
 import { useTranslation } from 'react-i18next';
+import { modalTypes } from '@reduxStore/actions/modalTypes';
 
 const AddNewTimesheet = () => {
     const { t } = useTranslation();
@@ -54,7 +55,9 @@ const AddNewTimesheet = () => {
                 <footer className={styles.modal_time_footer}>
                     <button
                         className={styles.modal_time_discard}
-                        onClick={() => dispatch(close())}
+                        onClick={() =>
+                            dispatch(close(modalTypes.addNewTimesheetItem))
+                        }
                     >
                         {t('description.discard')}
                     </button>

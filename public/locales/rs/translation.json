@@ -50,7 +50,11 @@
         "projects": "Projekti",
         "stats": "Statistika",
         "clients": "Klijenti",
-        "busy": "Zauzet"
+        "busy": "Zauzet",
+        "region": "Region",
+        "addAClient": "Dodaj Klijenta",
+        "companyName": "Naziv Kompanije",
+        "ceoFullname": "Puno ime CEO-a"
     },
     "days": {
         "mon": "Ponedeljak",

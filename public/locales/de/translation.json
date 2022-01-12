@@ -50,7 +50,11 @@
         "projects": "Projekten",
         "stats": "Statistik",
         "clients": "Kunden",
-        "busy": "Beschäftigt"
+        "busy": "Beschäftigt",
+        "region": "Region",
+        "addAClient": "Einen Kunden hinzufügen",
+        "companyName": "Name der Firma",
+        "ceoFullname": "CEO Vollständiger Name"
     },
     "days": {
         "mon": "Montag",

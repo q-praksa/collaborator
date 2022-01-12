@@ -1,10 +1,10 @@
 import counterReducer from '@reduxStore/reducers/counterReducer';
-import modalReducer from '@reduxStore/reducers/modalReducer';
 import { combineReducers } from 'redux';
+import modalReducer from '@reduxStore/reducers/modalReducer';
 
 const allReducers = combineReducers({
-    count: counterReducer,
     modal: modalReducer,
+    count: counterReducer,
 });
 
 export default allReducers;

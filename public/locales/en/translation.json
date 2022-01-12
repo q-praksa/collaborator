@@ -50,7 +50,11 @@
         "projects": "Projects",
         "stats": "Stats",
         "clients": "Clients",
-        "busy": "Busy"
+        "busy": "Busy",
+        "region": "Region",
+        "addAClient": "Add A Client",
+        "companyName": "Company Name",
+        "ceoFullname": "CEO's Fullname"
     },
     "days": {
         "mon": "Monday",

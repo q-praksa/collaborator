@@ -4,10 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@reduxStore/reducers';
 import { open } from '@reduxStore/actions/modal';
 import { useTranslation } from 'react-i18next';
+import { modalTypes } from '@reduxStore/actions/modalTypes';
 
 function Profile() {
     const dispatch = useDispatch();
-    const modal = useSelector((state: RootState) => state.modal.show);
+    const modal = useSelector(
+        (state: RootState) => state.modal.type[modalTypes.addNewSkill]
+    );
     const { t } = useTranslation();
 
     return (
@@ -40,7 +43,9 @@ function Profile() {
                     <div className={styles['label-add-role-btn-wrapper']}>
                         <label>{t('description.skills')}</label>
                         <button
-                            onClick={() => dispatch(open())}
+                            onClick={() =>
+                                dispatch(open(modalTypes.addNewSkill))
+                            }
                             className={styles['add-role-btn']}
                         >
                             +
