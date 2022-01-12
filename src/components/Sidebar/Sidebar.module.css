@@ -6,6 +6,7 @@
     align-items: center;
     padding-top: 33px;
     padding-bottom: 50px; /* random */
+    flex-shrink: 0;
 }
 
 .sidebar-img {

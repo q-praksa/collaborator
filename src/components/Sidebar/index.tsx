@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 
 const Sidebar = () => {
     const { t } = useTranslation();
-
     return (
         <aside className={styles.sidebar}>
             <div className={styles['sidebar-img']}>

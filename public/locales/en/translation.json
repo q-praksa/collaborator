@@ -50,7 +50,12 @@
         "projects": "Projects",
         "stats": "Stats",
         "clients": "Clients",
-        "busy": "Busy"
+        "busy": "Busy",
+        "fixed-price": "fixed price",
+        "dedicated": "dedicated",
+        "active": "active",
+        "inactive": "inactive",
+        "cancelled": "cancelled"
     },
     "days": {
         "mon": "Monday",

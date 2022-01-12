@@ -17,6 +17,7 @@
 .row {
     height: 160px;
     width: 100%;
+    cursor: pointer;
 }
 
 .cell {
