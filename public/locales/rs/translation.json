@@ -54,7 +54,12 @@
         "region": "Region",
         "addAClient": "Dodaj Klijenta",
         "companyName": "Naziv Kompanije",
-        "ceoFullname": "Puno ime CEO-a"
+        "ceoFullname": "Puno ime CEO-a",
+        "fixed-price": "fiksna cena",
+        "dedicated": "posvecen",
+        "active": "aktivan",
+        "inactive": "neaktivan",
+        "cancelled": "otkazan"
     },
     "days": {
         "mon": "Ponedeljak",

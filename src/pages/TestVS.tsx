@@ -1,18 +1,10 @@
+import Layout from '@components/Layout';
+import ProjectsPage from '@components/ProjectsPage';
+import Employees from '@components/Employees';
+import Charts from '@components/Charts';
+
 function TestVS() {
-    return (
-        <div style={{ height: '100vh' }}>
-            <h1>Just a children thest dyjhdrsthsdrtfh</h1>
-            <p>hello there</p>
-            <h3>rhthsrty</h3>
-            <h1>try</h1>
-            <h1>try</h1>
-            <h1>try</h1>
-            <h1>try</h1>
-            <h1>try</h1>
-            <h1>try</h1>
-            <h1>tyukyuil</h1>
-        </div>
-    );
+    return <ProjectsPage />;
 }
 
 export default TestVS;

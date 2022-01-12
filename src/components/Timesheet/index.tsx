@@ -7,9 +7,12 @@ import {
 } from '@components/Timesheet/types';
 import styles from './Timesheet.module.css';
 import { days } from '@components/Timesheet/data';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Timesheet = () => {
+    const navigate = useNavigate();
+
     //Default selected date is present day
     const [selectedDate, setSelectedDate] = useState(new Date());
     //Dates holds the array with the all dates for the given month
@@ -75,6 +78,16 @@ const Timesheet = () => {
                             >
                                 {week.map((day: TimesheetDate) => (
                                     <td
+                                        onClick={() =>
+                                            navigate(
+                                                '/timesheet/' +
+                                                    day.date +
+                                                    '/' +
+                                                    (Number(day.month) + 1) +
+                                                    '/' +
+                                                    calendar.year
+                                            )
+                                        }
                                         className={
                                             day.month.toString() ==
                                             calendar.month.toString()

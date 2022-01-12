@@ -54,7 +54,12 @@
         "region": "Region",
         "addAClient": "Einen Kunden hinzufügen",
         "companyName": "Name der Firma",
-        "ceoFullname": "CEO Vollständiger Name"
+        "ceoFullname": "CEO Vollständiger Name",
+        "fixed-price": "Festpreis",
+        "dedicated": "Gewidmet",
+        "active": "Aktiv",
+        "inactive": "Inaktiv",
+        "cancelled": "Storniert"
     },
     "days": {
         "mon": "Montag",
