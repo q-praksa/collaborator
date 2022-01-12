@@ -6,8 +6,7 @@
     flex-direction: column;
     text-align: center;
     color: var(--gray-color);
-    margin: auto;
-    margin-top: 5%;
+    margin: 5% auto;
     padding: 25px;
     border-radius: 10px;
 }
