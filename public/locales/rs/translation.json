@@ -50,7 +50,12 @@
         "projects": "Projekti",
         "stats": "Statistika",
         "clients": "Klijenti",
-        "busy": "Zauzet"
+        "busy": "Zauzet",
+        "fixed-price": "fiksna cena",
+        "dedicated": "posvecen",
+        "active": "aktivan",
+        "inactive": "neaktivan",
+        "cancelled": "otkazan"
     },
     "days": {
         "mon": "Ponedeljak",

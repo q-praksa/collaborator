@@ -9,6 +9,7 @@ import TestMB from '@pages/TestMB';
 import Header from '@components/Header/Header';
 import LoginPage from '@pages/LoginPage';
 import Timesheet from '@pages/Timesheet';
+import TimesheetDetails from '@components/TimesheetDetails';
 import Test from '@components/PrivateRoute/Test';
 import PrivateRoute from '@components/PrivateRoute/PrivateRoute';
 import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
@@ -17,6 +18,7 @@ import NotFoundPage from '@pages/NotFoundPage';
 import AdminOverview from '@pages/AdminOverview';
 import People from '@pages/People';
 import Profile from '@pages/Profile';
+import Projects from '@pages/Projects';
 import ErrorPage from '@pages/ErrorPage';
 import ErrorBoundary from '@components/ErrorBoundary';
 
@@ -99,11 +101,23 @@ function App() {
                                 </ProtectedRoute>
                             }
                         />
+                        <Route
+                            path="/projects"
+                            element={
+                                <ProtectedRoute>
+                                    <Projects />
+                                </ProtectedRoute>
+                            }
+                        />
                         <Route path="/testsm" element={<TestSM />} />
                         <Route path="/testvs" element={<TestVS />} />
                         <Route path="/testbb" element={<TestBB />} />
                         <Route path="/testss" element={<TestSS />} />
                         <Route path="/timesheet" element={<Timesheet />} />
+                        <Route
+                            path="/timesheet/:day/:month/:year"
+                            element={<TimesheetDetails />}
+                        />
                         <Route path="/testmb" element={<TestMB />} />
                         <Route path="/error" element={<ErrorPage />} />
                         <Route
