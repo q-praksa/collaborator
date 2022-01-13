@@ -1,70 +1,98 @@
 .modal_container {
-    top: 100px;
-}
-
-.modal {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.header {
+    height: 500px;
+    width: 440px;
+    background-color: var(--dark-background-color);
+    position: fixed;
+    justify-content: space-between;
+    z-index: 7;
+    top: 50%;
+    left: 50%;
+    border-radius: 6px;
+    transform: translateY(-50%) translateX(-50%);
+    padding: 30px;
+    color: var(--text-primary-color);
+    gap: 30px;
 }
 
-.title {
+.modal_title {
+    font-size: 1.675rem;
+    font-weight: 700;
+    line-height: 1.35;
 }
 
 .modal_body {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.input_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .label {
+    font-size: 16px;
 }
 
-.input {
-}
-
+.input,
 .select {
+    border: none;
+    width: 250px;
+    height: 28px;
+    background-color: var(--page-background-color);
+    border-radius: 5px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary-color);
+    padding-left: 5px;
+    font-size: 16px;
 }
 
-.footer {
-    padding-bottom: 0;
+.input:focus {
+    border: none;
+    outline: none;
+    border-bottom: 3px solid var(--border-color);
+}
+
+.input:hover {
+    border-bottom: 3px solid var(--border-color);
+}
+
+.modal_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
 }
 
 .btn {
+    cursor: pointer;
+    border-radius: 6px;
+    width: 120px;
+    height: 30px;
+    outline: none;
+    border: none;
+    color: var(--text-primary-color);
+    font-size: 18px;
+    font-weight: 700;
+    min-width: fit-content;
+    text-transform: uppercase;
 }
 
 .add_btn {
-    cursor: pointer;
-    border-radius: 10px;
-    margin-top: 50px;
-    font-size: 32px;
-    position: relative;
-    float: right;
-    height: 46px;
-    min-width: 164px;
-    max-width: fit-content;
-    margin-right: 15px;
-    background-color: #00f2c3;
-    color: var(--text-primary-color);
-    text-transform: uppercase;
-    font-weight: bold;
+    background-color: var(--green-color);
 }
 
 .discard_btn {
-    cursor: pointer;
-    border-radius: 10px;
-    margin-top: 50px;
-    font-size: 32px;
-    position: relative;
-    float: right;
-    margin-right: 20px;
-    height: 46px;
-    min-width: 164px;
-    max-width: fit-content;
     background-color: var(--alarm-color);
-    color: var(--text-primary-color);
-    text-transform: uppercase;
-    font-weight: bold;
+}
+
+.btn:hover {
+    opacity: 0.7;
+    border: 2px solid var(--text-primary-color);
 }

@@ -17,13 +17,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { open } from '@reduxStore/actions/modal';
 import { RootState } from '@reduxStore/reducers';
 import AddNewEmployee from '@components/modals/AddNewEmployee';
+import { modalTypes } from '@reduxStore/actions/modalTypes';
 
 function Employees() {
     const { t } = useTranslation();
     const [searchParams, setSearchParams] = useSearchParams({});
     const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
     const dispatch = useDispatch();
-    const modal = useSelector((state: RootState) => state.modal.show);
+    const modal = useSelector(
+        (state: RootState) => state.modal.type[modalTypes.addNewEmployee]
+    );
 
     function searchFilterExists(searchParam: string): boolean {
         return selectedFilters.includes(searchParam);
@@ -113,7 +116,7 @@ function Employees() {
                 </div>
                 <button
                     className={styles['plus-btn']}
-                    onClick={() => dispatch(open())}
+                    onClick={() => dispatch(open(modalTypes.addNewEmployee))}
                 >
                     <FontAwesomeIcon
                         icon={faPlus}

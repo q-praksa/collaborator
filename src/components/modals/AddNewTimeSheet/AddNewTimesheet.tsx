@@ -17,13 +17,13 @@ const AddNewTimesheet = () => {
                 </header>
                 <section className={styles.mid}>
                     <label className={styles.dateLabel}>
-                        {t('description.date')}
+                        {t('description.date')}:
                     </label>
                     <select className={styles.date}>
                         <option value="date">03/01/2022</option>
                     </select>
                     <label className={styles.clientLabel}>
-                        {t('description.client')}
+                        {t('description.client')}:
                     </label>
                     <select className={styles.client}>
                         <option value="client">
@@ -31,7 +31,7 @@ const AddNewTimesheet = () => {
                         </option>
                     </select>
                     <label className={styles.projectLabel}>
-                        {t('description.project')}
+                        {t('description.project')}:
                     </label>
                     <select className={styles.project}>
                         <option value="project">
