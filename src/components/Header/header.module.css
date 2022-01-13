@@ -43,6 +43,6 @@
 .open {
     transform: rotate(180deg);
     font-size: 28px;
-    transition: transform 1s linear;
+    transition: transform .3s linear;
     color: var(--text-primary-color);
 }
