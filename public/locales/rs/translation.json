@@ -55,7 +55,10 @@
         "dedicated": "posvecen",
         "active": "aktivan",
         "inactive": "neaktivan",
-        "cancelled": "otkazan"
+        "cancelled": "otkazan",
+        "addEmployee": "Dodaj zaposlenog",
+        "jobTitle": "Pozicija",
+        "selectJobTitle": "Izaberi poziciju"
     },
     "days": {
         "mon": "Ponedeljak",

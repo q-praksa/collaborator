@@ -55,7 +55,10 @@
         "dedicated": "Gewidmet",
         "active": "Aktiv",
         "inactive": "Inaktiv",
-        "cancelled": "Storniert"
+        "cancelled": "Storniert",
+        "addEmployee": "Fügen Sie eine Angestellte hinzu",
+        "jobTitle": "Berufsbezeichnung",
+        "selectJobTitle": "Wählen Sie eine Berufsbezeichnung"
     },
     "days": {
         "mon": "Montag",

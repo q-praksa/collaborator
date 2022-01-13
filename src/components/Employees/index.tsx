@@ -3,17 +3,27 @@ import employees from '@components/Employees/employeesData';
 import EmployeeItem from '@components/EmployeeItem';
 import { IEmployeeItem } from '@components/EmployeeItem/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import {
+    faSearch,
+    faTimesCircle,
+    faPlus,
+} from '@fortawesome/free-solid-svg-icons';
 import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { employeeExists, findFilters } from '@utils/employees';
 import { filters } from '@constants/employees';
+import { useDispatch, useSelector } from 'react-redux';
+import { open } from '@reduxStore/actions/modal';
+import { RootState } from '@reduxStore/reducers';
+import AddNewEmployee from '@components/modals/AddNewEmployee';
 
 function Employees() {
     const { t } = useTranslation();
     const [searchParams, setSearchParams] = useSearchParams({});
     const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+    const dispatch = useDispatch();
+    const modal = useSelector((state: RootState) => state.modal.show);
 
     function searchFilterExists(searchParam: string): boolean {
         return selectedFilters.includes(searchParam);
@@ -101,6 +111,15 @@ function Employees() {
                         className={styles['icon']}
                     />
                 </div>
+                <button
+                    className={styles['plus-btn']}
+                    onClick={() => dispatch(open())}
+                >
+                    <FontAwesomeIcon
+                        icon={faPlus}
+                        className={styles['plus-icon']}
+                    />
+                </button>
             </div>
             <div className={styles['search-labels-wrapper']}>
                 {filters.map((filterValue) => (
@@ -160,6 +179,8 @@ function Employees() {
                         />
                     ))}
             </div>
+
+            <div>{modal ? <AddNewEmployee /> : null}</div>
         </div>
     );
 }
