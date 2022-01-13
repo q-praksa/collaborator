@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { close } from '@reduxStore/actions/modal';
 import styles from './AddNewSkill.module.css';
 import { useTranslation } from 'react-i18next';
+import { modalTypes } from '@reduxStore/actions/modalTypes';
 
 const Modal = () => {
     const { t } = useTranslation();
@@ -19,7 +20,7 @@ const Modal = () => {
                 <footer className={styles.modal_footer}>
                     <button
                         className={styles.modal_discard}
-                        onClick={() => dispatch(close())}
+                        onClick={() => dispatch(close(modalTypes.addNewSkill))}
                     >
                         {t('description.discard')}
                     </button>

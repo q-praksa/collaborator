@@ -1,23 +1,38 @@
 import { Action } from 'redux';
 import actionTypes from '@reduxStore/actions/actionTypes';
+import { modalTypes } from '@reduxStore/actions/modalTypes';
 
 const initialState = {
-    type: null,
-    show: false,
+    type: {
+        addNewClient: false,
+        addNewTimesheetItem: false,
+        addNewSkill: false,
+    },
 };
 
-const modalReducer = (state = initialState, action: Action) => {
+const modalReducer = (
+    state = initialState,
+    action: Action & { payload: { type: modalTypes } }
+) => {
     switch (action.type) {
-        case actionTypes.OPEN_MODAL:
+        case actionTypes.OPEN_MODAL: {
             return {
                 ...state,
-                show: true,
+                type: {
+                    ...state.type,
+                    [action.payload.type]: true,
+                },
             };
-        case actionTypes.CLOSE_MODAL:
+        }
+        case actionTypes.CLOSE_MODAL: {
             return {
                 ...state,
-                show: false,
+                type: {
+                    ...state.type,
+                    [action.payload.type]: false,
+                },
             };
+        }
         default:
             return state;
     }
