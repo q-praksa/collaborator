@@ -33,6 +33,7 @@
     border-radius: 25px;
 }
 .faCaretDown {
+    cursor: pointer;
     font-size: 28px;
     color: var(--text-primary-color);
 }

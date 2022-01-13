@@ -25,7 +25,9 @@ const Header: React.FC = () => {
             <Local />
             <div className={styles.headerRight}>
                 <div className={styles.circleDiv}>
-                    {openMenu ? <DropdownMenu /> : null}
+                    {openMenu ? (
+                        <DropdownMenu setOpenMenu={setOpenMenu} />
+                    ) : null}
                 </div>
                 <FontAwesomeIcon
                     className={styles.faCaretDown}

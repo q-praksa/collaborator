@@ -4,7 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faIdCard, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router';
 
-const DropdownMenu = () => {
+type Props = {
+    setOpenMenu: (openMenu: boolean) => void;
+};
+
+const DropdownMenu: React.FC<Props> = ({ setOpenMenu }) => {
     const navigate = useNavigate();
 
     const logout = () => {
@@ -18,7 +22,7 @@ const DropdownMenu = () => {
     };
 
     return (
-        <section className={styles.dropdown}>
+        <section className={styles.dropdown} onClick={() => setOpenMenu(false)}>
             <div>
                 <div className={styles.flex}>
                     <div className={styles.profile} onClick={profile}>
