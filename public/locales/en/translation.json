@@ -59,7 +59,8 @@
         "dedicated": "dedicated",
         "active": "active",
         "inactive": "inactive",
-        "cancelled": "cancelled"
+        "cancelled": "cancelled",
+        "logout": "logout"
     },
     "days": {
         "mon": "Monday",

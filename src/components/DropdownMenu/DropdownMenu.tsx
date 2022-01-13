@@ -3,6 +3,7 @@ import styles from './DropdownMenu.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faIdCard, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
     setOpenMenu: (openMenu: boolean) => void;
@@ -10,6 +11,7 @@ type Props = {
 
 const DropdownMenu: React.FC<Props> = ({ setOpenMenu }) => {
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     const logout = () => {
         localStorage.removeItem('isLogged');
@@ -27,11 +29,11 @@ const DropdownMenu: React.FC<Props> = ({ setOpenMenu }) => {
                 <div className={styles.flex}>
                     <div className={styles.profile} onClick={profile}>
                         <FontAwesomeIcon icon={faIdCard} />
-                        Profile
+                        {t('description.profile')}
                     </div>
                     <div className={styles.logout} onClick={logout}>
                         <FontAwesomeIcon icon={faSignOutAlt} />
-                        Logout
+                        {t('description.logout')}
                     </div>
                 </div>
             </div>

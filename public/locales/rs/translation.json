@@ -59,7 +59,8 @@
         "dedicated": "posvecen",
         "active": "aktivan",
         "inactive": "neaktivan",
-        "cancelled": "otkazan"
+        "cancelled": "otkazan",
+        "logout": "izloguj se"
     },
     "days": {
         "mon": "Ponedeljak",

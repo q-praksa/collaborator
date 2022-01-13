@@ -59,7 +59,8 @@
         "dedicated": "Gewidmet",
         "active": "Aktiv",
         "inactive": "Inaktiv",
-        "cancelled": "Storniert"
+        "cancelled": "Storniert",
+        "logout": "abmelden"
     },
     "days": {
         "mon": "Montag",
