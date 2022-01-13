@@ -19,115 +19,120 @@ import AdminOverview from '@pages/AdminOverview';
 import People from '@pages/People';
 import Profile from '@pages/Profile';
 import Projects from '@pages/Projects';
+import ErrorPage from '@pages/ErrorPage';
+import ErrorBoundary from '@components/ErrorBoundary';
 
 function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/" element={<Layout />}>
-                    <Route
-                        path="header"
-                        element={
-                            <ProtectedRoute>
-                                <Header />
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="header"
-                        element={
-                            <PrivateRoute>
-                                <Header />
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path="/"
-                        element={
-                            <ProtectedRoute>
-                                <Home />
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="/"
-                        element={
-                            <PrivateRoute>
-                                <Home />
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path="about"
-                        element={
-                            <ProtectedRoute>
-                                <About />
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="about"
-                        element={
-                            <PrivateRoute>
-                                <About />
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path="test1"
-                        element={
-                            <PrivateRoute>
-                                <Test />
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path="/people"
-                        element={
-                            <ProtectedRoute>
-                                <People />
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="/profile"
-                        element={
-                            <ProtectedRoute>
-                                <Profile />
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="/projects"
-                        element={
-                            <ProtectedRoute>
-                                <Projects />
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route path="/testsm" element={<TestSM />} />
-                    <Route path="/testvs" element={<TestVS />} />
-                    <Route path="/testbb" element={<TestBB />} />
-                    <Route path="/testss" element={<TestSS />} />
-                    <Route path="/timesheet" element={<Timesheet />} />
-                    <Route
-                        path="/timesheet/:day/:month/:year"
-                        element={<TimesheetDetails />}
-                    />
-                    <Route path="/testmb" element={<TestMB />} />
-                    <Route
-                        path="overview"
-                        element={
-                            <PrivateRoute>
-                                <AdminOverview />
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route path="*" element={<NotFoundPage />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
+        <ErrorBoundary>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/" element={<Layout />}>
+                        <Route
+                            path="header"
+                            element={
+                                <ProtectedRoute>
+                                    <Header />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="header"
+                            element={
+                                <PrivateRoute>
+                                    <Header />
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path="/"
+                            element={
+                                <ProtectedRoute>
+                                    <Home />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/"
+                            element={
+                                <PrivateRoute>
+                                    <Home />
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path="about"
+                            element={
+                                <ProtectedRoute>
+                                    <About />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="about"
+                            element={
+                                <PrivateRoute>
+                                    <About />
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path="test1"
+                            element={
+                                <PrivateRoute>
+                                    <Test />
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path="/people"
+                            element={
+                                <ProtectedRoute>
+                                    <People />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/profile"
+                            element={
+                                <ProtectedRoute>
+                                    <Profile />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/projects"
+                            element={
+                                <ProtectedRoute>
+                                    <Projects />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route path="/testsm" element={<TestSM />} />
+                        <Route path="/testvs" element={<TestVS />} />
+                        <Route path="/testbb" element={<TestBB />} />
+                        <Route path="/testss" element={<TestSS />} />
+                        <Route path="/timesheet" element={<Timesheet />} />
+                        <Route
+                            path="/timesheet/:day/:month/:year"
+                            element={<TimesheetDetails />}
+                        />
+                        <Route path="/testmb" element={<TestMB />} />
+                        <Route path="/error" element={<ErrorPage />} />
+                        <Route
+                            path="overview"
+                            element={
+                                <PrivateRoute>
+                                    <AdminOverview />
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route path="*" element={<NotFoundPage />} />
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+        </ErrorBoundary>
     );
 }
 
