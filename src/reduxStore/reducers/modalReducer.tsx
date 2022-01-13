@@ -7,6 +7,7 @@ const initialState = {
         addNewClient: false,
         addNewTimesheetItem: false,
         addNewSkill: false,
+        addNewEmployee: false,
     },
 };
 

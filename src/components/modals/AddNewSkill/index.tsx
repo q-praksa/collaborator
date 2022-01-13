@@ -13,7 +13,7 @@ const Modal = () => {
             <div className={styles.modal}>
                 <header className={styles.modal_header}>
                     <h2 className={styles.title}>
-                        {t('description.addSkill')}
+                        {t('description.addSkill')}:
                     </h2>
                 </header>
                 <input type="text" className={styles.inputModal} />
