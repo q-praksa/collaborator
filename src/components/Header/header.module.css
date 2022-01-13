@@ -33,7 +33,16 @@
     border-radius: 25px;
 }
 .faCaretDown {
+    transform: rotate(0deg);
+    transition: transform 1s linear;
     cursor: pointer;
     font-size: 28px;
+    color: var(--text-primary-color);
+}
+
+.open {
+    transform: rotate(180deg);
+    font-size: 28px;
+    transition: transform 1s linear;
     color: var(--text-primary-color);
 }

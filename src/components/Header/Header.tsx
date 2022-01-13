@@ -30,7 +30,7 @@ const Header: React.FC = () => {
                     ) : null}
                 </div>
                 <FontAwesomeIcon
-                    className={styles.faCaretDown}
+                    className={openMenu ? styles.open : styles.faCaretDown}
                     icon={faCaretDown}
                     onClick={() => setOpenMenu(!openMenu)}
                 />

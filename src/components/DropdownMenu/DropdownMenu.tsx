@@ -28,11 +28,17 @@ const DropdownMenu: React.FC<Props> = ({ setOpenMenu }) => {
             <div>
                 <div className={styles.flex}>
                     <div className={styles.profile} onClick={profile}>
-                        <FontAwesomeIcon icon={faIdCard} />
+                        <FontAwesomeIcon
+                            className={styles.icon}
+                            icon={faIdCard}
+                        />
                         {t('description.profile')}
                     </div>
                     <div className={styles.logout} onClick={logout}>
-                        <FontAwesomeIcon icon={faSignOutAlt} />
+                        <FontAwesomeIcon
+                            className={styles.icon}
+                            icon={faSignOutAlt}
+                        />
                         {t('description.logout')}
                     </div>
                 </div>
