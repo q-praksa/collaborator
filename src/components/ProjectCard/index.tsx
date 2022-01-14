@@ -26,19 +26,22 @@ function ProjectCard({
                     <div className={styles.left}>
                         <p className={styles.paragraph}>
                             <span className={styles.pale}>
-                                {t('description.client')}{' '}
+                                {t('description.client')}
+                                {': '}
                             </span>
                             {client}
                         </p>
                         <p className={styles.paragraph}>
                             <span className={styles.pale}>
-                                {t('description.projectLead')}{' '}
+                                {t('description.projectLead')}
+                                {': '}
                             </span>
                             {lead}
                         </p>
                         <p className={styles.paragraph}>
                             <span className={styles.pale}>
-                                {t('description.projectManager')}{' '}
+                                {t('description.projectManager')}
+                                {': '}
                             </span>
                             {manager}
                         </p>
@@ -46,19 +49,22 @@ function ProjectCard({
                     <div className={styles.right}>
                         <p className={styles.paragraph}>
                             <span className={styles.pale}>
-                                {t('description.teamType')}{' '}
+                                {t('description.teamType')}
+                                {': '}
                             </span>
                             {teamType}
                         </p>
                         <p className={styles.paragraph}>
                             <span className={styles.pale}>
-                                {t('description.startDate')}{' '}
+                                {t('description.startDate')}
+                                {': '}
                             </span>
                             {startDate}
                         </p>
                         <p className={styles.paragraph}>
                             <span className={styles.pale}>
-                                {t('description.endDate')}{' '}
+                                {t('description.endDate')}
+                                {': '}
                             </span>
                             {endDate}
                         </p>

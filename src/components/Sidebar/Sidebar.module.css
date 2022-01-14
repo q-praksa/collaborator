@@ -50,12 +50,12 @@
     padding: 17px 3px;
 }
 
-.active {
-    border-width: 3px;
+.sidebar-fields .selected li {
+    border: 3px solid var(--text-secondary-color);
 }
 
-.unavailable {
-    color: var(--text-dark-color);
+.sidebar-fields li:hover {
+    text-shadow: 0 0 10px;
 }
 
 .icon-container {
@@ -67,6 +67,20 @@
 
 .icon {
     font-size: 25px;
+}
+
+.link-style-white {
+    text-decoration: none;
+    color: var(--text-primary-color);
+}
+
+.link-style-grey {
+    text-decoration: none;
+    color: var(--text-dark-color);
+}
+
+.hidden {
+    display: none;
 }
 
 @media only screen and (min-width: 400px) {

@@ -122,7 +122,7 @@ function App() {
                         <Route path="/testmb" element={<TestMB />} />
                         <Route path="/error" element={<ErrorPage />} />
                         <Route
-                            path="overview"
+                            path="/admin-overview"
                             element={
                                 <PrivateRoute>
                                     <AdminOverview />

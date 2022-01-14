@@ -169,7 +169,7 @@
     min-width: 164px;
     max-width: fit-content;
     margin-right: 15px;
-    background-color: #00f2c3;
+    background-color: var(--green-color);
     color: var(--text-primary-color);
     text-transform: uppercase;
     font-weight: bold;

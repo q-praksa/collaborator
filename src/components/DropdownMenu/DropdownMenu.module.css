@@ -1,0 +1,38 @@
+.dropdown {
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    margin-left: -50px;
+    background-color: var(--dark-background-color);
+    max-width: 150px;
+    max-height: 100px;
+    min-width: 150px;
+    min-height: 100px;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.flex {
+    color: var(--pink-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profile {
+    cursor: pointer;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.logout {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+}
