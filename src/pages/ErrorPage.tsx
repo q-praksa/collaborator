@@ -1,4 +1,5 @@
 import ErrorBoundary from '@components/ErrorBoundary';
+
 function ErrorComponent(): React.ReactElement {
     throw new Error('some error');
 }

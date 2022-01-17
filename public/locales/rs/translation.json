@@ -63,7 +63,8 @@
         "logout": "izloguj se",
         "addEmployee": "Dodaj zaposlenog",
         "jobTitle": "Pozicija",
-        "selectJobTitle": "Izaberi poziciju"
+        "selectJobTitle": "Izaberi poziciju",
+        "frontEndDevolper": "front-end developer"
     },
     "days": {
         "mon": "Ponedeljak",

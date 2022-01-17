@@ -63,7 +63,8 @@
         "logout": "logout",
         "addEmployee": "Add An Employee",
         "jobTitle": "Job Title",
-        "selectJobTitle": "Select A Job Title"
+        "selectJobTitle": "Select A Job Title",
+        "frontEndDevolper": "front-end developer"
     },
     "days": {
         "mon": "Monday",

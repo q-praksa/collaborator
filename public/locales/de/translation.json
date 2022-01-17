@@ -63,7 +63,8 @@
         "logout": "abmelden",
         "addEmployee": "Fügen Sie eine Angestellte hinzu",
         "jobTitle": "Berufsbezeichnung",
-        "selectJobTitle": "Wählen Sie eine Berufsbezeichnung"
+        "selectJobTitle": "Wählen Sie eine Berufsbezeichnung",
+        "frontEndDevolper": "front-end developer"
     },
     "days": {
         "mon": "Montag",
