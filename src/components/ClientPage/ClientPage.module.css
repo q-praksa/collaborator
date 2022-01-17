@@ -1,0 +1,144 @@
+.clientPage {
+    background-color: var(--page-background-color);
+    padding-left: 30px;
+    min-height: 100vh;
+}
+
+.clientPage h1 {
+    padding-top: 1rem;
+    padding-bottom: 0.25rem;
+    color: var(--light-background-color);
+}
+
+.inputField {
+    position: relative;
+    margin-bottom: 27px;
+    max-width: 320px;
+}
+
+.inputField input {
+    display: block;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: var(--light-background-color);
+    background: transparent;
+    border-bottom: 1px solid var(--border-color);
+    padding: 5px;
+    font-size: 18px;
+}
+
+.inputField button {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    display: inline-block;
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    color: var(--light-background-color);
+}
+
+.icon {
+    font-size: 20px;
+}
+
+.chooseCity {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 22px;
+}
+
+.chooseCity button {
+    text-transform: capitalize;
+    margin-right: 21px;
+    display: inline-block;
+    padding: 6px 55px;
+    background: transparent;
+    border: 1px solid var(--pink-color);
+    border-radius: 10px;
+    color: var(--light-background-color);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.selectedCities {
+    display: flex;
+    justify-content: flex-start;
+    color: var(--light-backgrond-color);
+}
+
+.selectedCity {
+    margin-right: 20px;
+    width: 150px;
+    margin-right: 20px;
+    background: var(--pink-color);
+    border-radius: 10px;
+    padding: 6px 21px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selectedCity p {
+    text-transform: capitalize;
+    font-size: 20px;
+    line-height: 23.44px;
+}
+
+.selectedCity p:nth-child(2) {
+    cursor: pointer;
+}
+
+.listedCompanies {
+    max-width: 750px;
+    padding: 45px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 40px;
+    color: var(--light-background-color);
+}
+
+.listedCompaniesItem {
+    background: var(--dark-background-color);
+    padding: 18px 50px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.listedCompaniesItem .circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--text-dark-color);
+    margin-bottom: 20px;
+}
+
+.listedCompaniesItem h3 {
+    font-size: 20px;
+    line-height: 23.44px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.listedCompaniesItem p {
+    font-size: 14px;
+    line-height: 16.41px;
+    color: var(--text-dark-color);
+    font-weight: 700;
+}
+
+@media screen and (max-width: 886px) {
+    .chooseCity {
+        flex-direction: column;
+        max-width: 320px;
+    }
+
+    .chooseCity button {
+        margin-bottom: 0.5rem;
+    }
+}

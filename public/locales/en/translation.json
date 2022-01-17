@@ -64,7 +64,10 @@
         "addEmployee": "Add An Employee",
         "jobTitle": "Job Title",
         "selectJobTitle": "Select A Job Title",
-        "frontEndDevolper": "front-end developer"
+        "usa": "USA",
+        "europe": "Europe",
+        "australia": "Australia",
+        "frontEndDeveloper": "front-end developer"
     },
     "days": {
         "mon": "Monday",

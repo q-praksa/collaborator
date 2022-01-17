@@ -10,7 +10,7 @@ function UserOverview(): React.ReactElement {
             <div className={styles.wrraper}>
                 <h1>{t(`description.fullname`)}</h1>
                 <p className={styles.vocation}>
-                    {t(`description.frontEndDevolper`)}
+                    {t(`description.frontEndDeveloper`)}
                 </p>
                 <ProjectCard
                     status={ProjectStatus.inactive}

@@ -34,7 +34,7 @@
 }
 .faCaretDown {
     transform: rotate(0deg);
-    transition: transform .3s linear;
+    transition: transform 0.3s linear;
     cursor: pointer;
     font-size: 28px;
     color: var(--text-primary-color);
@@ -43,6 +43,6 @@
 .open {
     transform: rotate(180deg);
     font-size: 28px;
-    transition: transform .3s linear;
+    transition: transform 0.3s linear;
     color: var(--text-primary-color);
 }

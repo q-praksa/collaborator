@@ -64,7 +64,11 @@
         "addEmployee": "Fügen Sie eine Angestellte hinzu",
         "jobTitle": "Berufsbezeichnung",
         "selectJobTitle": "Wählen Sie eine Berufsbezeichnung",
-        "frontEndDevolper": "front-end developer"
+        "usa": "USA",
+        "europe": "Europa",
+        "australia": "Australien",
+        "frontEndDeveloper": "front-end developer"
+        
     },
     "days": {
         "mon": "Montag",
