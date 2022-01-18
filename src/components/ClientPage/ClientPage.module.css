@@ -2,6 +2,8 @@
     background-color: var(--page-background-color);
     padding-left: 30px;
     min-height: 100vh;
+    width: 100%;
+    padding: 40px;
 }
 
 .clientPage h1 {
@@ -10,13 +12,15 @@
     color: var(--light-background-color);
 }
 
-.inputField {
+.inputFieldWrapper {
     position: relative;
     margin-bottom: 27px;
-    max-width: 320px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.inputField input {
+.inputField {
     display: block;
     width: 100%;
     border: none;
@@ -28,8 +32,8 @@
     font-size: 18px;
 }
 
-.inputField button {
-    position: absolute;
+.searchButton {
+    position: relative;
     top: 4px;
     right: 5px;
     display: inline-block;
@@ -91,11 +95,12 @@
 }
 
 .listedCompanies {
-    max-width: 750px;
+    width: 100%;
     padding: 45px 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: row;
     justify-items: center;
+    flex-wrap: wrap;
     gap: 40px;
     color: var(--light-background-color);
 }
@@ -108,6 +113,8 @@
     justify-content: center;
     align-items: center;
     border-radius: 6px;
+    width: 260px;
+    height: 230px;
 }
 
 .listedCompaniesItem .circle {
@@ -130,6 +137,28 @@
     line-height: 16.41px;
     color: var(--text-dark-color);
     font-weight: 700;
+}
+
+.plus-btn {
+    background-color: var(--green-color);
+    border: 1px solid var(--green-color);
+    border-radius: 6px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.plus-btn:hover {
+    opacity: 0.7;
+}
+.plus-icon {
+    color: var(--text-primary-color);
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.form {
+    display: flex;
 }
 
 @media screen and (max-width: 886px) {

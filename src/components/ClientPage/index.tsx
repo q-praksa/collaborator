@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react';
 import Layout from '@components/Layout';
 import { RootState } from '@reduxStore/reducers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { continents } from '@components/ClientPage/continents';
 import { companyNames } from '@components/ClientPage/companyNamesData';
 import { useSearchParams } from 'react-router-dom';
 import { CompanyType } from '@components/ClientPage/types';
 import styles from '@components/ClientPage/ClientPage.module.css';
 import { useTranslation } from 'react-i18next';
+import AddClientModal from '@components/modals/AddNewClient';
+import { useDispatch, useSelector } from 'react-redux';
+import { modalTypes } from '@reduxStore/actions/modalTypes';
+import { open } from '@reduxStore/actions/modal';
 
 const initialStateCompanies = companyNames;
 
@@ -19,6 +23,10 @@ function ClientPage() {
     const [companies, setCompanies] = useState<CompanyType['company']>(
         initialStateCompanies
     );
+    const modal = useSelector(
+        (state: RootState) => state.modal.type[modalTypes.addNewClient]
+    );
+    const dispatch = useDispatch();
 
     // helper funcions
     function setQueryStrings(queryPrm: string) {
@@ -33,17 +41,19 @@ function ClientPage() {
     }
 
     function getQueryStringAndFilterCompanies() {
-        const currentQueryString = searchParams.get('search');
-        const filteredCompanies = initialStateCompanies.filter((company) => {
-            if (
-                company.from.toLowerCase() ===
-                    currentQueryString?.toLowerCase() ||
-                company.companyName.toLowerCase() ===
-                    currentQueryString?.toLowerCase()
-            ) {
-                return true;
+        const currentQueryString = searchParams.get('search')?.toLowerCase();
+        const filteredCompanies = initialStateCompanies.filter(
+            (company: any) => {
+                if (
+                    company.from.toLowerCase().includes(currentQueryString) ||
+                    company.companyName
+                        .toLowerCase()
+                        .includes(currentQueryString)
+                ) {
+                    return true;
+                }
             }
-        });
+        );
         setCompanies(filteredCompanies);
     }
 
@@ -88,16 +98,30 @@ function ClientPage() {
         <section className={styles.clientPage}>
             <h1>{t('description.clients')}</h1>
 
-            <div className={styles.inputField}>
-                <form onSubmit={handleInputSearch}>
-                    <input type="search" value={input} onChange={handleInput} />
-                    <button type="submit">
+            <div className={styles.inputFieldWrapper}>
+                <form className={styles.form} onSubmit={handleInputSearch}>
+                    <input
+                        className={styles.inputField}
+                        type="search"
+                        value={input}
+                        onChange={handleInput}
+                    />
+                    <button className={styles.searchButton} type="submit">
                         <FontAwesomeIcon
                             className={styles.icon}
                             icon={faSearch}
                         />
                     </button>
                 </form>
+                <button
+                    className={styles['plus-btn']}
+                    onClick={() => dispatch(open(modalTypes.addNewClient))}
+                >
+                    <FontAwesomeIcon
+                        icon={faPlus}
+                        className={styles['plus-icon']}
+                    />
+                </button>
             </div>
 
             <div className={styles.chooseCity}>
@@ -133,7 +157,7 @@ function ClientPage() {
 
             <div className={styles.listedCompanies}>
                 {companies
-                    .filter((company) => {
+                    .filter((company: any) => {
                         const { id, from } = company;
                         if (!countButton()) return true;
                         if (searchParams.get(from.toLowerCase())) return true;
@@ -152,6 +176,7 @@ function ClientPage() {
                         );
                     })}
             </div>
+            <div>{modal ? <AddClientModal /> : null}</div>
         </section>
     );
 }

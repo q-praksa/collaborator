@@ -3,7 +3,7 @@ export interface CompanyType {
         id: number;
         companyName: string;
         img: string;
-        from: string;
+        from: string | undefined;
         ceo: string;
     }[];
 }
