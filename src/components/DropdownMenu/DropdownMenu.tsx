@@ -16,6 +16,7 @@ const DropdownMenu: React.FC<Props> = ({ setOpenMenu }) => {
     const logout = () => {
         localStorage.removeItem('isLogged');
         localStorage.removeItem('admin');
+        localStorage.removeItem('user');
         navigate('/login');
     };
 

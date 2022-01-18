@@ -1,14 +1,10 @@
-import React, { PropsWithChildren } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 
-function ProtectedRoute({ children }: PropsWithChildren<unknown>) {
+function ProtectedRoute() {
     const isLogged = localStorage.getItem('isLogged');
-    console.log(isLogged);
-    return (
-        <React.Fragment>
-            {isLogged ? children : <Navigate to="/login" />}
-        </React.Fragment>
-    );
+    const isUser = localStorage.getItem('user');
+
+    return isLogged && isUser ? <Outlet /> : <Navigate to="/login" />;
 }
 
 export default ProtectedRoute;

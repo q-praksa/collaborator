@@ -5,7 +5,6 @@ import { RootState } from '@reduxStore/reducers';
 function Home() {
     const dispatch = useDispatch();
     const counter = useSelector((state: RootState) => state.count.countSum);
-    console.log(counter);
 
     if (localStorage.getItem('isLogged') === null) {
         localStorage.setItem('isLogged', 'false');

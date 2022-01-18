@@ -19,20 +19,20 @@ export default function Login(): React.ReactElement {
 
     function login(details: userDetails): void {
         if (details.email === 'user@user.com' && details.password === 'user') {
-            console.log('logged in');
             localStorage.setItem('isLogged', 'true');
-            navigate('/');
+            localStorage.setItem('user', 'true');
+            navigate('/user-overview');
         } else if (
             details.email === 'admin@admin.com' &&
             details.password === 'admin'
         ) {
-            console.log('logged in');
             localStorage.setItem('isLogged', 'true');
             localStorage.setItem('admin', 'true');
-            navigate('/');
+            navigate('/admin-overview');
         } else {
             localStorage.setItem('isLogged', 'false');
             localStorage.setItem('admin', 'false');
+            localStorage.setItem('user', 'false');
         }
     }
 
