@@ -5,42 +5,36 @@ import { close } from '@reduxStore/actions/modal';
 import { modalTypes } from '@reduxStore/actions/modalTypes';
 import { useTranslation } from 'react-i18next';
 import { positions } from '@constants/employees';
+import Modal from '@elements/Modal';
+import TextInput from '@elements/Inputs/TextInput';
+import AddButton from '@elements/Buttons/AddButton';
+import DiscardButton from '@elements/Buttons/DiscardButton';
 
 const AddNewEmployee = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
 
     return ReactDom.createPortal(
-        <div className={styles.modal_container}>
-            <h2 className={styles.modal_title}>
-                {t('description.addEmployee')}
-            </h2>
-
-            <div className={styles.modal_body}>
-                <div className={styles.input_wrapper}>
-                    <label className={styles.label}>
-                        {t('description.firstName')}:
-                    </label>
-                    <input type="text" className={styles.input} />
-                </div>
-                <div className={styles.input_wrapper}>
-                    <label className={styles.label}>
-                        {t('description.lastName')}:
-                    </label>
-                    <input type="text" className={styles.input} />
-                </div>
-                <div className={styles.input_wrapper}>
-                    <label className={styles.label}>Email:</label>
-                    <input type="email" className={styles.input} />
-                </div>
-                <div className={styles.input_wrapper}>
-                    <label className={styles.label}>
-                        {t('description.password')}:
-                    </label>
-                    <input type="password" className={styles.input} />
-                </div>
-                <div className={styles.input_wrapper}>
-                    <label className={styles.label}>
+        <Modal title={t('description.addEmployee')}>
+            <div className={styles['modal-form']}>
+                <TextInput
+                    label={`${t('description.firstName')}:`}
+                    name="firstName"
+                    type="text"
+                />
+                <TextInput
+                    label={`${t('description.lastName')}:`}
+                    name="lastName"
+                    type="text"
+                />
+                <TextInput label="Email:" name="email" type="email" />
+                <TextInput
+                    label={`${t('description.password')}:`}
+                    name="password"
+                    type="password"
+                />
+                <div className={styles.select_input_wrapper}>
+                    <label className={styles.select_label}>
                         {t('description.jobTitle')}:
                     </label>
                     <select className={styles.select} placeholder="Job Title">
@@ -51,23 +45,20 @@ const AddNewEmployee = () => {
                         ))}
                     </select>
                 </div>
+                <div className={styles.modal_buttons}>
+                    <AddButton onClick={() => console.log('')}>
+                        {t('description.add')}
+                    </AddButton>
+                    <DiscardButton
+                        onClick={() =>
+                            dispatch(close(modalTypes.addNewEmployee))
+                        }
+                    >
+                        {t('description.discard')}
+                    </DiscardButton>
+                </div>
             </div>
-            <div className={styles.modal_buttons}>
-                <button
-                    type="button"
-                    className={`${styles.btn} ${styles.add_btn}`}
-                >
-                    {t('description.add')}
-                </button>
-                <button
-                    type="button"
-                    className={`${styles.btn} ${styles.discard_btn}`}
-                    onClick={() => dispatch(close(modalTypes.addNewEmployee))}
-                >
-                    {t('description.discard')}
-                </button>
-            </div>
-        </div>,
+        </Modal>,
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         document.getElementById('employee')!
     );

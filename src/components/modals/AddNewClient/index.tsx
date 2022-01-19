@@ -5,30 +5,34 @@ import { useDispatch } from 'react-redux';
 import { close } from '@reduxStore/actions/modal';
 import { modalTypes } from '@reduxStore/actions/modalTypes';
 import { useTranslation } from 'react-i18next';
+import Modal from '@elements/Modal';
+import TextInput from '@elements/Inputs/TextInput';
+import AddButton from '@elements/Buttons/AddButton';
+import DiscardButton from '@elements/Buttons/DiscardButton';
 
 function AddClientModal() {
     const dispatch = useDispatch();
     const { t } = useTranslation();
     return ReactDom.createPortal(
-        <div className={styles['modal-container']}>
-            <label className={styles['modal-title']}>
-                {t('description.addAClient')}
-            </label>
+        <Modal title={t('description.addAClient')}>
             <div className={styles['modal-form']}>
-                <div className={styles['modal-input-wrapper']}>
-                    <label className={styles['modal-label']}>
-                        {t('description.companyName')}:
-                    </label>
-                    <input className={styles['modal-input']} type="text" />
-                </div>
-                <div className={styles['modal-input-wrapper']}>
-                    <label className={styles['modal-label']}>
-                        {t('description.ceoFullname')}:
-                    </label>
-                    <input className={styles['modal-input']} type="text" />
-                </div>
-                <div className={styles['modal-input-wrapper']}>
-                    <label className={styles['modal-label']}>
+                <TextInput
+                    label={`${t('description.companyName')}:`}
+                    name="company"
+                    type="text"
+                />
+                <TextInput
+                    label={`${t('description.ceoFullname')}:`}
+                    name="ceo"
+                    type="text"
+                />
+                <TextInput
+                    label={`${t('description.region')}:`}
+                    name="region"
+                    type="text"
+                />
+                <div className={styles['select-input-wrapper']}>
+                    <label className={styles['select-label']}>
                         {t('description.region')}:
                     </label>
                     <select
@@ -40,23 +44,19 @@ function AddClientModal() {
                         ))}
                     </select>
                 </div>
+                <div className={styles['modal-buttons']}>
+                    <AddButton onClick={() => console.log('Add')}>
+                        {t('description.add')}
+                    </AddButton>
+                    <DiscardButton
+                        onClick={() => dispatch(close(modalTypes.addNewClient))}
+                    >
+                        {t('description.discard')}
+                    </DiscardButton>
+                </div>
             </div>
-            <div className={styles['modal-buttons']}>
-                <button
-                    type="button"
-                    className={`${styles['modal-btn']} ${styles['modal-btn-add']}`}
-                >
-                    {t('description.add')}
-                </button>
-                <button
-                    type="button"
-                    className={`${styles['modal-btn']} ${styles['modal-btn-discard']}`}
-                    onClick={() => dispatch(close(modalTypes.addNewClient))}
-                >
-                    {t('description.discard')}
-                </button>
-            </div>
-        </div>,
+        </Modal>,
+
         document.getElementById('clientModal')!
     );
 }

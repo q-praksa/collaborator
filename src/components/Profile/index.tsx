@@ -5,6 +5,7 @@ import { RootState } from '@reduxStore/reducers';
 import { open } from '@reduxStore/actions/modal';
 import { useTranslation } from 'react-i18next';
 import { modalTypes } from '@reduxStore/actions/modalTypes';
+import OpenModalButton from '@elements/Buttons/OpenModalButton';
 
 function Profile() {
     const dispatch = useDispatch();
@@ -42,14 +43,11 @@ function Profile() {
                 <div className={styles['skills-wrapper']}>
                     <div className={styles['label-add-role-btn-wrapper']}>
                         <label>{t('description.skills')}:</label>
-                        <button
+                        <OpenModalButton
                             onClick={() =>
                                 dispatch(open(modalTypes.addNewSkill))
                             }
-                            className={styles['add-role-btn']}
-                        >
-                            +
-                        </button>
+                        />
                     </div>
                 </div>
             </div>

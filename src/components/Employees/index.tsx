@@ -3,11 +3,7 @@ import employees from '@components/Employees/employeesData';
 import EmployeeItem from '@components/EmployeeItem';
 import { IEmployeeItem } from '@components/EmployeeItem/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faSearch,
-    faTimesCircle,
-    faPlus,
-} from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -18,6 +14,9 @@ import { open } from '@reduxStore/actions/modal';
 import { RootState } from '@reduxStore/reducers';
 import AddNewEmployee from '@components/modals/AddNewEmployee';
 import { modalTypes } from '@reduxStore/actions/modalTypes';
+import OpenModalButton from '@elements/Buttons/OpenModalButton';
+import FilterButton from '@elements/Buttons/FilterButton';
+import ActiveFilterButton from '@elements/Buttons/ActiveFilterButton';
 
 function Employees() {
     const { t } = useTranslation();
@@ -114,19 +113,13 @@ function Employees() {
                         className={styles['icon']}
                     />
                 </div>
-                <button
-                    className={styles['plus-btn']}
+                <OpenModalButton
                     onClick={() => dispatch(open(modalTypes.addNewEmployee))}
-                >
-                    <FontAwesomeIcon
-                        icon={faPlus}
-                        className={styles['plus-icon']}
-                    />
-                </button>
+                />
             </div>
             <div className={styles['search-labels-wrapper']}>
                 {filters.map((filterValue) => (
-                    <button
+                    <FilterButton
                         key={filterValue}
                         onClick={() =>
                             addFilter(
@@ -134,26 +127,20 @@ function Employees() {
                                 t(`description.${filterValue}`)
                             )
                         }
-                        className={styles['search-button']}
                     >
                         {t(`description.${filterValue}`)}
-                    </button>
+                    </FilterButton>
                 ))}
             </div>
             <div className={styles['search-active-buttons']}>
                 {selectedFilters.map((filterValue) => (
-                    <button
+                    <ActiveFilterButton
                         key={filterValue}
-                        className={styles['search-active-button']}
-                        value={filterValue}
                         onClick={() => removeFilter('filter[]', filterValue)}
+                        value={filterValue}
                     >
                         {filterValue}
-                        <FontAwesomeIcon
-                            icon={faTimesCircle}
-                            className={styles['icon']}
-                        />
-                    </button>
+                    </ActiveFilterButton>
                 ))}
             </div>
             <div className={styles['employees-items']}>

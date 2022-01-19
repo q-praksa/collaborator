@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Layout from '@components/Layout';
 import { RootState } from '@reduxStore/reducers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +12,9 @@ import AddClientModal from '@components/modals/AddNewClient';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalTypes } from '@reduxStore/actions/modalTypes';
 import { open } from '@reduxStore/actions/modal';
+import OpenModalButton from '@elements/Buttons/OpenModalButton';
+import FilterButton from '@elements/Buttons/FilterButton';
+import ActiveFilterButton from '@elements/Buttons/ActiveFilterButton';
 
 const initialStateCompanies = companyNames;
 
@@ -113,27 +115,21 @@ function ClientPage() {
                         />
                     </button>
                 </form>
-                <button
-                    className={styles['plus-btn']}
+                <OpenModalButton
                     onClick={() => dispatch(open(modalTypes.addNewClient))}
-                >
-                    <FontAwesomeIcon
-                        icon={faPlus}
-                        className={styles['plus-icon']}
-                    />
-                </button>
+                />
             </div>
 
             <div className={styles.chooseCity}>
                 {continents.map((continent) => {
                     const { id, name } = continent;
                     return (
-                        <button
+                        <FilterButton
                             key={id}
                             onClick={() => handleButtonClick(name)}
                         >
                             {t(`description.${name.toLowerCase()}`)}
-                        </button>
+                        </FilterButton>
                     );
                 })}
             </div>
@@ -147,10 +143,12 @@ function ClientPage() {
                     .map((btn) => {
                         const { id, name } = btn;
                         return (
-                            <div key={id} className={styles.selectedCity}>
-                                <p>{t(`description.${name.toLowerCase()}`)}</p>
-                                <p onClick={() => handleRemoveBtn(name)}>X</p>
-                            </div>
+                            <ActiveFilterButton
+                                key={id}
+                                onClick={() => handleRemoveBtn(name)}
+                            >
+                                {t(`description.${name.toLowerCase()}`)}
+                            </ActiveFilterButton>
                         );
                     })}
             </div>

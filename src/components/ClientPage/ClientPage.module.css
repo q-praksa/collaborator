@@ -51,19 +51,7 @@
     display: flex;
     justify-content: flex-start;
     margin-bottom: 22px;
-}
-
-.chooseCity button {
-    text-transform: capitalize;
-    margin-right: 21px;
-    display: inline-block;
-    padding: 6px 55px;
-    background: transparent;
-    border: 1px solid var(--pink-color);
-    border-radius: 10px;
-    color: var(--light-background-color);
-    cursor: pointer;
-    font-size: 18px;
+    gap: 20px;
 }
 
 .selectedCities {
