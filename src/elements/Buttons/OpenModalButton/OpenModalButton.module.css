@@ -1,0 +1,17 @@
+.plus-btn {
+    background-color: var(--green-color);
+    border: 1px solid var(--green-color);
+    border-radius: 6px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.plus-btn:hover {
+    opacity: 0.7;
+}
+.plus-icon {
+    color: var(--text-primary-color);
+    font-size: 32px;
+    font-weight: 700;
+}
