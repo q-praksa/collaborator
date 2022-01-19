@@ -23,7 +23,8 @@
             "@pages/*": ["./src/pages/*"],
             "@reduxStore/*": ["./src/reduxStore/*"],
             "@utils/*": ["./src/utils/*"],
-            "@constants/*": ["./src/constants/*"]
+            "@constants/*": ["./src/constants/*"],
+            "@elements/*": ["./src/elements/*"]
         }
     },
     "include": ["src", "actions"],
