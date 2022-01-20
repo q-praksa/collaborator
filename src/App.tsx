@@ -13,7 +13,7 @@ import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
 import Layout from '@components/Layout';
 import NotFoundPage from '@pages/NotFoundPage';
 import AdminOverview from '@pages/AdminOverview';
-import UserOverview from '@pages/UsersOverview/idex';
+import UserOverview from '@pages/UsersOverview';
 import People from '@pages/People';
 import Profile from '@pages/Profile';
 import Projects from '@pages/Projects';
