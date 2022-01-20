@@ -22,12 +22,19 @@ import ErrorBoundary from '@components/ErrorBoundary';
 import ClientPage from '@components/ClientPage';
 
 function App() {
+    const isAdmin = localStorage.getItem('admin');
     return (
         <ErrorBoundary>
             <BrowserRouter>
                 <Routes>
                     <Route path="/login" element={<LoginPage />} />
                     <Route element={<Layout />}>
+                        <Route
+                            path="/"
+                            element={
+                                isAdmin ? <AdminOverview /> : <UserOverview />
+                            }
+                        />
                         <Route element={<ProtectedRoute />}>
                             <Route
                                 path="user-overview"
