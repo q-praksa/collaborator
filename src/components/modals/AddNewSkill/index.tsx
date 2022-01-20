@@ -4,6 +4,8 @@ import { close } from '@reduxStore/actions/modal';
 import styles from './AddNewSkill.module.css';
 import { useTranslation } from 'react-i18next';
 import { modalTypes } from '@reduxStore/actions/modalTypes';
+import AddButton from '@elements/Buttons/AddButton';
+import DiscardButton from '@elements/Buttons/DiscardButton';
 
 const Modal = () => {
     const { t } = useTranslation();
@@ -18,15 +20,14 @@ const Modal = () => {
                 </header>
                 <input type="text" className={styles.inputModal} />
                 <footer className={styles.modal_footer}>
-                    <button
-                        className={styles.modal_discard}
+                    <AddButton onClick={() => console.log('')}>
+                        {t('description.add')}
+                    </AddButton>
+                    <DiscardButton
                         onClick={() => dispatch(close(modalTypes.addNewSkill))}
                     >
                         {t('description.discard')}
-                    </button>
-                    <button className={styles.modal_add}>
-                        {t('description.add')}
-                    </button>
+                    </DiscardButton>
                 </footer>
             </div>
         </div>,

@@ -54,34 +54,8 @@
 .modal_footer {
     padding: 2rem 0;
     padding-bottom: 0;
-}
-
-.modal_add {
-    border-radius: 10px;
-    margin-top: 50px;
-    font-size: 32px;
-    position: relative;
-    float: right;
-    height: 46px;
-    width: 164px;
-    margin-right: 15px;
-    background-color: var(--green-color);
-    color: var(--text-primary-color);
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.modal_discard {
-    border-radius: 10px;
-    margin-top: 50px;
-    font-size: 32px;
-    position: relative;
-    float: right;
-    margin-right: 20px;
-    height: 46px;
-    width: 164px;
-    background-color: var(--alarm-color);
-    color: var(--text-primary-color);
-    text-transform: uppercase;
-    font-weight: bold;
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
+    margin: 30px;
 }
