@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { RootState } from '@reduxStore/reducers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { continents } from '@components/ClientPage/continents';
-import { companyNames } from '@components/ClientPage/companyNamesData';
+// import { companyNames } from '@components/ClientPage/companyNamesData';
 import { useSearchParams } from 'react-router-dom';
 import { CompanyType } from '@components/ClientPage/types';
 import styles from '@components/ClientPage/ClientPage.module.css';
@@ -15,20 +15,29 @@ import { open } from '@reduxStore/actions/modal';
 import OpenModalButton from '@elements/Buttons/OpenModalButton';
 import FilterButton from '@elements/Buttons/FilterButton';
 import ActiveFilterButton from '@elements/Buttons/ActiveFilterButton';
+import { useApi } from '@hooks/useApi';
+import { getAllClients } from '@api/clientService';
+import { clientPayloadType } from '@api/types';
 
-const initialStateCompanies = companyNames;
+// const initialStateCompanies = companyNames;
 
 function ClientPage() {
     const { t } = useTranslation();
     const [input, setInput] = useState('');
     const [searchParams, setSearchParams] = useSearchParams({});
-    const [companies, setCompanies] = useState<CompanyType['company']>(
-        initialStateCompanies
-    );
+    // const [companies, setCompanies] = useState<CompanyType['company']>();
     const modal = useSelector(
         (state: RootState) => state.modal.type[modalTypes.addNewClient]
     );
     const dispatch = useDispatch();
+    const getClientsApi = useApi(getAllClients);
+
+    useEffect(() => {
+        getClientsApi.request();
+    }, []);
+
+    const clientsFromDatabase:CompanyType[] | null = getClientsApi.data;
+    console.log(clientsFromDatabase);
 
     function setQueryStrings(queryPrm: string) {
         searchParams.set('search', queryPrm);
@@ -42,20 +51,20 @@ function ClientPage() {
     }
 
     function getQueryStringAndFilterCompanies() {
+        if(!clientsFromDatabase){
+            const emptyArray:CompanyType[]=[]
+            return emptyArray;
+        }
         const currentQueryString = searchParams.get('search')?.toLowerCase();
-        const filteredCompanies = initialStateCompanies.filter(
-            (company: any) => {
-                if (
-                    company.from.toLowerCase().includes(currentQueryString) ||
-                    company.companyName
-                        .toLowerCase()
-                        .includes(currentQueryString)
-                ) {
-                    return true;
-                }
+        const filteredCompanies = clientsFromDatabase.filter((company: any) => {
+            if (
+                company.from.toLowerCase().includes(currentQueryString) ||
+                company.companyName.toLowerCase().includes(currentQueryString)
+            ) {
+                return true;
             }
-        );
-        setCompanies(filteredCompanies);
+        });
+        return filteredCompanies;
     }
 
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,7 +79,7 @@ function ClientPage() {
             getQueryStringAndFilterCompanies();
         } else {
             deleteQueryStrings();
-            setCompanies(initialStateCompanies);
+            // setCompanies(initialStateCompanies);
         }
 
         setInput('');
@@ -153,13 +162,13 @@ function ClientPage() {
             </div>
 
             <div className={styles.listedCompanies}>
-                {companies
+                {clientsFromDatabase?
                     .filter((company: any) => {
                         const { from } = company;
                         if (!countButton()) return true;
                         if (searchParams.get(from.toLowerCase())) return true;
                     })
-                    .map((company) => {
+                    .map((company: { id: number; companyName: string; ceo: string; }) => {
                         const { id, companyName, ceo } = company;
                         return (
                             <div
@@ -171,7 +180,7 @@ function ClientPage() {
                                 <p>{ceo}</p>
                             </div>
                         );
-                    })}
+                    })
             </div>
             <div>{modal ? <AddClientModal /> : null}</div>
         </section>
