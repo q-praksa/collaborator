@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RootState } from '@reduxStore/reducers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { continents } from '@components/ClientPage/continents';
 import { companyNames } from '@components/ClientPage/companyNamesData';
 import { useSearchParams } from 'react-router-dom';
@@ -30,7 +30,6 @@ function ClientPage() {
     );
     const dispatch = useDispatch();
 
-    // helper funcions
     function setQueryStrings(queryPrm: string) {
         searchParams.set('search', queryPrm);
         setSearchParams(searchParams);
@@ -137,7 +136,7 @@ function ClientPage() {
             <div className={styles.selectedCities}>
                 {continents
                     .filter((continent) => {
-                        const { id, name } = continent;
+                        const { name } = continent;
                         if (searchParams.get(name.toLowerCase())) return true;
                     })
                     .map((btn) => {
@@ -156,7 +155,7 @@ function ClientPage() {
             <div className={styles.listedCompanies}>
                 {companies
                     .filter((company: any) => {
-                        const { id, from } = company;
+                        const { from } = company;
                         if (!countButton()) return true;
                         if (searchParams.get(from.toLowerCase())) return true;
                     })

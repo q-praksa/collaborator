@@ -12,14 +12,12 @@ const apiInstance = axios.create({
 apiInstance.interceptors.request.use(
     (req) => {
         let token = localStorage.getItem('accessToken');
-
         if (token) {
             token = localStorage.getItem('accessToken');
             req.headers = {
                 Authorization: `Bearer ${token}`,
             };
         }
-        console.log('request: ', JSON.stringify(req));
         return req;
     },
     (error) => {
@@ -29,15 +27,10 @@ apiInstance.interceptors.request.use(
 
 apiInstance.interceptors.response.use(
     (response) => {
-        console.log('Response:', JSON.stringify(response));
         return response;
     },
     async function (error) {
         const originalRequest = error.config;
-        console.log(
-            'original request error config: ',
-            JSON.stringify(originalRequest)
-        );
         if (
             error.response.status === 401 &&
             originalRequest.url === `${baseUrl}/auth/token`

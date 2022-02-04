@@ -8,8 +8,6 @@ const getRefreshToken = async () => {
             accessToken: localStorage.getItem('accessToken'),
             refreshToken: localStorage.getItem('refreshToken'),
         });
-
-        console.log(response.data);
     } catch (err) {
         console.log(err);
     }
