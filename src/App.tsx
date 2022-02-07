@@ -53,10 +53,11 @@ function App() {
                                 element={<AdminOverview />}
                             />
                             <Route path="about" element={<About />} />
-                            <Route path="/people" element={<People />} />
+
                             <Route path="/projects" element={<Projects />} />
                             <Route path="/clients" element={<ClientPage />} />
                         </Route>
+                        <Route path="/people" element={<People />} />
                         <Route path="/testsm" element={<TestSM />} />
                         <Route path="/testvs" element={<TestVS />} />
                         <Route path="/testbb" element={<TestBB />} />
