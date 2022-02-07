@@ -74,8 +74,9 @@
         "usa": "USA",
         "europe": "Europa",
         "australia": "Australien",
-        "frontEndDeveloper": "front-end developer"
-        
+        "frontEndDeveloper": "front-end developer",
+        "signUpPageText": "Fühlen Sie sich frei, sich anzumelden",
+        "signUp": "Anmelden"
     },
     "days": {
         "mon": "Montag",

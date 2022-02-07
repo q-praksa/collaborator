@@ -52,7 +52,10 @@ export default function Login(): React.ReactElement {
                 <button className={styles['submit']} type="submit">
                     Login
                 </button>
-                <NavLink to="/signup">SignUP</NavLink>
+                <div className={styles['link']}>
+                    <label>Don&apos;t have an account?</label>
+                    <NavLink to="/signup">Sign up</NavLink>
+                </div>
             </form>
         </div>
     );
