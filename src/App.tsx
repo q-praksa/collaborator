@@ -14,7 +14,7 @@ import Profile from '@pages/Profile';
 import Projects from '@pages/Projects';
 import ErrorPage from '@pages/ErrorPage';
 import ErrorBoundary from '@components/ErrorBoundary';
-import ClientPage from '@components/ClientPage';
+import ClientPage from '@components/Clients';
 import CustomRouter from '@components/CustomRouter';
 import customHIstory from '@components/CustomRouter/history';
 import SignUp from '@components/SignUp';
