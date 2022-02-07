@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import signUp from '@api/signupService';
 
-const SignUp = () => {
+export default function SignUp(): React.ReactElement {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     return (
@@ -19,6 +19,4 @@ const SignUp = () => {
             <button onClick={() => signUp({ email, password })}>Sign up</button>
         </div>
     );
-};
-
-export default SignUp;
+}
