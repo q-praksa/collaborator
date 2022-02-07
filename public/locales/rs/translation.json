@@ -75,7 +75,10 @@
         "europe": "Evropa",
         "australia": "Australija",
         "frontEndDeveloper": "front-end developer",
-        "img": "Slika"
+        "img": "Slika",
+        "job": "Posao",
+        "save": "Sačuvaj",
+        "status": "Status"
     },
     "days": {
         "mon": "Ponedeljak",
