@@ -1,11 +1,11 @@
 import styles from './Employees.module.css';
 //import employees from '@components/Employees/employeesData';
 import EmployeeItem from '@components/EmployeeItem';
-import { IEmployeeItem } from '@components/EmployeeItem/types';
+import { IEmployeeItem, IEmployees } from '@components/EmployeeItem/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useSearchParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { employeeExists, findFilters } from '@utils/employees';
 import { filters } from '@constants/employees';
@@ -17,7 +17,7 @@ import { modalTypes } from '@reduxStore/actions/modalTypes';
 import OpenModalButton from '@elements/Buttons/OpenModalButton';
 import FilterButton from '@elements/Buttons/FilterButton';
 import ActiveFilterButton from '@elements/Buttons/ActiveFilterButton';
-import { useApi } from '@hooks/useApi';
+import { getUsersAction } from '@reduxStore/actions/users';
 import { getUsers } from '@api/userService';
 
 function Employees() {
@@ -25,17 +25,33 @@ function Employees() {
     const [searchParams, setSearchParams] = useSearchParams({});
     const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(false);
+    const componentMounted = useRef(true);
     const modal = useSelector(
         (state: RootState) => state.modal.type[modalTypes.addNewEmployee]
     );
-    //let employeesFromDatabase: IEmployeeItem[] | null;
+    const employeesFromDatabase = useSelector(
+        (state: RootState) => state.users?.users
+    );
 
-    const getEmployees = useApi(getUsers);
+    const getAllUsers = async () => {
+        setLoading(true);
+        const response = await getUsers();
+        if (componentMounted.current) {
+            const employees = response?.data;
+            if (employees) {
+                dispatch(getUsersAction(employees));
+            }
+            setLoading(false);
+        }
+        return () => {
+            componentMounted.current = false;
+        };
+    };
     useEffect(() => {
-        getEmployees.request();
+        getAllUsers();
     }, []);
-    const employeesFromDatabase = getEmployees.data;
-    console.log(employeesFromDatabase);
+
     function searchFilterExists(searchParam: string): boolean {
         return selectedFilters.includes(searchParam);
     }

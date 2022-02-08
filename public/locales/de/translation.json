@@ -67,7 +67,7 @@
         "cancelled": "Storniert",
         "developmentTeam": "Entwicklungsteam",
         "autocompleteMultiselect": "Mehrfache Selbstbefüllung",
-        "logout": "abmelden",
+        "logout": "Abmelden",
         "addEmployee": "Fügen Sie eine Angestellte hinzu",
         "jobTitle": "Berufsbezeichnung",
         "selectJobTitle": "Wählen Sie eine Berufsbezeichnung",
@@ -78,7 +78,8 @@
         "img": "Foto",
         "job": "Arbeit",
         "save": "Speichern",
-        "status": "Status"
+        "status": "Status",
+        "confirmDeleteQuestion": "Sind Sie sicher, dass Sie löschen möchten?"
     },
     "days": {
         "mon": "Montag",

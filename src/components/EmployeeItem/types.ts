@@ -1,7 +1,7 @@
 import { EmployeeStatus, EmployeeRole } from '@components/Employees/types';
 
 export interface IEmployeeItem {
-    id: number;
+    id: string;
     fullname: string;
     job: string;
     status: EmployeeStatus;
@@ -11,4 +11,8 @@ export interface IEmployeeItem {
 
 export interface PropsTypeEmployeeItem {
     employeeItem: IEmployeeItem;
+}
+
+export interface IEmployees {
+    users: IEmployeeItem[];
 }
