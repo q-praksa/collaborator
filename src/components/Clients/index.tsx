@@ -41,7 +41,7 @@ function Clients() {
         searchParam: IClientItem,
         filteredClients: IClientItem[]
     ): boolean {
-        return filteredClients?.some((searchBtn) => searchBtn === searchParam);
+        return filteredClients.some((searchBtn) => searchBtn === searchParam);
     }
 
     function checkQueryStringsExists(queryPrm: string): boolean {
@@ -62,7 +62,7 @@ function Clients() {
     function applyFilters(filters: string[], key: string) {
         searchParams.delete(key);
         setSearchParams(searchParams);
-        filters?.forEach((filter) => {
+        filters.forEach((filter) => {
             searchParams.append(key, filter);
         });
         setSearchParams(searchParams);
@@ -91,13 +91,11 @@ function Clients() {
         if (search.length === 0) {
             filteredClients = clientsToFilter;
         } else {
-            clientsToFilter?.forEach((client) => {
-                search?.forEach((filter) => {
-                    if (
-                        client.region?.toLowerCase() === filter?.toLowerCase()
-                    ) {
+            clientsToFilter.forEach((client) => {
+                search.forEach((filter) => {
+                    if (client.region.toLowerCase() === filter.toLowerCase()) {
                         if (!clientExists(client, filteredClients)) {
-                            filteredClients?.push(client);
+                            filteredClients.push(client);
                         }
                     }
                 });
@@ -142,11 +140,11 @@ function Clients() {
                             onClick={() =>
                                 addFilter(
                                     'filter[]',
-                                    t(`description.${continent.toLowerCase()}`)
+                                    t(`description.${continent}`)
                                 )
                             }
                         >
-                            {t(`description.${continent.toLowerCase()}`)}
+                            {t(`description.${continent}`)}
                         </FilterButton>
                     );
                 })}
@@ -168,7 +166,7 @@ function Clients() {
             </div>
             <div className={styles.listedCompanies}>
                 {filterClients(clientsFromDatabase, 'filter[]')
-                    ?.filter((client) => {
+                    .filter((client) => {
                         const search = searchParams.get('search');
                         if (!search) {
                             return true;

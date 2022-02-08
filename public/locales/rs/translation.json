@@ -71,9 +71,9 @@
         "addEmployee": "Dodaj zaposlenog",
         "jobTitle": "Pozicija",
         "selectJobTitle": "Izaberi poziciju",
-        "usa": "SAD",
-        "europe": "Evropa",
-        "australia": "Australija",
+        "usa": "USA",
+        "europe": "Europe",
+        "australia": "Australia",
         "frontEndDeveloper": "front-end developer"
     },
     "days": {
