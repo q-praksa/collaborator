@@ -19,3 +19,22 @@ export const getAllClients = async () => {
     }
     return response;
 };
+
+export const updateClient = async (payload: clientPayloadType) => {
+    let response;
+    try {
+        response = await apiInstance.post('/clients/', payload);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getClientById = async (clientId: string) => {
+    let response;
+    try {
+        response = await apiInstance.get(`/clients/${clientId}`);
+    } catch (error) {
+        console.log(error);
+    }
+    return response;
+};

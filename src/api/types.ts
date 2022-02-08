@@ -4,6 +4,7 @@ export type userCredentialsType = {
 };
 
 export type clientPayloadType = {
+    id: string;
     companyName: string;
     CEO: string;
     img: string;
