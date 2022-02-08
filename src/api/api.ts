@@ -45,8 +45,7 @@ apiInstance.interceptors.response.use(
                 refreshToken: refreshToken,
             });
             if (res.statusText.toUpperCase() === 'OK') {
-                localStorage.setItem('accessToken', res.data.accessToken);
-                localStorage.setItem('refreshToken', res.data.refreshToken);
+                localStorage.setItem('accessToken', res.data);
                 apiInstance.defaults.headers.common[
                     'Authorization'
                 ] = `Bearer ${localStorage.getItem('accessToken')}`;
