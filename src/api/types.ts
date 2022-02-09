@@ -4,9 +4,8 @@ export type userCredentialsType = {
 };
 
 export type employeePayloadType = {
-    firstName: string;
-    lastName: string;
+    fullname: string;
     email: string;
     password: string;
-    jobTitle: string;
+    job: string;
 };

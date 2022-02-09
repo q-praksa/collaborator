@@ -16,12 +16,15 @@ import { addNewEmployee } from '@api/employeeService';
 const AddNewEmployee = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
+    const firstName = '';
+    const lastName = '';
     const [payload, setPayload] = useState({
+        fullname: `${firstName}${lastName}`,
         firstName: '',
         lastName: '',
         email: '',
         password: '',
-        jobTitle: '',
+        job: '',
     });
     const postEmployee = useApi(addNewEmployee);
 
@@ -33,8 +36,6 @@ const AddNewEmployee = () => {
         dispatch(close(modalTypes.addNewEmployee));
         alert(`New employee ${payload.firstName} has been added!`);
     }
-
-    console.log();
 
     return ReactDom.createPortal(
         <Modal title={t('description.addEmployee')}>
@@ -90,10 +91,10 @@ const AddNewEmployee = () => {
                     <select
                         className={styles.select}
                         placeholder="Job Title"
-                        onSelect={(e) =>
+                        onChange={(e) =>
                             setPayload({
                                 ...payload,
-                                jobTitle: (e.target as HTMLInputElement).value,
+                                job: (e.target as HTMLSelectElement).value,
                             })
                         }
                     >
