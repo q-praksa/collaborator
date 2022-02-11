@@ -1,9 +1,7 @@
 import styles from '@components/ClientItem/ClientItem.module.css';
-import { useTranslation } from 'react-i18next';
 import { PropsTypeClientItem } from './types';
 
-function ClientItem({ clientItem }: PropsTypeClientItem) {
-    const { t } = useTranslation();
+export default function ClientItem({ clientItem }: PropsTypeClientItem) {
     return (
         <div className={styles['profile-card']}>
             <img
@@ -16,5 +14,3 @@ function ClientItem({ clientItem }: PropsTypeClientItem) {
         </div>
     );
 }
-
-export default ClientItem;

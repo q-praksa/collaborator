@@ -1,7 +1,7 @@
 import { IClients } from '@components/ClientItem/types';
 import actionTypes from './clientActionTypes';
 
-export const getAllClients = (payload: IClients) => {
+export const getAllClientsAction = (payload: IClients) => {
     return {
         type: actionTypes.GET_CLIENTS,
         payload: payload,

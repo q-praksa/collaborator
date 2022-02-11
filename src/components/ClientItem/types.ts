@@ -9,3 +9,7 @@ export interface IClientItem {
 export interface PropsTypeClientItem {
     clientItem: IClientItem;
 }
+
+export interface IClients {
+    clients: IClients[];
+}

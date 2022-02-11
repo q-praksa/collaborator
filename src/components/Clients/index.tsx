@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { RootState } from '@reduxStore/reducers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { continents } from '@components/Clients/continents';
 import { NavLink, useSearchParams } from 'react-router-dom';
-import ClientItem from '@components/ClientItem';
 import { IClientItem } from '@components/ClientItem/types';
 import styles from '@components/Clients/Clients.module.css';
 import { useTranslation } from 'react-i18next';
@@ -16,26 +15,59 @@ import OpenModalButton from '@elements/Buttons/OpenModalButton';
 import FilterButton from '@elements/Buttons/FilterButton';
 import ActiveFilterButton from '@elements/Buttons/ActiveFilterButton';
 import { useApi } from '@hooks/useApi';
-import { getAllClients } from '@api/clientService';
+import { deleteClient, getAllClients } from '@api/clientService';
 import { findFilters } from '@utils/employees';
+import ClientItem from '@components/ClientItem';
+import DeleteButton from '@elements/Buttons/DeleteButton';
+import {
+    deleteClientAction,
+    getAllClientsAction,
+} from '@reduxStore/actions/client';
 
 function Clients() {
     const { t } = useTranslation();
     const [searchParams, setSearchParams] = useSearchParams({});
     const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+    const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
+    const componentMounted = useRef(true);
 
     const modal = useSelector(
         (state: RootState) => state.modal.type[modalTypes.addNewClient]
     );
+    //TODO:Check how this works
+    const clientsFromDatabase = useSelector(
+        (state: RootState) => state.clients
+    );
 
-    const getClientsApi = useApi(getAllClients);
+    const deleteClientApi = useApi(deleteClient);
+
+    const getAllClientsFromApi = async () => {
+        setLoading(true);
+        const response = await getAllClients();
+        if (componentMounted.current) {
+            const allClients = response?.data;
+            if (allClients) {
+                dispatch(getAllClientsAction(allClients));
+            }
+            setLoading(false);
+        }
+        return () => {
+            componentMounted.current = false;
+        };
+    };
 
     useEffect(() => {
-        getClientsApi.request();
+        getAllClientsFromApi();
     }, []);
 
-    const clientsFromDatabase = getClientsApi.data;
+    function handleDelete(id: string) {
+        const confirm = window.confirm(t('description.confirmDeleteQuestion'));
+        if (confirm) {
+            deleteClientApi.request(id);
+            dispatch(deleteClientAction(id));
+        }
+    }
 
     function clientExists(
         searchParam: IClientItem,
@@ -184,13 +216,21 @@ function Clients() {
                         );
                     })
                     .map((client: IClientItem) => (
-                        <NavLink
-                            key={client.id}
-                            className={styles.itemLink}
-                            to={`/clients/${client.id}`}
-                        >
-                            <ClientItem clientItem={client} />
-                        </NavLink>
+                        <div key={client.id} className={styles.client_item}>
+                            <NavLink
+                                className={styles.itemLink}
+                                to={`/clients/${client.id}`}
+                            >
+                                <ClientItem clientItem={client} />
+                            </NavLink>
+                            <div className={styles.delete_btn}>
+                                <DeleteButton
+                                    onClick={() => handleDelete(client.id)}
+                                >
+                                    <FontAwesomeIcon icon={faTrash} />
+                                </DeleteButton>
+                            </div>
+                        </div>
                     ))}
             </div>
             ,<div>{modal ? <AddClientModal /> : null}</div>
@@ -199,3 +239,6 @@ function Clients() {
 }
 
 export default Clients;
+function handleDelete(id: any): void {
+    throw new Error('Function not implemented.');
+}

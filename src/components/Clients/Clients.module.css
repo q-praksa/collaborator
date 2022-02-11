@@ -150,9 +150,23 @@
 .itemLink {
     border: none;
     color: transparent;
-    border-radius: 10px;
     cursor: pointer;
     text-decoration: none;
+}
+
+.client_item {
+    background-color: var(--dark-background-color);
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 20px;
+    padding-right: 0;
+}
+
+.delete_btn {
+    align-self: flex-start;
+    margin-right: 20px;
 }
 
 @media screen and (max-width: 886px) {
