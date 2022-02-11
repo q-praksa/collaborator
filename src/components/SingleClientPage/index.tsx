@@ -23,8 +23,6 @@ export default function SingleClientPage() {
         region: '',
     });
 
-    console.log(client.id);
-
     const getCurrentClient = async () => {
         setLoading(true);
         const response = await getClientById(params.id);

@@ -31,16 +31,15 @@ apiInstance.interceptors.response.use(
     },
     async function (error) {
         const originalRequest = error.config;
-        console.log(error.status);
         console.log(JSON.stringify(error));
         if (
-            error.response.status === 401 &&
+            error.code === 401 &&
             originalRequest.url === `${baseUrl}/auth/token`
         ) {
             history.replace('/login');
             return Promise.reject(error);
         }
-        if (error.response.status === 403) {
+        if (error.code === 403) {
             originalRequest._retry = true;
             const refreshToken = localStorage.getItem('refreshToken');
             const res = await apiInstance.post('/auth/token', {
