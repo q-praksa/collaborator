@@ -1,8 +1,9 @@
 export interface IClientItem {
-    id: number;
+    id: string;
     companyName: string;
     img: string;
     region: string;
+    status: string;
     CEO: string;
 }
 export interface PropsTypeClientItem {

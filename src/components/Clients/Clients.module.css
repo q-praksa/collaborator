@@ -133,7 +133,8 @@
     cursor: pointer;
 }
 
-.plus-btn:hover {
+.plus-btn:hover,
+.itemLink:hover {
     opacity: 0.7;
 }
 .plus-icon {
@@ -144,6 +145,14 @@
 
 .form {
     display: flex;
+}
+
+.itemLink {
+    border: none;
+    color: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 886px) {

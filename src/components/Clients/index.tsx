@@ -3,7 +3,7 @@ import { RootState } from '@reduxStore/reducers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { continents } from '@components/Clients/continents';
-import { useSearchParams } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 import ClientItem from '@components/ClientItem';
 import { IClientItem } from '@components/ClientItem/types';
 import styles from '@components/Clients/Clients.module.css';
@@ -184,7 +184,13 @@ function Clients() {
                         );
                     })
                     .map((client: IClientItem) => (
-                        <ClientItem clientItem={client} key={client.id} />
+                        <NavLink
+                            key={client.id}
+                            className={styles.itemLink}
+                            to={`/clients/${client.id}`}
+                        >
+                            <ClientItem clientItem={client} />
+                        </NavLink>
                     ))}
             </div>
             ,<div>{modal ? <AddClientModal /> : null}</div>

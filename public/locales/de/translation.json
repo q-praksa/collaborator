@@ -74,7 +74,12 @@
         "usa": "USA",
         "europe": "Europe",
         "australia": "Australia",
-        "frontEndDeveloper": "front-end developer"
+        "frontEndDeveloper": "front-end developer",
+        "img": "Foto",
+        "job": "Arbeit",
+        "save": "Speichern",
+        "status": "Status",
+        "saveChanges": "Änderungen Speichern"
     },
     "days": {
         "mon": "Montag",

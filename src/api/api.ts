@@ -31,6 +31,8 @@ apiInstance.interceptors.response.use(
     },
     async function (error) {
         const originalRequest = error.config;
+        console.log(error.status);
+        console.log(JSON.stringify(error));
         if (
             error.response.status === 401 &&
             originalRequest.url === `${baseUrl}/auth/token`

@@ -21,18 +21,20 @@ export const getAllClients = async () => {
 };
 
 export const updateClient = async (payload: clientPayloadType) => {
-    let response;
+    // let response;
     try {
-        response = await apiInstance.post('/clients/', payload);
+        console.log('Before response', payload);
+        await apiInstance.patch('/clients/', payload);
     } catch (error) {
         console.log(error);
     }
+    // return response;
 };
 
-export const getClientById = async (clientId: string) => {
+export const getClientById = async (id: string | undefined) => {
     let response;
     try {
-        response = await apiInstance.get(`/clients/${clientId}`);
+        response = await apiInstance.get(`/clients/${id}`);
     } catch (error) {
         console.log(error);
     }
