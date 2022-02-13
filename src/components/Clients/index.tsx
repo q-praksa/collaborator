@@ -37,7 +37,7 @@ function Clients() {
     );
     //TODO:Check how this works
     const clientsFromDatabase = useSelector(
-        (state: RootState) => state.clients
+        (state: RootState) => state.clients.clients
     );
 
     const deleteClientApi = useApi(deleteClient);
@@ -71,9 +71,9 @@ function Clients() {
 
     function clientExists(
         searchParam: IClientItem,
-        filteredClients: IClientItem[]
-    ): boolean {
-        return filteredClients.some((searchBtn) => searchBtn === searchParam);
+        filteredClients: IClientItem[] | null
+    ): boolean | undefined {
+        return filteredClients?.some((searchBtn) => searchBtn === searchParam);
     }
 
     function checkQueryStringsExists(queryPrm: string): boolean {
@@ -113,7 +113,7 @@ function Clients() {
         applyFilters(foundFilters, key);
     }
 
-    function filterClients(clientsToFilter: IClientItem[] | null, key: string) {
+    function filterClients(clientsToFilter: IClientItem[], key: string) {
         if (!clientsToFilter) {
             const emptyArray: IClientItem[] = [];
             return emptyArray;
@@ -239,6 +239,3 @@ function Clients() {
 }
 
 export default Clients;
-function handleDelete(id: any): void {
-    throw new Error('Function not implemented.');
-}

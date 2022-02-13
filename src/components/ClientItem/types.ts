@@ -11,5 +11,5 @@ export interface PropsTypeClientItem {
 }
 
 export interface IClients {
-    clients: IClients[];
+    clients: IClientItem[];
 }

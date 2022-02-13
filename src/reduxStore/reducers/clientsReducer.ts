@@ -1,7 +1,8 @@
+import { IClients } from '@components/ClientItem/types';
 import actionTypes from '@reduxStore/actions/clientActionTypes';
 import { removeClient } from '@utils/clients';
 
-const initalState = {
+const initalState: IClients = {
     clients: [],
 };
 

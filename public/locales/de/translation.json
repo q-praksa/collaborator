@@ -79,6 +79,7 @@
         "job": "Arbeit",
         "save": "Speichern",
         "status": "Status",
+        "confirmDeleteQuestion": "Sind Sie sicher, dass Sie löschen möchten?",
         "saveChanges": "Änderungen Speichern"
     },
     "days": {
