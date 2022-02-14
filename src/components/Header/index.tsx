@@ -9,7 +9,6 @@ import DropdownMenu from '@components/DropdownMenu';
 const Header: React.FC = () => {
     const [openMenu, setOpenMenu] = useState(false);
     const isAdmin = localStorage.getItem('role');
-    console.log(isAdmin);
 
     const navigate = useNavigate();
     function handleHomeNavigateClick() {

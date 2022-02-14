@@ -1,26 +1,23 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import styles from './Login.module.css';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import login from '@api/loginService';
-import { loginType } from '@api/types';
+import { userCredentialsType } from '@api/types';
 import { useApi } from '@hooks/useApi';
 
 export default function Login(): React.ReactElement {
     const { t } = useTranslation();
-
-    const [details, setDetails] = useState<loginType>({
+    const [details, setDetails] = useState<userCredentialsType>({
         email: '',
         password: '',
     });
 
-    const postLogin = useApi(() => login(details));
-    console.log('postLogin: ' + JSON.stringify(postLogin));
+    const postLogin = useApi(login);
 
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
-
-        postLogin.request();
+        postLogin.request(details);
     }
 
     return (

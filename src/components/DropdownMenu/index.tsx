@@ -5,6 +5,7 @@ import { faIdCard, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import logout from '@api/logoutService';
+import { useApi } from '@hooks/useApi';
 
 type Props = {
     setOpenMenu: (openMenu: boolean) => void;
@@ -13,9 +14,11 @@ type Props = {
 const DropdownMenu: React.FC<Props> = ({ setOpenMenu }) => {
     const navigate = useNavigate();
     const { t } = useTranslation();
+    const logoutDeleteApi = useApi(logout);
     const isLogged = localStorage.getItem('refreshToken');
+
     const handleLogout = () => {
-        logout();
+        logoutDeleteApi.request();
     };
 
     const profile = () => {

@@ -25,7 +25,6 @@ import customHIstory from '@components/CustomRouter/history';
 import SignUp from '@components/SignUp';
 
 function App() {
-    const isAdmin = localStorage.getItem('role') == 'admin';
     return (
         <ErrorBoundary>
             <CustomRouter history={customHIstory}>
@@ -33,13 +32,8 @@ function App() {
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route element={<Layout />}>
-                        <Route
-                            path="/"
-                            element={
-                                isAdmin ? <AdminOverview /> : <UserOverview />
-                            }
-                        />
                         <Route element={<ProtectedRoute />}>
+                            <Route path="/" element={<UserOverview />} />
                             <Route
                                 path="user-overview"
                                 element={<UserOverview />}
@@ -53,6 +47,7 @@ function App() {
                             />
                         </Route>
                         <Route element={<PrivateRoute />}>
+                            <Route path="/" element={<AdminOverview />} />
                             <Route
                                 path="/admin-overview"
                                 element={<AdminOverview />}
