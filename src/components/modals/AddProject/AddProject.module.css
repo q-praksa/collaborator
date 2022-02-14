@@ -1,0 +1,32 @@
+.modal_footer {
+    padding: 2rem 0;
+    padding-bottom: 0;
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
+    margin: 30px;
+}
+
+.select-basic-simple {
+    color: black;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.label {
+    font-size: 16px;
+}
+
+.date {
+    border-radius: 5px;
+    padding: 5px;
+    height: 40px;
+    font-size: 16px;
+    background-color: var(--text-primary-color);
+    outline: none;
+    border: none;
+}

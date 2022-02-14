@@ -140,7 +140,7 @@ const AddNewProject = () => {
                     <label className={`${styles.label} ${styles.labelInput}`}>
                         {t('description.startDate')}:
                     </label>
-                    <input className={styles.inputField} type="text" />
+                    <input className={styles.inputField} type="date" />
                 </div>
                 <div className={styles.modalButtons}>
                     <AddButton onClick={() => console.log('Add')}>

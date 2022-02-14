@@ -5,3 +5,5 @@ export const filterButtons = [
     'inactive',
     'cancelled',
 ];
+
+export const teamType = ['dedicated', 'active', 'inactive'];
