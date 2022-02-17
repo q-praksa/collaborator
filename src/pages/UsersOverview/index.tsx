@@ -20,6 +20,8 @@ function UserOverview(): React.ReactElement {
                     teamType={'Frontend'}
                     startDate={'01-01-2021'}
                     endDate={'N/A'}
+                    id={4}
+                    projectName={'some project'}
                 />
             </div>
         );

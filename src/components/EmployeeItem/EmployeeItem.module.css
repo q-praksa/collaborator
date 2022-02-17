@@ -3,8 +3,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 258px;
-    height: 232px;
+    width: 250px;
+    height: 260px;
     background-color: var(--dark-background-color);
     border-radius: 10px;
     gap: 10px;
@@ -16,6 +16,7 @@
     height: 90px;
     background-color: var(--background-color);
     border: none;
+    margin-top: -15px;
 }
 
 .text-gray-color {
@@ -24,4 +25,12 @@
 
 .span {
     color: white;
+}
+
+.delete-div {
+    width: 210px;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
 }

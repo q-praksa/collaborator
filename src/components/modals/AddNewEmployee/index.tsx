@@ -19,7 +19,7 @@ const AddNewEmployee = () => {
     const firstName = '';
     const lastName = '';
     const [payload, setPayload] = useState({
-        fullname: `${firstName}${lastName}`,
+        fullname: `${firstName} ${lastName}`,
         firstName: '',
         lastName: '',
         email: '',

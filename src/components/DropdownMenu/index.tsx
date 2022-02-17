@@ -16,20 +16,31 @@ const DropdownMenu: React.FC<Props> = ({ setOpenMenu }) => {
     const { t } = useTranslation();
     const logoutDeleteApi = useApi(logout);
     const isLogged = localStorage.getItem('refreshToken');
+    const role = localStorage.getItem('role');
 
     const handleLogout = () => {
         logoutDeleteApi.request();
     };
 
-    const profile = () => {
-        navigate('/profile');
+    const handleProfileNavigation = () => {
+        if (role === 'user') {
+            navigate('/profile');
+            return;
+        }
+        if (role === 'admin') {
+            navigate('/adminprofile');
+            return;
+        }
     };
 
     return (
         <section className={styles.dropdown} onClick={() => setOpenMenu(false)}>
             <div>
                 <div className={styles.flex}>
-                    <div className={styles.profile} onClick={profile}>
+                    <div
+                        className={styles.profile}
+                        onClick={handleProfileNavigation}
+                    >
                         <FontAwesomeIcon
                             className={styles.icon}
                             icon={faIdCard}

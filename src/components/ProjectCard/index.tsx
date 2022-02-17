@@ -1,6 +1,7 @@
 import styles from './ProjectCard.module.css';
 import { Props } from '@components/ProjectCard/types';
 import { useTranslation } from 'react-i18next';
+import dayjs from 'dayjs';
 
 function ProjectCard({
     status,
@@ -13,6 +14,10 @@ function ProjectCard({
 }: Props) {
     const statusClass = styles[status];
     const { t } = useTranslation();
+
+    function displayDate(date: string) {
+        return dayjs(date).format('DD/MM/YYYY');
+    }
 
     return (
         <div className={styles.wrapper}>
@@ -59,14 +64,14 @@ function ProjectCard({
                                 {t('description.startDate')}
                                 {': '}
                             </span>
-                            {startDate}
+                            {displayDate(startDate)}
                         </p>
                         <p className={styles.paragraph}>
                             <span className={styles.pale}>
                                 {t('description.endDate')}
                                 {': '}
                             </span>
-                            {endDate}
+                            {displayDate(endDate)}
                         </p>
                     </div>
                 </div>

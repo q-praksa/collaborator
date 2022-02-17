@@ -67,14 +67,19 @@
         "cancelled": "otkazan",
         "developmentTeam": "Razvojni tim",
         "autocompleteMultiselect": "Višestruki samopopunjivač",
-        "logout": "izloguj se",
+        "logout": "Izloguj se",
         "addEmployee": "Dodaj zaposlenog",
         "jobTitle": "Pozicija",
         "selectJobTitle": "Izaberi poziciju",
         "usa": "SAD",
         "europe": "Evropa",
         "australia": "Australija",
-        "frontEndDeveloper": "front-end developer"
+        "frontEndDeveloper": "front-end developer",
+        "img": "Slika",
+        "job": "Posao",
+        "save": "Sačuvaj",
+        "status": "Status",
+        "confirmDeleteQuestion": "Da li ste sigurni da želite da obrišete?"
     },
     "days": {
         "mon": "Ponedeljak",
