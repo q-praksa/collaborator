@@ -3,8 +3,22 @@ export type userCredentialsType = {
     password: string;
 };
 
+export type signupType = {
+    email: string;
+    password: string;
+    name: string;
+    lastName: string;
+};
+export type employeePayloadType = {
+    fullname: string;
+    email: string;
+    password: string;
+    job: string;
+};
 export type clientPayloadType = {
+    id: string;
     companyName: string;
+    status: string;
     CEO: string;
     img: string;
     region: string;
