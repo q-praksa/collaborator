@@ -1,4 +1,4 @@
-export enum EmployeeAvailability {
+export enum EmployeeStatus {
     available = 'available',
     busy = 'busy',
 }

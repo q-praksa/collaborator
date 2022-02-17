@@ -1,11 +1,11 @@
 import styles from './Employees.module.css';
-import employees from '@components/Employees/employeesData';
+//import employees from '@components/Employees/employeesData';
 import EmployeeItem from '@components/EmployeeItem';
-import { IEmployeeItem } from '@components/EmployeeItem/types';
+import { IEmployeeItem, IEmployees } from '@components/EmployeeItem/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useSearchParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { employeeExists, findFilters } from '@utils/employees';
 import { filters } from '@constants/employees';
@@ -17,15 +17,40 @@ import { modalTypes } from '@reduxStore/actions/modalTypes';
 import OpenModalButton from '@elements/Buttons/OpenModalButton';
 import FilterButton from '@elements/Buttons/FilterButton';
 import ActiveFilterButton from '@elements/Buttons/ActiveFilterButton';
+import { getUsersAction } from '@reduxStore/actions/users';
+import { getUsers } from '@api/userService';
 
 function Employees() {
     const { t } = useTranslation();
     const [searchParams, setSearchParams] = useSearchParams({});
     const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(false);
+    const componentMounted = useRef(true);
     const modal = useSelector(
         (state: RootState) => state.modal.type[modalTypes.addNewEmployee]
     );
+    const employeesFromDatabase = useSelector(
+        (state: RootState) => state.users?.users
+    );
+
+    const getAllUsers = async () => {
+        setLoading(true);
+        const response = await getUsers();
+        if (componentMounted.current) {
+            const employees = response?.data;
+            if (employees) {
+                dispatch(getUsersAction(employees));
+            }
+            setLoading(false);
+        }
+        return () => {
+            componentMounted.current = false;
+        };
+    };
+    useEffect(() => {
+        getAllUsers();
+    }, []);
 
     function searchFilterExists(searchParam: string): boolean {
         return selectedFilters.includes(searchParam);
@@ -61,21 +86,27 @@ function Employees() {
         applyFilters(foundFilters, key);
     }
 
-    function filterEmployees(employeesToFilter: IEmployeeItem[], key: string) {
+    function filterEmployees(
+        employeesToFilter: IEmployeeItem[] | null,
+        key: string
+    ) {
+        if (!employeesToFilter) {
+            const emptyArray: IEmployeeItem[] = [];
+            return emptyArray;
+        }
         const search = searchParams.getAll(key);
-        let filteredEmployees: IEmployeeItem[] = [];
+        let filteredEmployees: IEmployeeItem[] | null = [];
         if (search.length === 0) {
             filteredEmployees = employeesToFilter;
         } else {
-            employeesToFilter.forEach((employee) => {
+            employeesToFilter?.forEach((employee) => {
                 search.forEach((filter) => {
                     if (
                         employee.job.toLowerCase() === filter.toLowerCase() ||
-                        employee.availability.toLowerCase() ===
-                            filter.toLowerCase()
+                        employee.status.toLowerCase() === filter.toLowerCase()
                     ) {
                         if (!employeeExists(employee, filteredEmployees)) {
-                            filteredEmployees.push(employee);
+                            filteredEmployees?.push(employee);
                         }
                     }
                 });
@@ -144,7 +175,7 @@ function Employees() {
                 ))}
             </div>
             <div className={styles['employees-items']}>
-                {filterEmployees(employees, 'filter[]')
+                {filterEmployees(employeesFromDatabase, 'filter[]')
                     .filter((emp) => {
                         const search = searchParams.get('search');
                         if (!search) {
@@ -157,7 +188,7 @@ function Employees() {
                             emp.job
                                 .toLowerCase()
                                 .includes(search.toLowerCase()) ||
-                            emp.availability
+                            emp.status
                                 .toLowerCase()
                                 .includes(search.toLowerCase())
                         );

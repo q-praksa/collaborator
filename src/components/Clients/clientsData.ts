@@ -1,6 +1,4 @@
-import { CompanyType } from '@components/ClientPage/types';
-
-export const companyNames: CompanyType['company'] = [
+export const clients = [
     {
         id: 1,
         companyName: 'Apple Inc',

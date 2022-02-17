@@ -1,17 +1,18 @@
-import {
-    EmployeeAvailability,
-    EmployeeRole,
-} from '@components/Employees/types';
+import { EmployeeStatus, EmployeeRole } from '@components/Employees/types';
 
 export interface IEmployeeItem {
-    id: number;
+    id: string;
     fullname: string;
     job: string;
-    availability: EmployeeAvailability;
+    status: EmployeeStatus;
     img: string;
     role: EmployeeRole;
 }
 
 export interface PropsTypeEmployeeItem {
     employeeItem: IEmployeeItem;
+}
+
+export interface IEmployees {
+    users: IEmployeeItem[];
 }

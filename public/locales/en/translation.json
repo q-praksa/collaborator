@@ -67,7 +67,7 @@
         "cancelled": "cancelled",
         "developmentTeam": "Development Team",
         "autocompleteMultiselect": "Autocomplete Multiselect",
-        "logout": "logout",
+        "logout": "Logout",
         "addEmployee": "Add An Employee",
         "jobTitle": "Job Title",
         "selectJobTitle": "Select A Job Title",
@@ -75,8 +75,17 @@
         "europe": "Europe",
         "australia": "Australia",
         "frontEndDeveloper": "front-end developer",
+<<<<<<< HEAD
         "signUpPageText": "Feel free to sign up here",
         "signUp": "Sign up"
+=======
+        "img": "Image",
+        "job": "Job",
+        "save": "Save",
+        "status": "Status",
+        "confirmDeleteQuestion": "Are you sure you want to delete?",
+        "saveChanges": "Save Changes"
+>>>>>>> 1f863d8758975b87c8fd047c6814584aa15edfc8
     },
     "days": {
         "mon": "Monday",
