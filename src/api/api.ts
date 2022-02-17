@@ -38,15 +38,14 @@ apiInstance.interceptors.response.use(
             history.replace('/login');
             return Promise.reject(error);
         }
-        if (error.response.status === 401 && !originalRequest._retry) {
+        if (error.response.status === 403) {
             originalRequest._retry = true;
             const refreshToken = localStorage.getItem('refreshToken');
             const res = await apiInstance.post('/auth/token', {
                 refreshToken: refreshToken,
             });
-            if (res.status === 201) {
-                localStorage.setItem('accessToken', res.data.accessToken);
-                localStorage.setItem('refreshToken', res.data.refreshToken);
+            if (res.statusText.toUpperCase() === 'OK') {
+                localStorage.setItem('accessToken', res.data);
                 apiInstance.defaults.headers.common[
                     'Authorization'
                 ] = `Bearer ${localStorage.getItem('accessToken')}`;

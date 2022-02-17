@@ -30,21 +30,18 @@
     border-bottom: 1px solid var(--border-color);
     padding: 5px;
     font-size: 18px;
+    display: flex;
 }
 
-.searchButton {
-    position: relative;
-    top: 4px;
-    right: 5px;
-    display: inline-block;
-    background: transparent;
-    cursor: pointer;
-    border: none;
-    color: var(--light-background-color);
+.inputField::placeholder {
+    color: var(--text-primary-color);
 }
 
 .icon {
     font-size: 20px;
+    color: var(--text-primary-color);
+    position: relative;
+    top: 15px;
 }
 
 .chooseCity {

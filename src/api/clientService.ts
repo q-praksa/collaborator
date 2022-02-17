@@ -9,3 +9,13 @@ export const addNewClient = async (payload: clientPayloadType) => {
         console.log(error);
     }
 };
+
+export const getAllClients = async () => {
+    let response;
+    try {
+        response = await apiInstance.get('/clients/');
+    } catch (error) {
+        console.log(error);
+    }
+    return response;
+};
