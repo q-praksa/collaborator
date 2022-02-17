@@ -67,7 +67,7 @@
         "cancelled": "cancelled",
         "developmentTeam": "Development Team",
         "autocompleteMultiselect": "Autocomplete Multiselect",
-        "logout": "logout",
+        "logout": "Logout",
         "addEmployee": "Add An Employee",
         "jobTitle": "Job Title",
         "selectJobTitle": "Select A Job Title",
@@ -78,7 +78,8 @@
         "img": "Image",
         "job": "Job",
         "save": "Save",
-        "status": "Status"
+        "status": "Status",
+        "confirmDeleteQuestion": "Are you sure you want to delete?"
     },
     "days": {
         "mon": "Monday",

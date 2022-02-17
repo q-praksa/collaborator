@@ -32,3 +32,13 @@ export async function updateUser(payload: userPayloadType) {
     }
     return response;
 }
+
+export async function deleteUser(id: string) {
+    let response;
+    try {
+        response = await apiInstance.delete('/users/', { data: { id } });
+    } catch (error) {
+        console.log(error);
+    }
+    return response;
+}

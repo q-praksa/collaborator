@@ -10,3 +10,8 @@ export function employeeExists(
 export function findFilters(filters: string[], value: string) {
     return filters.filter((filter) => filter !== value);
 }
+
+export function removeUserFromUsersList(users: IEmployeeItem[], id: string) {
+    const filterUsers = users.filter((user) => user.id !== id);
+    return filterUsers;
+}

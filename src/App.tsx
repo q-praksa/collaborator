@@ -49,6 +49,7 @@ function App() {
                             <Route path="/people" element={<People />} />
                             <Route path="/projects" element={<Projects />} />
                             <Route path="/clients" element={<ClientPage />} />
+                            <Route path="/adminprofile" element={<Profile />} />
                             <Route path="/stats" element={<Graphs />} />
                         </Route>
                         <Route path="/error" element={<ErrorPage />} />
