@@ -74,8 +74,8 @@
         "usa": "USA",
         "europe": "Europa",
         "australia": "Australien",
-        "frontEndDeveloper": "front-end developer"
-        
+        "frontEndDeveloper": "front-end developer",
+        "img": "Foto"
     },
     "days": {
         "mon": "Montag",

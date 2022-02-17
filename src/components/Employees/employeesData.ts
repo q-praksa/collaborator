@@ -1,10 +1,10 @@
-import { EmployeeAvailability, EmployeeRole } from './types';
+import { EmployeeStatus, EmployeeRole } from './types';
 
 const employees = [
     {
         id: 1,
         fullname: 'Kim Novak',
-        availability: EmployeeAvailability.busy,
+        availability: EmployeeStatus.busy,
         job: 'Sensei',
         role: EmployeeRole.admin,
         img: 'https://i.ibb.co/y6Wh1gh/kn.png',
@@ -12,7 +12,7 @@ const employees = [
     {
         id: 2,
         fullname: 'Bojana Buljic',
-        availability: EmployeeAvailability.available,
+        availability: EmployeeStatus.available,
         job: 'Full-Stack',
         role: EmployeeRole.user,
         img: 'https://i.ibb.co/F3H3NnL/bb.png',
@@ -20,7 +20,7 @@ const employees = [
     {
         id: 3,
         fullname: 'Laza Ivosevic',
-        availability: EmployeeAvailability.available,
+        availability: EmployeeStatus.available,
         job: 'Front-End',
         role: EmployeeRole.user,
         img: 'https://i.ibb.co/8D6xCSk/li.png',
@@ -28,7 +28,7 @@ const employees = [
     {
         id: 4,
         fullname: 'Vuk Stojanovic',
-        availability: EmployeeAvailability.busy,
+        availability: EmployeeStatus.busy,
         job: 'DevOps',
         role: EmployeeRole.user,
         img: 'https://i.ibb.co/0QxRH1v/vs.png',
@@ -36,7 +36,7 @@ const employees = [
     {
         id: 5,
         fullname: 'Stefan Meza',
-        availability: EmployeeAvailability.available,
+        availability: EmployeeStatus.available,
         job: 'Front-End',
         role: EmployeeRole.user,
         img: 'https://i.ibb.co/0VZwYKP/sm.png',
@@ -44,7 +44,7 @@ const employees = [
     {
         id: 6,
         fullname: 'Milan Jovanovic',
-        availability: EmployeeAvailability.available,
+        availability: EmployeeStatus.available,
         job: 'Front-End',
         role: EmployeeRole.user,
         img: 'https://i.ibb.co/fns9KG5/mj.png',
@@ -52,7 +52,7 @@ const employees = [
     {
         id: 7,
         fullname: 'Miljana Jankovic',
-        availability: EmployeeAvailability.busy,
+        availability: EmployeeStatus.busy,
         job: 'QA',
         role: EmployeeRole.user,
         img: 'https://i.ibb.co/61XbtgP/mb.png',
@@ -60,7 +60,7 @@ const employees = [
     {
         id: 8,
         fullname: 'Srecko Stojic',
-        availability: EmployeeAvailability.busy,
+        availability: EmployeeStatus.busy,
         job: 'Back-End',
         role: EmployeeRole.user,
         img: 'https://i.ibb.co/XJWsBCL/ss.png',
