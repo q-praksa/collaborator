@@ -12,4 +12,6 @@ export type Props = {
     teamType: string;
     startDate: string;
     endDate: string;
+    projectName: string;
+    id: number;
 };

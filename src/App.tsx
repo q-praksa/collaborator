@@ -1,15 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
-import About from '@pages/About';
-import TestBB from '@pages/TestBB';
-import TestSS from '@pages/TestSS';
-import TestVS from '@pages/TestVS';
-import TestSM from '@pages/TestSM';
-import TestMB from '@pages/TestMB';
+import Graphs from '@pages/Graphs';
 import LoginPage from '@pages/Loginpage';
 import Timesheet from '@pages/Timesheet';
 import TimesheetDetails from '@components/TimesheetDetails';
-import PrivateRoute from '@components/PrivateRoute/PrivateRoute';
-import ProtectedRoute from '@components/ProtectedRoute/ProtectedRoute';
+import PrivateRoute from '@components/PrivateRoute';
+import ProtectedRoute from '@components/ProtectedRoute';
 import Layout from '@components/Layout';
 import NotFoundPage from '@pages/NotFoundPage';
 import AdminOverview from '@pages/AdminOverview';
@@ -19,7 +14,7 @@ import Profile from '@pages/Profile';
 import Projects from '@pages/Projects';
 import ErrorPage from '@pages/ErrorPage';
 import ErrorBoundary from '@components/ErrorBoundary';
-import ClientPage from '@components/ClientPage';
+import ClientPage from '@components/Clients';
 import CustomRouter from '@components/CustomRouter';
 import customHIstory from '@components/CustomRouter/history';
 import SignUp from '@components/SignUp';
@@ -38,11 +33,10 @@ function App() {
                                 path="user-overview"
                                 element={<UserOverview />}
                             />
-                            <Route path="about" element={<About />} />
                             <Route path="/profile" element={<Profile />} />
                             <Route path="/timesheet" element={<Timesheet />} />
                             <Route
-                                path="/timesheet/:day/:month/:year"
+                                path="/timesheet/:dayMonthYear"
                                 element={<TimesheetDetails />}
                             />
                         </Route>
@@ -52,18 +46,12 @@ function App() {
                                 path="/admin-overview"
                                 element={<AdminOverview />}
                             />
-                            <Route path="about" element={<About />} />
                             <Route path="/people" element={<People />} />
                             <Route path="/projects" element={<Projects />} />
                             <Route path="/clients" element={<ClientPage />} />
                             <Route path="/adminprofile" element={<Profile />} />
+                            <Route path="/stats" element={<Graphs />} />
                         </Route>
-                        <Route path="/testsm" element={<TestSM />} />
-                        <Route path="/testvs" element={<TestVS />} />
-                        <Route path="/testbb" element={<TestBB />} />
-                        <Route path="/testss" element={<TestSS />} />
-                        <Route path="/testmb" element={<TestMB />} />
-
                         <Route path="/error" element={<ErrorPage />} />
                         <Route path="*" element={<NotFoundPage />} />
                     </Route>

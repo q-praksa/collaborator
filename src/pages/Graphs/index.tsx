@@ -1,7 +1,7 @@
 import Charts from '@components/Charts';
 
-function TestMB() {
+function Graphs() {
     return <Charts />;
 }
 
-export default TestMB;
+export default Graphs;

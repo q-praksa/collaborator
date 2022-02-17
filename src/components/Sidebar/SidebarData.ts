@@ -59,7 +59,7 @@ const sidebarData = [
     {
         id: 7,
         icon: faChartLine,
-        styleName: 'link-style-grey',
+        styleName: 'link-style-white',
         label: 'stats',
         route: '/stats',
         role: 'admin',

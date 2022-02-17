@@ -29,6 +29,7 @@
     "css-loader": "^6.5.1",
     "css-minimizer-webpack-plugin": "^3.2.0",
     "dates-generator": "^1.0.4",
+    "dayjs": "^1.10.7",
     "dotenv": "^10.0.0",
     "dotenv-expand": "^5.1.0",
     "eslint-config-react-app": "^7.0.0",
