@@ -3,6 +3,12 @@ export type userCredentialsType = {
     password: string;
 };
 
+export type signupType = {
+    email: string;
+    password: string;
+    name: string;
+    lastName: string;
+};
 export type employeePayloadType = {
     fullname: string;
     email: string;

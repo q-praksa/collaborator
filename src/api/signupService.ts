@@ -1,12 +1,19 @@
 import apiInstance from '@api/api';
 import history from '@components/CustomRouter/history';
-import { userCredentialsType } from './types';
 
-const signUp = async ({ email, password }: userCredentialsType) => {
+type signupType = {
+    email: string;
+    password: string;
+    name: string;
+    lastName: string;
+};
+
+const signUp = async ({ email, password, name, lastName }: signupType) => {
     try {
         const response = await apiInstance.post('/auth/signup', {
             email: email,
             password: password,
+            fullname: name + ' ' + lastName,
         });
 
         console.log(response.data);

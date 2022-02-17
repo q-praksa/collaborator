@@ -80,7 +80,9 @@
         "save": "Speichern",
         "status": "Status",
         "confirmDeleteQuestion": "Sind Sie sicher, dass Sie löschen möchten?",
-        "saveChanges": "Änderungen Speichern"
+        "saveChanges": "Änderungen Speichern",
+        "signUpPageText": "Fühlen Sie sich frei, sich anzumelden",
+        "signUp": "Anmelden"
     },
     "days": {
         "mon": "Montag",
