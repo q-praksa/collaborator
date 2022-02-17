@@ -37,7 +37,7 @@ function App() {
                             <Route path="/profile" element={<Profile />} />
                             <Route path="/timesheet" element={<Timesheet />} />
                             <Route
-                                path="/timesheet/:day/:month/:year"
+                                path="/timesheet/:dayMonthYear"
                                 element={<TimesheetDetails />}
                             />
                         </Route>
@@ -54,6 +54,7 @@ function App() {
                                 path="/clients/:id"
                                 element={<SingleClient />}
                             />
+                            <Route path="/adminprofile" element={<Profile />} />
                             <Route path="/stats" element={<Graphs />} />
                         </Route>
                         <Route path="/error" element={<ErrorPage />} />

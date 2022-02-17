@@ -3,6 +3,12 @@ export type userCredentialsType = {
     password: string;
 };
 
+export type employeePayloadType = {
+    fullname: string;
+    email: string;
+    password: string;
+    job: string;
+};
 export type clientPayloadType = {
     id: string;
     companyName: string;
@@ -10,4 +16,19 @@ export type clientPayloadType = {
     CEO: string;
     img: string;
     region: string;
+};
+
+export type userTokenType = {
+    exp: number;
+    iat: number;
+    userId: string | null;
+};
+
+export type userPayloadType = {
+    id: string;
+    fullname: string;
+    job: string;
+    email: string;
+    address: string;
+    skills: object;
 };

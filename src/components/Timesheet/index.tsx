@@ -80,12 +80,9 @@ const Timesheet = () => {
                                     <td
                                         onClick={() =>
                                             navigate(
-                                                '/timesheet/' +
-                                                    day.date +
-                                                    '/' +
-                                                    (Number(day.month) + 1) +
-                                                    '/' +
-                                                    calendar.year
+                                                `/timesheet/${day.date}-${
+                                                    Number(day.month) + 1
+                                                }-${calendar.year}`
                                             )
                                         }
                                         className={
