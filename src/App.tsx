@@ -36,7 +36,7 @@ function App() {
                             <Route path="/profile" element={<Profile />} />
                             <Route path="/timesheet" element={<Timesheet />} />
                             <Route
-                                path="/timesheet/:day/:month/:year"
+                                path="/timesheet/:dayMonthYear"
                                 element={<TimesheetDetails />}
                             />
                         </Route>
