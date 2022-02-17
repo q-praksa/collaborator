@@ -12,6 +12,7 @@ import { modalTypes } from '@reduxStore/actions/modalTypes';
 import { open } from '@reduxStore/actions/modal';
 import { RootState } from '@reduxStore/reducers';
 import AddNewProject from '../modals/AddNewProject';
+import AddProject from '@components/modals/AddProject';
 import { useApi } from '@hooks/useApi';
 import { getAllProjects } from '@api/projectsService';
 import { Props } from '@components/ProjectCard/types';
@@ -89,7 +90,7 @@ function ProjectsPage() {
 
     return (
         <>
-            {modal && <AddNewProject />}
+            {modal && <AddProject />}
             <section className={styles['projects-page']}>
                 <div className={styles['filter-area']}>
                     <h1>{t('description.projects')}</h1>
