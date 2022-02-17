@@ -10,15 +10,15 @@ const apiInstance = axios.create({
 });
 
 apiInstance.interceptors.request.use(
-    (req) => {
+    (config) => {
         let token = localStorage.getItem('accessToken');
         if (token) {
             token = localStorage.getItem('accessToken');
-            req.headers = {
+            config.headers = {
                 Authorization: `Bearer ${token}`,
             };
         }
-        return req;
+        return config;
     },
     (error) => {
         Promise.reject(error);
@@ -32,19 +32,23 @@ apiInstance.interceptors.response.use(
     async function (error) {
         const originalRequest = error.config;
         if (
-            error.code === 401 &&
+            error.message == 'Request failed with status code 401' &&
             originalRequest.url === `${baseUrl}/auth/token`
         ) {
             history.replace('/login');
             return Promise.reject(error);
         }
-        if (error.code === 403) {
+        if (
+            error.message == 'Request failed with status code 403' &&
+            !originalRequest._retry
+        ) {
             originalRequest._retry = true;
             const refreshToken = localStorage.getItem('refreshToken');
             const res = await apiInstance.post('/auth/token', {
                 refreshToken: refreshToken,
             });
-            if (res.statusText.toUpperCase() === 'OK') {
+            console.log(res.data);
+            if (res.statusText.toLocaleUpperCase() == 'OK') {
                 localStorage.setItem('accessToken', res.data);
                 apiInstance.defaults.headers.common[
                     'Authorization'
