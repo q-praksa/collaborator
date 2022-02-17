@@ -10,7 +10,9 @@ export type employeePayloadType = {
     job: string;
 };
 export type clientPayloadType = {
+    id: string;
     companyName: string;
+    status: string;
     CEO: string;
     img: string;
     region: string;

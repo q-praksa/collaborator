@@ -6,7 +6,7 @@ const SaveButton: FC<IButtonProps> = ({ onClick, children }) => {
     return (
         <button
             type="button"
-            className={`${styles.btn} ${styles.save_btn}`}
+            className={`${styles.btn} ${styles.add_btn}`}
             onClick={onClick}
         >
             {children}

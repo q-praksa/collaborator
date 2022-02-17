@@ -71,15 +71,16 @@
         "addEmployee": "Dodaj zaposlenog",
         "jobTitle": "Pozicija",
         "selectJobTitle": "Izaberi poziciju",
-        "usa": "SAD",
-        "europe": "Evropa",
-        "australia": "Australija",
+        "usa": "USA",
+        "europe": "Europe",
+        "australia": "Australia",
         "frontEndDeveloper": "front-end developer",
         "img": "Slika",
         "job": "Posao",
         "save": "Sačuvaj",
         "status": "Status",
-        "confirmDeleteQuestion": "Da li ste sigurni da želite da obrišete?"
+        "confirmDeleteQuestion": "Da li ste sigurni da želite da obrišete?",
+        "saveChanges": "Sačuvaj Promene"
     },
     "days": {
         "mon": "Ponedeljak",

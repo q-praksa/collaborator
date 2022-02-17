@@ -79,7 +79,8 @@
         "job": "Job",
         "save": "Save",
         "status": "Status",
-        "confirmDeleteQuestion": "Are you sure you want to delete?"
+        "confirmDeleteQuestion": "Are you sure you want to delete?",
+        "saveChanges": "Save Changes"
     },
     "days": {
         "mon": "Monday",

@@ -18,6 +18,7 @@ import ClientPage from '@components/Clients';
 import CustomRouter from '@components/CustomRouter';
 import customHIstory from '@components/CustomRouter/history';
 import SignUp from '@components/SignUp';
+import SingleClient from '@pages/SingleClient';
 
 function App() {
     return (
@@ -49,6 +50,10 @@ function App() {
                             <Route path="/people" element={<People />} />
                             <Route path="/projects" element={<Projects />} />
                             <Route path="/clients" element={<ClientPage />} />
+                            <Route
+                                path="/clients/:id"
+                                element={<SingleClient />}
+                            />
                             <Route path="/adminprofile" element={<Profile />} />
                             <Route path="/stats" element={<Graphs />} />
                         </Route>

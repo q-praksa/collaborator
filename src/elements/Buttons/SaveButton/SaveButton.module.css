@@ -6,13 +6,14 @@
     outline: none;
     border: none;
     color: var(--text-primary-color);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     min-width: fit-content;
     text-transform: uppercase;
+    padding: 5px;
 }
 
-.save_btn {
+.add_btn {
     background-color: var(--blue-hover-color);
 }
 
