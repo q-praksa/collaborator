@@ -72,13 +72,6 @@
         "jobTitle": "Berufsbezeichnung",
         "selectJobTitle": "Wählen Sie eine Berufsbezeichnung",
         "usa": "USA",
-<<<<<<< HEAD
-        "europe": "Europa",
-        "australia": "Australien",
-        "frontEndDeveloper": "front-end developer",
-        "signUpPageText": "Fühlen Sie sich frei, sich anzumelden",
-        "signUp": "Anmelden"
-=======
         "europe": "Europe",
         "australia": "Australia",
         "frontEndDeveloper": "front-end developer",
@@ -87,8 +80,9 @@
         "save": "Speichern",
         "status": "Status",
         "confirmDeleteQuestion": "Sind Sie sicher, dass Sie löschen möchten?",
-        "saveChanges": "Änderungen Speichern"
->>>>>>> 1f863d8758975b87c8fd047c6814584aa15edfc8
+        "saveChanges": "Änderungen Speichern",
+        "signUpPageText": "Fühlen Sie sich frei, sich anzumelden",
+        "signUp": "Anmelden"
     },
     "days": {
         "mon": "Montag",
