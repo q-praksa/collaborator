@@ -118,22 +118,18 @@ export default function SingleClientPage() {
                                 className={styles.select_region}
                                 placeholder="Region"
                                 name="region"
+                                value={client.region}
                                 onChange={(e) =>
                                     setClient({
                                         ...client,
-                                        region: e.target.value,
+                                        region: (e.target as HTMLSelectElement)
+                                            .value,
                                     })
                                 }
                             >
                                 {continents.map((continent) => {
-                                    const isSelected =
-                                        continent === client.region
-                                            ? true
-                                            : false;
                                     return (
                                         <option
-                                            value={continent}
-                                            selected={isSelected}
                                             className={styles.select_option}
                                             key={continent}
                                         >
