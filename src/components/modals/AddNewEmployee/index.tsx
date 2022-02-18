@@ -11,7 +11,7 @@ import AddButton from '@elements/Buttons/AddButton';
 import DiscardButton from '@elements/Buttons/DiscardButton';
 import { useState } from 'react';
 import { useApi } from '@hooks/useApi';
-import { addNewEmployee } from '@api/employeeService';
+import { addNewEmployee } from '@api/userService';
 
 const AddNewEmployee = () => {
     const { t } = useTranslation();

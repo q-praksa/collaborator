@@ -38,3 +38,17 @@ export type userPayloadType = {
     address: string;
     skills: object;
 };
+
+export type projectUserPayloadType = {
+    usersIDs: string[];
+};
+
+export type projectPayloadType = {
+    projectName: string;
+    status: string;
+    teamType: string;
+    startDate: Date;
+    clientId: string;
+    lead: string;
+    manager: string;
+};
