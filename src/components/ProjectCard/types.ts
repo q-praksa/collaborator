@@ -4,14 +4,18 @@ export enum ProjectStatus {
     inactive = 'inactive',
 }
 
-export type Props = {
+export type ProjectsType = {
     status: ProjectStatus;
-    client: string;
+    clientId: string;
     lead: string;
     manager: string;
     teamType: string;
     startDate: string;
     endDate: string;
     projectName: string;
-    id: number;
+    id: string;
 };
+
+export interface IProjects {
+    projects: ProjectsType[];
+}

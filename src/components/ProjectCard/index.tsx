@@ -1,18 +1,18 @@
 import styles from './ProjectCard.module.css';
-import { Props } from '@components/ProjectCard/types';
+import { ProjectsType } from '@components/ProjectCard/types';
 import { useTranslation } from 'react-i18next';
 import dayjs from 'dayjs';
 
 function ProjectCard({
     status,
-    client,
+    clientId,
     lead,
     manager,
     teamType,
     startDate,
     endDate,
-}: Props) {
-    const statusClass = styles[status];
+    projectName,
+}: ProjectsType) {
     const { t } = useTranslation();
 
     function displayDate(date: string) {
@@ -23,9 +23,7 @@ function ProjectCard({
         <div className={styles.wrapper}>
             <div className={styles['project-info']}>
                 <div className={styles['title-wrapper']}>
-                    <h3 className={styles.title}>
-                        {t('description.projectName')}
-                    </h3>
+                    <h3 className={styles.title}>{projectName}</h3>
                 </div>
                 <div className={styles.details}>
                     <div className={styles.left}>
@@ -34,7 +32,7 @@ function ProjectCard({
                                 {t('description.client')}
                                 {': '}
                             </span>
-                            {client}
+                            {clientId}
                         </p>
                         <p className={styles.paragraph}>
                             <span className={styles.pale}>
@@ -71,12 +69,12 @@ function ProjectCard({
                                 {t('description.endDate')}
                                 {': '}
                             </span>
-                            {displayDate(endDate)}
+                            {endDate ? displayDate(endDate) : 'N/A'}
                         </p>
                     </div>
                 </div>
             </div>
-            <div className={statusClass}></div>
+            <div className={styles[status.toLowerCase()]}></div>
         </div>
     );
 }
