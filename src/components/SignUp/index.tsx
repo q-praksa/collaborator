@@ -66,22 +66,6 @@ export default function SignUp(): React.ReactElement {
                         }
                     />
 
-                    <div className={styles.select_input_wrapper}>
-                        <label className={styles.select_label}>
-                            {t('description.jobTitle')}:
-                        </label>
-                        <select
-                            className={styles.select}
-                            placeholder="Job Title"
-                        >
-                            {positions.map((position) => (
-                                <option key={position}>
-                                    {t(`description.${position}`)}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-
                     <button className={styles.submit} type="submit">
                         Sign up
                     </button>
