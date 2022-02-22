@@ -2,6 +2,9 @@ import styles from './ProjectCard.module.css';
 import { ProjectsType } from '@components/ProjectCard/types';
 import { useTranslation } from 'react-i18next';
 import dayjs from 'dayjs';
+import { getUserById } from '@api/userService';
+import { useEffect, useState } from 'react';
+import { getClientById } from '@api/clientService';
 
 function ProjectCard({
     status,
@@ -13,11 +16,31 @@ function ProjectCard({
     endDate,
     projectName,
 }: ProjectsType) {
+    const [leadName, setLeadName] = useState('');
+    const [managerName, setManagerName] = useState('');
+    const [clientName, setClientName] = useState('');
     const { t } = useTranslation();
 
     function displayDate(date: string) {
         return dayjs(date).format('DD/MM/YYYY');
     }
+
+    const getLeadAndManager = async () => {
+        const leadResponse = await getUserById(lead);
+        setLeadName(leadResponse?.data.fullname);
+        const managerResponse = await getUserById(manager);
+        setManagerName(managerResponse?.data.fullname);
+    };
+
+    const getClientName = async () => {
+        const clientResponse = await getClientById(clientId);
+        setClientName(clientResponse?.data.companyName);
+    };
+
+    useEffect(() => {
+        getLeadAndManager();
+        getClientName();
+    }, []);
 
     return (
         <div className={styles.wrapper}>
@@ -32,21 +55,21 @@ function ProjectCard({
                                 {t('description.client')}
                                 {': '}
                             </span>
-                            {clientId}
+                            {clientName}
                         </p>
                         <p className={styles.paragraph}>
                             <span className={styles.pale}>
                                 {t('description.projectLead')}
                                 {': '}
                             </span>
-                            {lead}
+                            {leadName}
                         </p>
                         <p className={styles.paragraph}>
                             <span className={styles.pale}>
                                 {t('description.projectManager')}
                                 {': '}
                             </span>
-                            {manager}
+                            {managerName}
                         </p>
                     </div>
                     <div className={styles.right}>
