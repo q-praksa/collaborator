@@ -6,12 +6,16 @@ export enum ProjectStatus {
 
 export type Props = {
     status: ProjectStatus;
-    client: string;
+    clientId: string;
     lead: string;
     manager: string;
     teamType: string;
     startDate: string;
     endDate: string;
     projectName: string;
-    id: number;
+    id: string;
 };
+
+export interface IProjects {
+    projects: Props[];
+}

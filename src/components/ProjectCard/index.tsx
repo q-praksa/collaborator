@@ -2,10 +2,17 @@ import styles from './ProjectCard.module.css';
 import { Props } from '@components/ProjectCard/types';
 import { useTranslation } from 'react-i18next';
 import dayjs from 'dayjs';
+import DeleteButton from '@elements/Buttons/DeleteButton';
+import { useDispatch } from 'react-redux';
+import { useApi } from '@hooks/useApi';
+import { deleteProject } from '@api/projectsService';
+import { deleteProjectAction } from '@reduxStore/actions/projects';
 
 function ProjectCard({
+    projectName,
+    id,
     status,
-    client,
+    clientId,
     lead,
     manager,
     teamType,
@@ -14,18 +21,26 @@ function ProjectCard({
 }: Props) {
     const statusClass = styles[status];
     const { t } = useTranslation();
+    const dispatch = useDispatch();
+    const deleteUserApi = useApi(deleteProject);
 
     function displayDate(date: string) {
         return dayjs(date).format('DD/MM/YYYY');
+    }
+
+    function handleDeleteProject(id: string) {
+        const confirm = window.confirm(t('description.confirmDeleteQuestion'));
+        if (confirm) {
+            deleteUserApi.request(id);
+            dispatch(deleteProjectAction(id));
+        }
     }
 
     return (
         <div className={styles.wrapper}>
             <div className={styles['project-info']}>
                 <div className={styles['title-wrapper']}>
-                    <h3 className={styles.title}>
-                        {t('description.projectName')}
-                    </h3>
+                    <h3 className={styles.title}>{projectName}</h3>
                 </div>
                 <div className={styles.details}>
                     <div className={styles.left}>
@@ -34,7 +49,7 @@ function ProjectCard({
                                 {t('description.client')}
                                 {': '}
                             </span>
-                            {client}
+                            {clientId}
                         </p>
                         <p className={styles.paragraph}>
                             <span className={styles.pale}>
@@ -75,6 +90,11 @@ function ProjectCard({
                         </p>
                     </div>
                 </div>
+            </div>
+            <div className={styles['delete-div']}>
+                <DeleteButton onClick={() => handleDeleteProject(id)}>
+                    X
+                </DeleteButton>
             </div>
             <div className={statusClass}></div>
         </div>

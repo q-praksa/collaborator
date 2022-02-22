@@ -2,7 +2,7 @@ import ProjectCard from '@components/ProjectCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import styles from './ProjectsPage.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { filterButtons } from '@constants/projects';
@@ -16,6 +16,7 @@ import AddProject from '@components/modals/AddProject';
 import { useApi } from '@hooks/useApi';
 import { getAllProjects } from '@api/projectsService';
 import { Props } from '@components/ProjectCard/types';
+import { getAllProjectsAction } from '@reduxStore/actions/projects';
 
 function ProjectsPage() {
     const [searchParams, setSearchParams] = useSearchParams({});
@@ -27,11 +28,30 @@ function ProjectsPage() {
     const modal = useSelector(
         (state: RootState) => state.modal.type[modalTypes.addNewProject]
     );
-    const { data, error, loading, request } = useApi(getAllProjects);
-    const fetchedProjectList: any = data;
+    const [loading, setLoading] = useState(false);
+    const componentMounted = useRef(true);
+    const usersProjectsFromDatabase = useSelector(
+        (state: RootState) => state.projects.projects
+    );
+
+    const getProjectsFromApi = async () => {
+        setLoading(true);
+        const response = await getAllProjects();
+        if (componentMounted.current) {
+            const projects = response?.data;
+            if (projects) {
+                dispatch(getAllProjectsAction(projects));
+            }
+
+            setLoading(false);
+        }
+        return () => {
+            componentMounted.current = false;
+        };
+    };
 
     useEffect(() => {
-        request();
+        getProjectsFromApi();
     }, []);
 
     useEffect(() => {
@@ -145,11 +165,12 @@ function ProjectsPage() {
                     </div>
                 </div>
                 <div className={styles['projects']}>
-                    {fetchedProjectList
+                    {usersProjectsFromDatabase
                         ?.filter((item: Props) => {
                             const {
+                                projectName,
                                 status,
-                                client,
+                                clientId,
                                 lead,
                                 manager,
                                 teamType,
@@ -157,8 +178,9 @@ function ProjectsPage() {
                                 endDate,
                             } = item;
                             return (
+                                filterSearchByInput(projectName) ||
                                 filterSearchByInput(status) ||
-                                filterSearchByInput(client) ||
+                                filterSearchByInput(clientId) ||
                                 filterSearchByInput(lead) ||
                                 filterSearchByInput(manager) ||
                                 filterSearchByInput(teamType) ||

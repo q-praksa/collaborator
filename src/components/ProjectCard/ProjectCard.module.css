@@ -65,3 +65,8 @@
     width: 36px;
     border-radius: 0px 6px 6px 0px;
 }
+
+.delete-div {
+    margin-right: 20px;
+    margin-top: 20px;
+}

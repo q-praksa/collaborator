@@ -20,3 +20,13 @@ export const addNewProject = async (payload: projectPayloadType) => {
     }
     return response;
 };
+
+export const deleteProject = async (id: string) => {
+    let response;
+    try {
+        response = await apiInstance.delete('/projects', { data: { id } });
+    } catch (error) {
+        console.log(error);
+    }
+    return response;
+};
