@@ -1,8 +1,6 @@
-@import '../../theme.module.css';
-
 .projects-page {
     width: 100%;
-    min-height: 100vh;
+    min-height: 100vmax;
     padding: 22px 32px;
 }
 
@@ -39,7 +37,7 @@
     border: none;
     background-color: transparent;
     padding: 3px 0px;
-    color: white;
+    color: var(--text-primary-color);
     width: 90%;
     outline: transparent;
 }

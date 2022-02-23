@@ -1,7 +1,6 @@
 .timesheetDetailsSection {
     width: 100%;
     height: 100vh;
-    background-color: var(--background-color);
     padding: 22px 62px;
     font-family: 'Roboto';
     color: var(--light-background-color);
