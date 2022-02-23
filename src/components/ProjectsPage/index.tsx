@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import styles from './ProjectsPage.module.css';
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { filterButtons } from '@constants/projects';
 import OpenModalButton from '@elements/Buttons/OpenModalButton';
@@ -177,12 +177,13 @@ function ProjectsPage() {
                         })
                         .map((item: ProjectsType) => {
                             return (
-                                <div
+                                <NavLink
                                     className={styles['project-card-container']}
                                     key={item.id}
+                                    to={`/projects/${item.id}`}
                                 >
                                     <ProjectCard {...item} />
-                                </div>
+                                </NavLink>
                             );
                         })}
                 </div>
