@@ -47,7 +47,6 @@ export async function getUserById(id: string) {
     let response;
     try {
         response = await apiInstance.get(`/users/${id}`);
-        console.log(response.data);
     } catch (error) {
         console.log(error);
     }

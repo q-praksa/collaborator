@@ -135,7 +135,7 @@ export default function SingleClientPage() {
                                             className={styles.select_option}
                                             key={region}
                                         >
-                                            {region}
+                                            {t(`description.${region}`)}
                                         </option>
                                     );
                                 })}
