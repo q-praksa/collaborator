@@ -1,5 +1,5 @@
 .search-button {
-    width: 150px;
+    min-width: 150px;
     height: 36px;
     border-radius: 10px;
     background-color: var(--page-background-color);
@@ -8,6 +8,8 @@
     color: var(--text-primary-color);
     cursor: pointer;
     text-transform: capitalize;
+    width: fit-content;
+    padding: 5px;
 }
 
 .search-button:hover {

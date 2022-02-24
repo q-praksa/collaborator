@@ -72,8 +72,13 @@
         "jobTitle": "Pozicija",
         "selectJobTitle": "Izaberi poziciju",
         "usa": "USA",
-        "europe": "Europe",
+        "westEurope": "Western Europe",
         "australia": "Australia",
+        "asia": "Asia",
+        "africa": "Africa",
+        "mme": "Mediterranean & Middle East",
+        "eastEurope": "Central and Eastern Europe",
+        "americas": "Americas -other than USA",
         "frontEndDeveloper": "front-end developer",
         "img": "Slika",
         "job": "Posao",
@@ -82,7 +87,8 @@
         "confirmDeleteQuestion": "Da li ste sigurni da želite da obrišete?",
         "saveChanges": "Sačuvaj Promene",
         "signUpPageText": "Ovde možete napraviti svoj nalog",
-        "signUp": "Prijavite se"
+        "signUp": "Prijavite se",
+        "projectStatus": "Status projekta"
     },
     "days": {
         "mon": "Ponedeljak",

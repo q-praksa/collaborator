@@ -72,8 +72,13 @@
         "jobTitle": "Berufsbezeichnung",
         "selectJobTitle": "Wählen Sie eine Berufsbezeichnung",
         "usa": "USA",
-        "europe": "Europe",
+        "westEurope": "Western Europe",
         "australia": "Australia",
+        "asia": "Asia",
+        "africa": "Africa",
+        "mme": "Mediterranean & Middle East",
+        "eastEurope": "Central and Eastern Europe",
+        "americas": "Americas -other than USA",
         "frontEndDeveloper": "front-end developer",
         "img": "Foto",
         "job": "Arbeit",
@@ -82,7 +87,8 @@
         "confirmDeleteQuestion": "Sind Sie sicher, dass Sie löschen möchten?",
         "saveChanges": "Änderungen Speichern",
         "signUpPageText": "Fühlen Sie sich frei, sich anzumelden",
-        "signUp": "Anmelden"
+        "signUp": "Anmelden",
+        "projectStatus": "Projekt-Status"
     },
     "days": {
         "mon": "Montag",

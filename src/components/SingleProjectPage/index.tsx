@@ -1,36 +1,37 @@
 import { useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { getClientById, updateClient } from '@api/clientService';
+// import { getClientById, updateClient } from '@api/clientService';
+import { getProjectById, updateProject } from '@api/projectsService';
 import { useApi } from '@hooks/useApi';
 import { useEffect, useRef, useState } from 'react';
-import styles from './SingleClientPage.module.css';
+import styles from './SingleProjectPage.module.css';
 import SaveButton from '@elements/Buttons/SaveButton';
-import { regions } from '@constants/regions';
 
 export default function SingleClientPage() {
     const params = useParams();
-    const patchClientApi = useApi(updateClient);
+    const patchProjectApi = useApi(updateProject);
     const { t } = useTranslation();
     const [loading, setLoading] = useState(false);
     const componentMounted = useRef(true);
 
-    const [client, setClient] = useState({
-        id: '',
-        companyName: '',
+    const [project, setProject] = useState({
+        projectName: '',
         status: '',
-        CEO: '',
-        img: '',
-        region: '',
+        teamType: '',
+        startDate: new Date(),
+        clientId: '',
+        lead: '',
+        manager: '',
     });
 
-    const getCurrentClient = async () => {
+    const getCurrentProject = async () => {
         setLoading(true);
-        const response = await getClientById(params.id);
+        const response = await getProjectById(params.id);
         if (componentMounted.current) {
-            const currentClient = response?.data;
-            if (currentClient) {
-                setClient({
-                    ...client,
+            const currentProject = response?.data;
+            if (currentProject) {
+                setProject({
+                    ...project,
                     ...response?.data,
                 });
             }
@@ -42,17 +43,17 @@ export default function SingleClientPage() {
     };
 
     useEffect(() => {
-        getCurrentClient();
+        getCurrentProject();
     }, []);
 
     function saveClientsChanges() {
-        patchClientApi.request(client);
-        if (patchClientApi.error) {
-            alert("Could not update client's details.");
+        patchProjectApi.request(project);
+        if (patchProjectApi.error) {
+            alert("Could not update project's details.");
         }
-        if (patchClientApi.data) {
-            console.log(patchClientApi.data);
-            alert("Client's details updated.");
+        if (patchProjectApi.data) {
+            console.log(patchProjectApi.data);
+            alert("Project's details updated.");
         }
     }
     if (loading) {
@@ -60,24 +61,29 @@ export default function SingleClientPage() {
     }
     return (
         <div className={styles.main}>
-            <h2 className={styles.clientName}>{client.companyName}</h2>
+            <h2 className={styles.clientName}>{project.projectName}</h2>
             <div className={styles.container}>
                 <div className={styles.top_wrapper}>
                     <div className={styles.data_wrapper}>
                         <div className={styles.input_wrapper}>
                             <label className={styles.label}>
-                                {t('description.companyName')}:
+                                {t('description.projectName')}:
                             </label>
                             <input
                                 className={styles.input}
-                                value={client.companyName}
+                                value={project.projectName}
                                 onChange={(e) =>
-                                    setClient({
-                                        ...client,
-                                        companyName: e.target.value,
+                                    setProject({
+                                        ...project,
+                                        projectName: e.target.value,
                                     })
                                 }
                             />
+                        </div>
+                        <div className={styles.input_wrapper}>
+                            <label className={styles.label}>
+                                {t('description.client')}:
+                            </label>
                         </div>
 
                         <div className={styles.input_wrapper}>
@@ -86,10 +92,10 @@ export default function SingleClientPage() {
                             </label>
                             <input
                                 className={styles.input}
-                                value={client.status}
+                                value={project.status}
                                 onChange={(e) =>
-                                    setClient({
-                                        ...client,
+                                    setProject({
+                                        ...project,
                                         status: e.target.value,
                                     })
                                 }
@@ -101,16 +107,16 @@ export default function SingleClientPage() {
                             </label>
                             <input
                                 className={styles.input}
-                                value={client.CEO}
+                                value={project.teamType}
                                 onChange={(e) =>
-                                    setClient({
-                                        ...client,
-                                        CEO: e.target.value,
+                                    setProject({
+                                        ...project,
+                                        teamType: e.target.value,
                                     })
                                 }
                             />
                         </div>
-                        <div className={styles.input_wrapper}>
+                        {/* <div className={styles.input_wrapper}>
                             <label className={styles.label}>
                                 {t('description.region')}:
                             </label>
@@ -118,6 +124,7 @@ export default function SingleClientPage() {
                                 className={styles.select_region}
                                 placeholder="Region"
                                 name="region"
+                                value={client.region}
                                 onChange={(e) =>
                                     setClient({
                                         ...client,
@@ -126,28 +133,18 @@ export default function SingleClientPage() {
                                     })
                                 }
                             >
-                                {regions.map((region) => {
-                                    const selected =
-                                        region === client.region ? true : false;
+                                {continents.map((continent) => {
                                     return (
                                         <option
-                                            selected={selected}
                                             className={styles.select_option}
-                                            key={region}
+                                            key={continent}
                                         >
-                                            {region}
+                                            {continent}
                                         </option>
                                     );
                                 })}
                             </select>
-                        </div>
-                    </div>
-                    <div className={styles.imgContainer}>
-                        <img
-                            className={styles.image}
-                            src={client.img}
-                            alt={client.companyName}
-                        />
+                        </div>*/}
                     </div>
                 </div>
                 <div className={styles.bottom_wrapper}>

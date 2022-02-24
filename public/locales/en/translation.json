@@ -72,8 +72,13 @@
         "jobTitle": "Job Title",
         "selectJobTitle": "Select A Job Title",
         "usa": "USA",
-        "europe": "Europe",
+        "westEurope": "Western Europe",
         "australia": "Australia",
+        "asia": "Asia",
+        "africa": "Africa",
+        "mme": "Mediterranean & Middle East",
+        "eastEurope": "Central and Eastern Europe",
+        "americas": "Americas -other than USA",
         "frontEndDeveloper": "front-end developer",
         "signUpPageText": "Feel free to sign up here",
         "signUp": "Sign up",
@@ -82,7 +87,8 @@
         "save": "Save",
         "status": "Status",
         "confirmDeleteQuestion": "Are you sure you want to delete?",
-        "saveChanges": "Save Changes"
+        "saveChanges": "Save Changes",
+        "projectStatus": "Project Status"
     },
     "days": {
         "mon": "Monday",
