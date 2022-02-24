@@ -1,5 +1,5 @@
 import styles from './ProjectCard.module.css';
-import { Props } from '@components/ProjectCard/types';
+import { ProjectsType } from '@components/ProjectCard/types';
 import { useTranslation } from 'react-i18next';
 import dayjs from 'dayjs';
 import DeleteButton from '@elements/Buttons/DeleteButton';
@@ -7,6 +7,9 @@ import { useDispatch } from 'react-redux';
 import { useApi } from '@hooks/useApi';
 import { deleteProject } from '@api/projectsService';
 import { deleteProjectAction } from '@reduxStore/actions/projects';
+import { getUserById } from '@api/userService';
+import { useEffect, useState } from 'react';
+import { getClientById } from '@api/clientService';
 
 function ProjectCard({
     projectName,
@@ -18,8 +21,10 @@ function ProjectCard({
     teamType,
     startDate,
     endDate,
-}: Props) {
-    const statusClass = styles[status];
+}: ProjectsType) {
+    const [leadName, setLeadName] = useState('');
+    const [managerName, setManagerName] = useState('');
+    const [clientName, setClientName] = useState('');
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const deleteUserApi = useApi(deleteProject);
@@ -35,6 +40,22 @@ function ProjectCard({
             dispatch(deleteProjectAction(id));
         }
     }
+    const getLeadAndManager = async () => {
+        const leadResponse = await getUserById(lead);
+        setLeadName(leadResponse?.data.fullname);
+        const managerResponse = await getUserById(manager);
+        setManagerName(managerResponse?.data.fullname);
+    };
+
+    const getClientName = async () => {
+        const clientResponse = await getClientById(clientId);
+        setClientName(clientResponse?.data.companyName);
+    };
+
+    useEffect(() => {
+        getLeadAndManager();
+        getClientName();
+    }, []);
 
     return (
         <div className={styles.wrapper}>
@@ -49,21 +70,21 @@ function ProjectCard({
                                 {t('description.client')}
                                 {': '}
                             </span>
-                            {clientId}
+                            {clientName}
                         </p>
                         <p className={styles.paragraph}>
                             <span className={styles.pale}>
                                 {t('description.projectLead')}
                                 {': '}
                             </span>
-                            {lead}
+                            {leadName}
                         </p>
                         <p className={styles.paragraph}>
                             <span className={styles.pale}>
                                 {t('description.projectManager')}
                                 {': '}
                             </span>
-                            {manager}
+                            {managerName}
                         </p>
                     </div>
                     <div className={styles.right}>
@@ -86,7 +107,7 @@ function ProjectCard({
                                 {t('description.endDate')}
                                 {': '}
                             </span>
-                            {displayDate(endDate)}
+                            {endDate ? displayDate(endDate) : 'N/A'}
                         </p>
                     </div>
                 </div>
@@ -96,7 +117,7 @@ function ProjectCard({
                     X
                 </DeleteButton>
             </div>
-            <div className={statusClass}></div>
+            <div className={styles[status.toLowerCase()]}></div>
         </div>
     );
 }

@@ -43,6 +43,16 @@ export async function deleteUser(id: string) {
     return response;
 }
 
+export async function getUserById(id: string) {
+    let response;
+    try {
+        response = await apiInstance.get(`/users/${id}`);
+        console.log(response.data);
+    } catch (error) {
+        console.log(error);
+    }
+    return response;
+}
 export const addNewEmployee = async (payload: employeePayloadType) => {
     let response;
     try {

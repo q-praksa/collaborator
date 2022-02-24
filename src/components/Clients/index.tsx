@@ -35,7 +35,7 @@ function Clients() {
     const modal = useSelector(
         (state: RootState) => state.modal.type[modalTypes.addNewClient]
     );
-    //TODO:Check how this works
+
     const clientsFromDatabase = useSelector(
         (state: RootState) => state.clients.clients
     );
