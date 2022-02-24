@@ -27,7 +27,7 @@
         "selectTeamType": "Select A Team Type",
         "selectTeamMembers": "Select Team Members",
         "startDate": "Start Date",
-        "endDate": "End Date:",
+        "endDate": "End Date",
         "fullname": "Fullname",
         "nothingMsg": "There is nothing here!",
         "selectClient": "Select a Client",

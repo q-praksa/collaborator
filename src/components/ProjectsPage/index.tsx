@@ -11,11 +11,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { modalTypes } from '@reduxStore/actions/modalTypes';
 import { open } from '@reduxStore/actions/modal';
 import { RootState } from '@reduxStore/reducers';
-import AddNewProject from '../modals/AddNewProject';
 import AddProject from '@components/modals/AddProject';
 import { useApi } from '@hooks/useApi';
 import { getAllProjects } from '@api/projectsService';
-import { Props } from '@components/ProjectCard/types';
+import { ProjectsType } from '@components/ProjectCard/types';
 
 function ProjectsPage() {
     const [searchParams, setSearchParams] = useSearchParams({});
@@ -146,10 +145,10 @@ function ProjectsPage() {
                 </div>
                 <div className={styles['projects']}>
                     {fetchedProjectList
-                        ?.filter((item: Props) => {
+                        ?.filter((item: ProjectsType) => {
                             const {
                                 status,
-                                client,
+                                clientId,
                                 lead,
                                 manager,
                                 teamType,
@@ -158,7 +157,7 @@ function ProjectsPage() {
                             } = item;
                             return (
                                 filterSearchByInput(status) ||
-                                filterSearchByInput(client) ||
+                                filterSearchByInput(clientId) ||
                                 filterSearchByInput(lead) ||
                                 filterSearchByInput(manager) ||
                                 filterSearchByInput(teamType) ||
@@ -166,7 +165,7 @@ function ProjectsPage() {
                                 filterSearchByInput(endDate)
                             );
                         })
-                        .filter((item: Props) => {
+                        .filter((item: ProjectsType) => {
                             const { status, teamType } = item;
                             if (countButtonFilters() === 0) {
                                 return true;
@@ -176,7 +175,7 @@ function ProjectsPage() {
                                 filterSearchByButton(teamType)
                             );
                         })
-                        .map((item: Props) => {
+                        .map((item: ProjectsType) => {
                             return (
                                 <div
                                     className={styles['project-card-container']}
