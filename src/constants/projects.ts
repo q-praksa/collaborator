@@ -6,4 +6,6 @@ export const filterButtons = [
     'cancelled',
 ];
 
-export const teamType = ['dedicated', 'active', 'inactive'];
+export const teamTypes = ['dedicated', 'active', 'inactive'];
+
+export const projectStatuses = ['Active', 'Inactive', 'In-progress', 'Closed'];

@@ -7,3 +7,10 @@ export const getAllProjectsAction = (payload: IProjects) => {
         payload: payload,
     };
 };
+
+export const deleteProjectAction = (id: string) => {
+    return {
+        type: actionTypes.DELETE_PROJECT,
+        payload: id,
+    };
+};

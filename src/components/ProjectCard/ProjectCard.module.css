@@ -67,6 +67,11 @@
     border-radius: 0px 6px 6px 0px;
 }
 
+.delete-div {
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
 @media screen and (min-width: 825px) and (max-width: 960px) {
     .paragraph {
         font-size: 1rem;
