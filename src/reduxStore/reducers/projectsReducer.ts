@@ -1,5 +1,6 @@
-import { IProjects } from '@components/ProjectCard/types';
 import actionTypes from '@reduxStore/actions/projectsActionTypes';
+import { IProjects } from '@components/ProjectCard/types';
+import { removeProjectFromProjectsList } from '@utils/projects';
 
 const initialState: IProjects = {
     projects: [],
@@ -11,6 +12,16 @@ const projectsReducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 projects: [...action.payload],
+            };
+        }
+        case actionTypes.DELETE_PROJECT: {
+            const newProjects = removeProjectFromProjectsList(
+                state.projects,
+                action.payload
+            );
+            return {
+                ...state,
+                projects: [...newProjects],
             };
         }
         default:

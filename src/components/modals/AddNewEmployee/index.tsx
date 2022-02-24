@@ -16,10 +16,7 @@ import { addNewEmployee } from '@api/userService';
 const AddNewEmployee = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const firstName = '';
-    const lastName = '';
     const [payload, setPayload] = useState({
-        fullname: `${firstName} ${lastName}`,
         firstName: '',
         lastName: '',
         email: '',
@@ -28,13 +25,16 @@ const AddNewEmployee = () => {
     });
     const postEmployee = useApi(addNewEmployee);
 
-    const result = postEmployee.data;
-    console.log(result);
-
     function handleNewEmployeeSubmit() {
-        postEmployee.request(payload);
+        const fullnamePayload = {
+            fullname: `${payload.firstName} ${payload.lastName}`,
+            email: payload.email,
+            password: payload.password,
+            job: payload.job,
+        };
+        postEmployee.request(fullnamePayload);
         dispatch(close(modalTypes.addNewEmployee));
-        alert(`New employee ${payload.firstName} has been added!`);
+        alert(`New employee ${fullnamePayload.fullname} has been added!`);
     }
 
     return ReactDom.createPortal(

@@ -2,7 +2,7 @@ import { ProjectStatus } from '@components/ProjectCard/types';
 
 export const projectList = [
     {
-        id: 1,
+        id: '1',
         status: ProjectStatus.active,
         client: 'Some guy',
         lead: 'Kim Novak',
@@ -12,7 +12,7 @@ export const projectList = [
         endDate: 'N/A',
     },
     {
-        id: 2,
+        id: '2',
         status: ProjectStatus.cancelled,
         client: 'Batman',
         lead: 'Milos Ilic',
@@ -22,7 +22,7 @@ export const projectList = [
         endDate: '14-01-2021',
     },
     {
-        id: 3,
+        id: '3',
         status: ProjectStatus.inactive,
         client: 'Ash Williams',
         lead: 'Vuk Stojanovic',
@@ -32,7 +32,7 @@ export const projectList = [
         endDate: '16-01-2021',
     },
     {
-        id: 4,
+        id: '4',
         status: ProjectStatus.cancelled,
         client: 'Spiderman',
         lead: 'Bill Gates',
@@ -42,7 +42,7 @@ export const projectList = [
         endDate: '14-01-2021',
     },
     {
-        id: 5,
+        id: '5',
         status: ProjectStatus.active,
         client: 'Mithradates',
         lead: 'Pontus',

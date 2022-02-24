@@ -2,11 +2,18 @@ import styles from './ProjectCard.module.css';
 import { ProjectsType } from '@components/ProjectCard/types';
 import { useTranslation } from 'react-i18next';
 import dayjs from 'dayjs';
+import DeleteButton from '@elements/Buttons/DeleteButton';
+import { useDispatch } from 'react-redux';
+import { useApi } from '@hooks/useApi';
+import { deleteProject } from '@api/projectsService';
+import { deleteProjectAction } from '@reduxStore/actions/projects';
 import { getUserById } from '@api/userService';
 import { useEffect, useState } from 'react';
 import { getClientById } from '@api/clientService';
 
 function ProjectCard({
+    projectName,
+    id,
     status,
     clientId,
     lead,
@@ -14,17 +21,25 @@ function ProjectCard({
     teamType,
     startDate,
     endDate,
-    projectName,
 }: ProjectsType) {
     const [leadName, setLeadName] = useState('');
     const [managerName, setManagerName] = useState('');
     const [clientName, setClientName] = useState('');
     const { t } = useTranslation();
+    const dispatch = useDispatch();
+    const deleteUserApi = useApi(deleteProject);
 
     function displayDate(date: string) {
         return dayjs(date).format('DD/MM/YYYY');
     }
 
+    function handleDeleteProject(id: string) {
+        const confirm = window.confirm(t('description.confirmDeleteQuestion'));
+        if (confirm) {
+            deleteUserApi.request(id);
+            dispatch(deleteProjectAction(id));
+        }
+    }
     const getLeadAndManager = async () => {
         const leadResponse = await getUserById(lead);
         setLeadName(leadResponse?.data.fullname);
@@ -96,6 +111,11 @@ function ProjectCard({
                         </p>
                     </div>
                 </div>
+            </div>
+            <div className={styles['delete-div']}>
+                <DeleteButton onClick={() => handleDeleteProject(id)}>
+                    X
+                </DeleteButton>
             </div>
             <div className={styles[status.toLowerCase()]}></div>
         </div>
