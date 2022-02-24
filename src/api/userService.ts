@@ -1,6 +1,6 @@
 import apiInstance from '@api/api';
 import jwt from 'jwt-decode';
-import { userPayloadType, userTokenType } from './types';
+import { employeePayloadType, userPayloadType, userTokenType } from './types';
 
 export async function getUsers() {
     let response;
@@ -42,3 +42,13 @@ export async function deleteUser(id: string) {
     }
     return response;
 }
+
+export const addNewEmployee = async (payload: employeePayloadType) => {
+    let response;
+    try {
+        response = await apiInstance.post('/users/', payload);
+        console.log(response);
+    } catch (error) {
+        console.log(error);
+    }
+};

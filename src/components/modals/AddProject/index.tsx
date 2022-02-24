@@ -8,41 +8,116 @@ import AddButton from '@elements/Buttons/AddButton';
 import DiscardButton from '@elements/Buttons/DiscardButton';
 import Modal from '@elements/Modal';
 import TextInput from '@elements/Inputs/TextInput';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Select from 'react-select';
 import { colourStyles } from './styles';
-import { teamType } from '@constants/projects';
+import { projectStatuses, teamTypes } from '@constants/projects';
+import { selectType } from './types';
+import { getAllClientsAction } from '@reduxStore/actions/client';
+import { getAllClients } from '@api/clientService';
+import { clientPayloadType, userPayloadType } from '@api/types';
+import { getUsers } from '@api/userService';
+import { getUsersAction } from '@reduxStore/actions/users';
+import { addNewProject } from '@api/projectsService';
+import { addProjectUser } from '@api/projectUserService';
 
 const AddProject = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
+    const [usersPayload, setUsersPayload]: any = useState({
+        usersIDs: [],
+    });
+    const [clientsOptions, setClientsOptions]: selectType[] | any = useState(
+        []
+    );
+    const [employeeOptions, setemployeeOptions]: selectType[] | any = useState(
+        []
+    );
+    const [teamTypeOptions, setTeamTypeOptions]: selectType[] | any = useState(
+        []
+    );
+    const [projectStatusOptions, setProjectStatusOptions]: selectType[] | any =
+        useState([]);
+    const [loading, setLoading] = useState(false);
+    const componentMounted = useRef(true);
     const [payload, setPayload] = useState({
         projectName: '',
         clientId: '',
         lead: '',
         manager: '',
-        startDate: '',
-        teamType: '',
+        startDate: new Date(),
+        teamType: teamTypes[0],
+        status: projectStatuses[0],
     });
-    //employees to be assigned on project
-    const [usersPayload, setUsersPayload] = useState([]);
 
-    //test select options
-    const colourOptions: any = [
-        { value: 'ocean', label: 'Ocean' },
-        { value: 'blue', label: 'Blue' },
-        { value: 'purple', label: 'Purple' },
-        { value: 'red', label: 'Red' },
-    ];
+    const getAllClientsAndUsersFromApi = async () => {
+        setLoading(true);
+        const responseClients = await getAllClients();
+        const responseUsers = await getUsers();
+        if (componentMounted.current) {
+            const allClients = responseClients?.data;
+            const allEmployees = responseUsers?.data;
+            if (allClients && allEmployees) {
+                dispatch(getAllClientsAction(allClients));
+                dispatch(getUsersAction(allEmployees));
+                allClients.forEach((client: clientPayloadType) => {
+                    setClientsOptions((old: selectType[]) => [
+                        ...old,
+                        { value: client.id, label: client.companyName },
+                    ]);
+                });
+                allEmployees.forEach((employee: userPayloadType) => {
+                    setemployeeOptions((old: selectType[]) => [
+                        ...old,
+                        { value: employee.id, label: employee.fullname },
+                    ]);
+                });
+                teamTypes.forEach((teamType: string) => {
+                    setTeamTypeOptions((old: selectType[]) => [
+                        ...old,
+                        { value: teamType, label: teamType },
+                    ]);
+                });
+                projectStatuses.forEach((projectStatus: string) => {
+                    setProjectStatusOptions((old: selectType[]) => [
+                        ...old,
+                        { value: projectStatus, label: projectStatus },
+                    ]);
+                });
+            }
+            setLoading(false);
+        }
+        return () => {
+            componentMounted.current = false;
+        };
+    };
 
-    const teamTypeOptions: any = [
-        { value: teamType[0], label: teamType[0] },
-        { value: teamType[1], label: teamType[1] },
-        { value: teamType[2], label: teamType[2] },
-    ];
+    useEffect(() => {
+        getAllClientsAndUsersFromApi();
+    }, []);
 
-    function handleAddProject() {
-        console.log(payload);
+    async function handleNewProject() {
+        const postProject = await addNewProject(payload);
+        if (postProject?.status === 201) {
+            const uniqueUsers: string[] = [];
+            usersPayload.usersIDs.forEach(function (item: string) {
+                if (uniqueUsers.indexOf(item) < 0) {
+                    uniqueUsers.push(item);
+                }
+            });
+            const postProjectUser = await addProjectUser(
+                { usersIDs: uniqueUsers },
+                postProject.data.id
+            );
+            if (postProjectUser?.status === 200) {
+                dispatch(close(modalTypes.addNewProject));
+                alert(`New project ${payload.projectName} has been added!`);
+            }
+        }
+    }
+
+    if (loading) {
+        return <div>Loading...</div>;
     }
 
     return ReactDom.createPortal(
@@ -63,37 +138,55 @@ const AddProject = () => {
                     {t('description.client')}:
                 </label>
                 <Select
-                    defaultValue={colourOptions[0]}
+                    defaultValue={clientsOptions[0]}
                     isClearable={true}
                     isRtl={false}
                     isSearchable={true}
                     name="client"
                     styles={colourStyles}
-                    options={colourOptions}
+                    options={clientsOptions}
+                    onChange={(e) => {
+                        setPayload({
+                            ...payload,
+                            clientId: e.value,
+                        });
+                    }}
                 />
                 <label className={styles.label}>
                     {t('description.projectLead')}:
                 </label>
                 <Select
-                    defaultValue={colourOptions[0]}
+                    defaultValue={employeeOptions[0]}
                     isClearable={true}
                     isRtl={false}
                     isSearchable={true}
                     name="projectLead"
                     styles={colourStyles}
-                    options={colourOptions}
+                    options={employeeOptions}
+                    onChange={(e) => {
+                        setPayload({
+                            ...payload,
+                            lead: e.value,
+                        });
+                    }}
                 />
                 <label className={styles.label}>
                     {t('description.projectManager')}:
                 </label>
                 <Select
-                    defaultValue={colourOptions[0]}
+                    defaultValue={employeeOptions[0]}
                     isClearable={true}
                     isRtl={false}
                     isSearchable={true}
                     name="projectManager"
                     styles={colourStyles}
-                    options={colourOptions}
+                    options={employeeOptions}
+                    onChange={(e) => {
+                        setPayload({
+                            ...payload,
+                            manager: e.value,
+                        });
+                    }}
                 />
                 <label className={styles.label}>
                     {t('description.teamType')}:
@@ -106,38 +199,61 @@ const AddProject = () => {
                     name="teamType"
                     styles={colourStyles}
                     options={teamTypeOptions}
+                    onChange={(e) => {
+                        setPayload({
+                            ...payload,
+                            teamType: e.value,
+                        });
+                    }}
                 />
                 <label className={styles.label}>
                     {t('description.developmentTeam')}:
                 </label>
                 <Select
-                    defaultValue={colourOptions[0]}
+                    defaultValue={employeeOptions[0]}
                     isClearable={true}
                     isRtl={false}
                     isSearchable={true}
                     name="developmentTeam"
                     styles={colourStyles}
-                    options={colourOptions}
+                    options={employeeOptions}
                     isMulti
+                    onChange={(e) => {
+                        e.forEach((user) => {
+                            setUsersPayload({
+                                ...usersPayload,
+                                usersIDs: [
+                                    ...usersPayload.usersIDs,
+                                    user.value,
+                                ],
+                            });
+                        });
+                    }}
                 />
                 <label className={styles.label}>
                     {t('description.selectProjectStatus')}:
                 </label>
                 <Select
-                    defaultValue={colourOptions[0]}
+                    defaultValue={projectStatusOptions[0]}
                     isClearable={true}
                     isRtl={false}
                     isSearchable={true}
                     name="projectStatus"
                     styles={colourStyles}
-                    options={colourOptions}
+                    options={projectStatusOptions}
+                    onChange={(e) => {
+                        setPayload({
+                            ...payload,
+                            status: e.value,
+                        });
+                    }}
                 />
                 <label className={styles.label}>
                     {t('description.startDate')}:
                 </label>
-                <input className={styles.date} type="date" />
+                <input className={styles.date} type="datetime-local" />
                 <footer className={styles.modal_footer}>
-                    <AddButton onClick={handleAddProject}>
+                    <AddButton onClick={handleNewProject}>
                         {t('description.add')}
                     </AddButton>
                     <DiscardButton
