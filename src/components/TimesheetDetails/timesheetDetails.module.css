@@ -1,6 +1,6 @@
 .timesheetDetailsSection {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     padding: 22px 62px;
     font-family: 'Roboto';
     color: var(--light-background-color);
@@ -22,7 +22,7 @@
     color: var(--success-color);
 }
 .timesheetDetailsArticle {
-    width: 1077px;
+    max-width: 1077px;
     background: var(--dark-background-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
@@ -66,4 +66,43 @@
 }
 .faEdit {
     font-size: 40px;
+}
+
+@media screen and (min-width: 890px) and (max-width: 1080px) {
+    .articleTextarea {
+        width: 200px;
+    }
+
+    .articleH3,
+    .articleP {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 889px) {
+    .timesheetDetailsArticle {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .articleTextarea {
+        max-width: 200px;
+        margin: 0;
+        width: 100%;
+    }
+
+    .articleH3,
+    .articleP {
+        font-size: 1rem;
+    }
+    .articleDatas {
+        width: 100%;
+    }
+
+    .descriptionDiv {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import styles from './ProjectsPage.module.css';
 import { useEffect, useRef, useState } from 'react';
-import { NavLink, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { filterButtons } from '@constants/projects';
 import OpenModalButton from '@elements/Buttons/OpenModalButton';
@@ -12,7 +12,6 @@ import { modalTypes } from '@reduxStore/actions/modalTypes';
 import { open } from '@reduxStore/actions/modal';
 import { RootState } from '@reduxStore/reducers';
 import AddProject from '@components/modals/AddProject';
-import { useApi } from '@hooks/useApi';
 import { getAllProjects } from '@api/projectsService';
 import { getAllProjectsAction } from '@reduxStore/actions/projects';
 import { ProjectsType } from '@components/ProjectCard/types';
@@ -199,13 +198,12 @@ function ProjectsPage() {
                         })
                         .map((item: ProjectsType) => {
                             return (
-                                <NavLink
+                                <div
                                     className={styles['project-card-container']}
                                     key={item.id}
-                                    to={`/projects/${item.id}`}
                                 >
                                     <ProjectCard {...item} />
-                                </NavLink>
+                                </div>
                             );
                         })}
                 </div>

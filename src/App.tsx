@@ -19,7 +19,6 @@ import CustomRouter from '@components/CustomRouter';
 import customHistory from '@components/CustomRouter/history';
 import SignUp from '@components/SignUp';
 import SingleClient from '@pages/SingleClient';
-import ProjectPage from '@pages/ProjectPage';
 
 function App() {
     return (
@@ -50,10 +49,6 @@ function App() {
                             />
                             <Route path="/people" element={<People />} />
                             <Route path="/projects" element={<Projects />} />
-                            <Route
-                                path="/projects/:id"
-                                element={<ProjectPage />}
-                            />
                             <Route path="/clients" element={<ClientPage />} />
                             <Route
                                 path="/clients/:id"

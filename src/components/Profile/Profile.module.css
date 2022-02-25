@@ -11,7 +11,8 @@
 }
 
 .profile-data {
-    width: 400px;
+    width: 40%;
+    max-width: 400px;
     height: 600px;
     display: flex;
     flex-direction: column;
@@ -39,7 +40,8 @@
 }
 
 .profile-img-skills {
-    width: 600px;
+    width: 60%;
+    max-width: 600px;
     height: 640px;
     display: flex;
     justify-content: space-evenly;
@@ -56,7 +58,8 @@
 }
 
 .skills-wrapper {
-    width: 540px;
+    width: 80%;
+    max-width: 540px;
     height: 240px;
     border: 1px solid var(--border-color);
     border-radius: 10px;
@@ -100,4 +103,71 @@
     font-size: 16px;
     background-color: var(--page-background-color);
     color: var(--text-primary-color);
+}
+
+@media screen and (min-width: 620px) and (max-width: 1040px) {
+    .main-div {
+        flex-direction: column;
+        gap: 35px;
+        justify-content: flex-start;
+        align-items: center;
+        height: fit-content;
+    }
+
+    .profile-data {
+        width: 100%;
+        height: 400px;
+        align-items: center;
+    }
+
+    .profile-img-skills {
+        width: 100%;
+        height: 600px;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .img-wrapper,
+    .skills-wrapper {
+        align-self: center;
+    }
+}
+
+@media screen and (max-width: 619px) {
+    .main-div {
+        flex-direction: column;
+        gap: 35px;
+        justify-content: flex-start;
+        align-items: center;
+        height: fit-content;
+        padding: 10px;
+    }
+
+    .profile-data,
+    .profile-img-skills {
+        width: 100%;
+        height: 400px;
+        align-items: center;
+    }
+
+    .profile-img-skills {
+        gap: 30px;
+    }
+
+    .label-input-wrapper,
+    .select-input-wrapper {
+        width: 95%;
+    }
+
+    .input,
+    .select {
+        width: 100%;
+    }
+
+    .img-wrapper,
+    .skills-wrapper {
+        width: 100%;
+    }
 }
