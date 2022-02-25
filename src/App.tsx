@@ -16,14 +16,14 @@ import ErrorPage from '@pages/ErrorPage';
 import ErrorBoundary from '@components/ErrorBoundary';
 import ClientPage from '@components/Clients';
 import CustomRouter from '@components/CustomRouter';
-import customHIstory from '@components/CustomRouter/history';
+import customHistory from '@components/CustomRouter/history';
 import SignUp from '@components/SignUp';
 import SingleClient from '@pages/SingleClient';
 
 function App() {
     return (
         <ErrorBoundary>
-            <CustomRouter history={customHIstory}>
+            <CustomRouter history={customHistory}>
                 <Routes>
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/login" element={<LoginPage />} />

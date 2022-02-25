@@ -4,8 +4,8 @@ import { getClientById, updateClient } from '@api/clientService';
 import { useApi } from '@hooks/useApi';
 import { useEffect, useRef, useState } from 'react';
 import styles from './SingleClientPage.module.css';
-import { continents } from '@components/Clients/continents';
 import SaveButton from '@elements/Buttons/SaveButton';
+import { regions } from '@constants/regions';
 
 export default function SingleClientPage() {
     const params = useParams();
@@ -60,7 +60,7 @@ export default function SingleClientPage() {
     }
     return (
         <div className={styles.main}>
-            <h2 className={styles.clientName}>{}</h2>
+            <h2 className={styles.clientName}>{client.companyName}</h2>
             <div className={styles.container}>
                 <div className={styles.top_wrapper}>
                     <div className={styles.data_wrapper}>
@@ -118,7 +118,6 @@ export default function SingleClientPage() {
                                 className={styles.select_region}
                                 placeholder="Region"
                                 name="region"
-                                value={client.region}
                                 onChange={(e) =>
                                     setClient({
                                         ...client,
@@ -127,13 +126,16 @@ export default function SingleClientPage() {
                                     })
                                 }
                             >
-                                {continents.map((continent) => {
+                                {regions.map((region) => {
+                                    const selected =
+                                        region === client.region ? true : false;
                                     return (
                                         <option
+                                            selected={selected}
                                             className={styles.select_option}
-                                            key={continent}
+                                            key={region}
                                         >
-                                            {continent}
+                                            {t(`description.${region}`)}
                                         </option>
                                     );
                                 })}

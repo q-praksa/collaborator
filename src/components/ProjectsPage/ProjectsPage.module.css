@@ -1,8 +1,6 @@
-@import '../../theme.module.css';
-
 .projects-page {
     width: 100%;
-    min-height: 100vh;
+    min-height: 100vmax;
     padding: 22px 32px;
 }
 
@@ -13,7 +11,7 @@
 }
 
 .filter-area {
-    width: 1088px;
+    width: 100%;
 }
 
 .input-container {
@@ -39,7 +37,7 @@
     border: none;
     background-color: transparent;
     padding: 3px 0px;
-    color: white;
+    color: var(--text-primary-color);
     width: 90%;
     outline: transparent;
 }
@@ -47,8 +45,8 @@
 .filter-btns,
 .adjusted-search {
     margin-bottom: 22px;
-    display: grid;
-    grid-template-columns: repeat(6, 150px);
+    display: flex;
+    flex-wrap: wrap;
     gap: 34px;
 }
 
@@ -88,5 +86,5 @@
 
 .project-card-container {
     margin-bottom: 30px;
-    width: fit-content;
+    text-decoration: none;
 }

@@ -47,7 +47,7 @@ export type projectPayloadType = {
     projectName: string;
     status: string;
     teamType: string;
-    startDate: Date;
+    startDate: Date | null;
     clientId: string;
     lead: string;
     manager: string;

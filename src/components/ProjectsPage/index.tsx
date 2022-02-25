@@ -12,7 +12,6 @@ import { modalTypes } from '@reduxStore/actions/modalTypes';
 import { open } from '@reduxStore/actions/modal';
 import { RootState } from '@reduxStore/reducers';
 import AddProject from '@components/modals/AddProject';
-import { useApi } from '@hooks/useApi';
 import { getAllProjects } from '@api/projectsService';
 import { getAllProjectsAction } from '@reduxStore/actions/projects';
 import { ProjectsType } from '@components/ProjectCard/types';

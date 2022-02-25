@@ -51,7 +51,9 @@ export default function Login(): React.ReactElement {
                 </button>
                 <div className={styles['link']}>
                     <label>Don&apos;t have an account?</label>
-                    <NavLink to="/signup">Sign up</NavLink>
+                    <NavLink className={styles['navigation']} to="/signup">
+                        Sign up
+                    </NavLink>
                 </div>
             </form>
         </div>

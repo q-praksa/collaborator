@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { RootState } from '@reduxStore/reducers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { continents } from '@components/Clients/continents';
 import { NavLink, useSearchParams } from 'react-router-dom';
 import { IClientItem } from '@components/ClientItem/types';
 import styles from '@components/Clients/Clients.module.css';
@@ -23,6 +22,7 @@ import {
     deleteClientAction,
     getAllClientsAction,
 } from '@reduxStore/actions/client';
+import { regions } from '@constants/regions';
 
 function Clients() {
     const { t } = useTranslation();
@@ -165,18 +165,18 @@ function Clients() {
                 />
             </div>
             <div className={styles.chooseCity}>
-                {continents.map((continent) => {
+                {regions.map((region) => {
                     return (
                         <FilterButton
-                            key={continent}
+                            key={region}
                             onClick={() =>
                                 addFilter(
                                     'filter[]',
-                                    t(`description.${continent}`)
+                                    t(`description.${region}`)
                                 )
                             }
                         >
-                            {t(`description.${continent}`)}
+                            {t(`description.${region}`)}
                         </FilterButton>
                     );
                 })}

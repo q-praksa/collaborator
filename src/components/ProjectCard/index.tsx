@@ -10,6 +10,8 @@ import { deleteProjectAction } from '@reduxStore/actions/projects';
 import { getUserById } from '@api/userService';
 import { useEffect, useState } from 'react';
 import { getClientById } from '@api/clientService';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function ProjectCard({
     projectName,
@@ -114,7 +116,7 @@ function ProjectCard({
             </div>
             <div className={styles['delete-div']}>
                 <DeleteButton onClick={() => handleDeleteProject(id)}>
-                    X
+                    <FontAwesomeIcon icon={faTrash} />
                 </DeleteButton>
             </div>
             <div className={styles[status.toLowerCase()]}></div>

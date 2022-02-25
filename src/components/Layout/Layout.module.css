@@ -17,6 +17,7 @@
     background-color: var(--page-background-color);
     display: flex;
     justify-content: space-around;
+    min-height: 100vmax;
 }
 
 @media only screen and (min-width: 400px) {

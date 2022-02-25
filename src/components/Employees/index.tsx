@@ -1,5 +1,4 @@
 import styles from './Employees.module.css';
-//import employees from '@components/Employees/employeesData';
 import EmployeeItem from '@components/EmployeeItem';
 import { IEmployeeItem, IEmployees } from '@components/EmployeeItem/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

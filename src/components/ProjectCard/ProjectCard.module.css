@@ -4,6 +4,7 @@
     font-size: 20px;
     line-height: 1.15;
     width: 100%;
+    max-width: 1088px;
     height: 232px;
     background-color: var(--dark-background-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -69,4 +70,16 @@
 .delete-div {
     margin-right: 20px;
     margin-top: 20px;
+}
+
+@media screen and (min-width: 825px) and (max-width: 960px) {
+    .paragraph {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    .paragraph {
+        font-size: 0.75rem;
+    }
 }

@@ -30,3 +30,21 @@ export const deleteProject = async (id: string) => {
     }
     return response;
 };
+
+export async function getProjectById(id: string | undefined) {
+    let response;
+    try {
+        response = await apiInstance.get(`/projects/${id}`);
+    } catch (error) {
+        console.log(error);
+    }
+    return response;
+}
+
+export async function updateProject(payload: projectPayloadType) {
+    try {
+        await apiInstance.patch('/projects/', payload);
+    } catch (error) {
+        console.log(error);
+    }
+}

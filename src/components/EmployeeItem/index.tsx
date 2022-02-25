@@ -6,6 +6,8 @@ import { useApi } from '@hooks/useApi';
 import { deleteUser } from '@api/userService';
 import { useDispatch } from 'react-redux';
 import { deleteUserAction } from '@reduxStore/actions/users';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function EmployeeItem({ employeeItem }: PropsTypeEmployeeItem) {
     const { t } = useTranslation();
@@ -23,7 +25,7 @@ function EmployeeItem({ employeeItem }: PropsTypeEmployeeItem) {
         <div className={styles['profile-card']}>
             <div className={styles['delete-div']}>
                 <DeleteButton onClick={() => handleDeleteUser(employeeItem.id)}>
-                    X
+                    <FontAwesomeIcon icon={faTrash} />
                 </DeleteButton>
             </div>
             <img

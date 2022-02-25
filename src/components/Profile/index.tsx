@@ -29,21 +29,14 @@ function Profile() {
     });
     const patchApi = useApi(updateUser);
 
-    //const currentUserApi = useApi(getUserByToken);
     const getCurrentUser = async () => {
-        /*currentUserApi.request(token);
-        const currentUser: any = currentUserApi.data;
-        console.log(currentUser); //getting null on second page load
-        setEditedUser({
-            ...editedUser,
-            ...currentUser,
-        });*/
         const response = await getUserByToken(token);
         setEditedUser({
             ...editedUser,
             ...response?.data,
         });
     };
+
     useEffect(() => {
         getCurrentUser();
     }, []);
